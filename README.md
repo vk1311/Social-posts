@@ -1,30 +1,43 @@
-# Marketing HQ: every brand, one repo
+# Brand HQ
 
-This repo is the single home for marketing across **Keegix, Staffkin, Waypoint and JJ Pumps**. Whichever Claude account or project you're in, point it here first.
+One home for the brand rules, logos and marketing assets of four brands run by Waypoint Software (Kentville, Nova Scotia).
 
-## Where things are
+| Brand | What it is | Site | Brand bible |
+|---|---|---|---|
+| **Waypoint** | Custom tools, workflows and websites for small service businesses | [waypointns.ca](https://waypointns.ca) | [waypoint/BRAND.md](waypoint/BRAND.md) |
+| **Keegix** | Digital welcome book + QR door sign for short-term rental hosts | [keegix.com](https://keegix.com) | [keegix/BRAND.md](keegix/BRAND.md) |
+| **Staffkin** | Hiring and onboarding kit for small employers in Canada | [staffkin.com](https://staffkin.com) | [staffkin/BRAND.md](staffkin/BRAND.md) |
+| **Jay Jalaram Pumps & Spares** | V6 submersible pump sets and spares, Ahmedabad | [jayjalarampumps.in](https://jayjalarampumps.in) | [jj-pumps/BRAND.md](jj-pumps/BRAND.md) |
 
-| Folder | What's in it |
-|---|---|
-| `STATUS.md` | What's done and what's open for every brand, plus what's scheduled in Postiz |
-| `HOUSE-RULES.md` | Rules that apply to every brand (claims, reviews, spelling, money) |
-| `HANDOFF-PROMPT.md` | Paste this into any other Claude account or project so it adds its work here in the same structure |
-| `keegix/` | Brand bible, logos, photos, listings kit, captions, design templates |
-| `staffkin/` | Brand bible, logo set, app screenshots, launch videos. Postiz post images stay here too, as before |
-| `waypoint/` | Brand bible, logos, October posts, reels, 250 humour images, ops ad |
-| `jj/` | Hub (`jj/README.md`), brand bible, logos, photos, posts, reels, editor brief, catalogue. Postiz post images stay here too, as before |
-| repo root | Keegix post images and `_v2` reels that Postiz is scheduled from |
+- **What's been done so far:** [DONE-LOG.md](DONE-LOG.md)
+- **Every file in this repo, and where the source lives:** [ASSETS.md](ASSETS.md)
 
-**Don't move or rename anything Postiz is scheduled from.** Postiz copied the files into its own library, but keep them as the backup: the root Keegix images and `_v2.mp4` reels, `jj/*.jpg` and `staffkin/*.png` + `staffkin/video/`.
+## Folder layout
 
-## How posting works
-1. Make the post images or videos.
-2. Upload them to this repo. Anywhere is fine; the GitHub website works.
-3. Claude uploads them into Postiz from the raw GitHub link and schedules them. Postiz lives at postiz.waypointns.ca, with 8 channels: Facebook and Instagram for each brand.
-4. Videos: edit them all together in the Edits app, adding music from the business-cleared library and any voiceover, then upload the finished `_v2` files here.
+Each brand folder has the same shape:
 
-## Brand bibles
-- `keegix/00-BRAND-BIBLE.md`
-- `staffkin/00-BRAND-BIBLE.md`
-- `waypoint/00-BRAND-BIBLE.md`
-- `jj/BRAND-BIBLE.md` (final; `jj/00-BRAND-BIBLE.md` now points to it)
+```
+<brand>/
+  BRAND.md      brand bible: colours, type, logo rules, voice, do/don't
+  palette.png   colour card
+  logo/         marks, lockups, favicons
+  social/       profile pictures, OG images, finished posts and carousels
+  site/         photos and demo media used on the website
+  print/        PDFs (price lists)
+  guides/       free PDF guides (Waypoint)
+  templates/    editable HTML sources (Waypoint)
+  video/        finished clips
+```
+
+## Rules that apply to every brand
+
+1. **No invented numbers.** No made-up stats, percentages or survey figures. A number is fine only if the reader can check it on day one (a price, a time, a count of templates).
+2. **No fake proof.** No invented testimonials, reviews or client logos. Empty review slots stay labelled "pending".
+3. **No outcome promises.** Say what the tool does, not what it will earn. No search-ranking promises.
+4. **Data residency is "Canada".** Not a province, not a city.
+5. **No engagement bait.** No "comment YES", no "tag a friend".
+6. **Brand accounts use the brand mark** as the profile picture, never a personal photo.
+
+## This repo is public
+
+Anything committed here can be read by anyone. Keep out: client names or details, passwords, API keys, server addresses, affiliate codes, internal pricing notes, and anything personal.
