@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Waypoint">
+  <rect width="128" height="128" rx="30" fill="#12252F"/>
+  <line x1="41.29" y1="77.10" x2="58.46" y2="47.36" stroke="#C2185B" stroke-width="1.76" stroke-linecap="round"/>
+  <line x1="86.71" y1="77.10" x2="69.54" y2="47.36" stroke="#C2185B" stroke-width="1.76" stroke-linecap="round"/>
+  <polygon points="64.00,30.40 93.10,80.80 34.90,80.80" fill="none" stroke="#F2ECE0" stroke-width="3.68" stroke-linejoin="round"/>
+  <circle cx="64.00" cy="30.40" r="4.00" fill="#C2185B"/>
+  <circle cx="93.10" cy="80.80" r="4.00" fill="#C2185B"/>
+  <circle cx="34.90" cy="80.80" r="4.00" fill="#C2185B"/>
+  <circle cx="64.00" cy="64.00" r="5.60" fill="#C2185B"/>
+</svg>
