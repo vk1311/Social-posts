@@ -1,0 +1,500 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Outfit; font-weight: 400; src: url(fonts/outfit-latin-400-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 500; src: url(fonts/outfit-latin-500-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 600; src: url(fonts/outfit-latin-600-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 700; src: url(fonts/outfit-latin-700-normal.woff2); }
+:root { --indigo:#2E2A6B; --peri:#7B8CF5; --peri-soft:#E3E7FE; --paper:#F5F6FC; --ink:#23213F; --muted:#6B6890; --line:#E4E6F2; --good:#1F8A5B; --good-soft:#DDF3E8; --warn:#B7791F; --warn-soft:#FDF1D8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: var(--paper); font-family: Outfit, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; inset: 0; overflow: hidden; background: var(--paper); }
+.abs { position: absolute; }
+.bgrings { position: absolute; opacity: .08; }
+/* captions */
+.cap { position: absolute; font-weight: 700; color: var(--indigo); letter-spacing: -.02em; line-height: 1.08; }
+.cap em { font-style: normal; color: var(--peri); }
+.cap .w { display: inline-block; will-change: transform; }
+.sub { position: absolute; font-weight: 500; color: var(--muted); }
+/* papers */
+.sheet { position: absolute; background: #fff; border-radius: 10px; box-shadow: 0 18px 40px -18px rgba(35,33,63,.45), 0 2px 6px rgba(35,33,63,.08); padding: 26px 24px; }
+.sheet .l { height: 12px; border-radius: 6px; background: #E6E7EF; margin-bottom: 12px; }
+.sheet .h { height: 18px; width: 55%; border-radius: 6px; background: #C9CBDD; margin-bottom: 20px; }
+.sheet .box { display:flex; gap:10px; align-items:center; margin-bottom: 12px; }
+.sheet .box i { width: 18px; height: 18px; border: 2px solid #C9CBDD; border-radius: 4px; flex: none; }
+.sheet .box b { height: 10px; border-radius: 5px; background: #E6E7EF; flex: 1; }
+.sticky { position: absolute; padding: 22px; font-weight: 600; font-size: 30px; color: #5b4a00; box-shadow: 0 16px 30px -16px rgba(35,33,63,.5); line-height: 1.15; }
+/* panel (app window) */
+#panelWrap { position: absolute; transform-origin: 0 0; }
+.chrome { height: 46px; background: #ECEEF7; border-radius: 22px 22px 0 0; display: flex; align-items: center; gap: 9px; padding: 0 18px; border: 1px solid var(--line); border-bottom: 0; }
+.chrome i { width: 13px; height: 13px; border-radius: 50%; background: #D4D6E6; }
+.chrome .url { margin-left: 16px; background: #fff; border-radius: 8px; height: 28px; flex: 1; display: flex; align-items: center; padding: 0 14px; font-size: 16px; color: var(--muted); }
+#panel { position: relative; background: #fff; border-radius: 28px; box-shadow: 0 40px 90px -40px rgba(46,42,107,.45), 0 4px 14px rgba(46,42,107,.06); overflow: hidden; border: 1px solid var(--line); }
+.yt #panel { border-radius: 0 0 22px 22px; }
+.apphead { position: absolute; left: 0; right: 0; top: 0; height: 64px; border-bottom: 1px solid var(--line); display: flex; align-items: center; padding: 0 32px; gap: 26px; font-size: 18px; }
+.apphead .brand { display: flex; align-items: center; gap: 9px; font-size: 23px; font-weight: 500; color: var(--indigo); }
+.apphead .nav { color: var(--muted); } .apphead .nav.on { color: var(--indigo); background: var(--peri-soft); padding: 6px 12px; border-radius: 8px; }
+.apphead .pill { margin-left: auto; background: var(--indigo); color: #fff; font-size: 15px; font-weight: 600; padding: 6px 13px; border-radius: 999px; }
+.scene { position: absolute; left: 0; top: 64px; right: 0; bottom: 0; overflow: hidden; }
+.h1 { position: absolute; font-size: 40px; font-weight: 700; color: var(--indigo); letter-spacing: -.02em; }
+.muted { color: var(--muted); }
+.label { position: absolute; font-size: 18px; font-weight: 600; color: var(--muted); }
+.input { position: absolute; height: 64px; border: 2px solid var(--line); border-radius: 14px; font-size: 26px; display: flex; align-items: center; padding: 0 20px; background: #fff; }
+.input.focus { border-color: var(--peri); box-shadow: 0 0 0 4px var(--peri-soft); }
+.caret { display: inline-block; width: 2px; height: 30px; background: var(--indigo); margin-left: 2px; }
+.check { width: 30px; height: 30px; border-radius: 8px; background: var(--indigo); display: grid; place-items: center; flex: none; }
+.btn { position: absolute; display: grid; place-items: center; border-radius: 14px; font-weight: 600; font-size: 24px; background: var(--indigo); color: #fff; }
+.card { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 14px 30px -20px rgba(46,42,107,.35); display: flex; align-items: center; gap: 20px; padding: 0 26px; }
+.ico { width: 58px; height: 58px; border-radius: 14px; background: var(--peri-soft); display: grid; place-items: center; flex: none; }
+.card .t { font-size: 25px; font-weight: 600; color: var(--indigo); }
+.card .s { font-size: 18px; color: var(--muted); margin-top: 2px; }
+.tick { margin-left: auto; width: 40px; height: 40px; border-radius: 50%; background: var(--good-soft); display: grid; place-items: center; flex: none; }
+.av { width: 54px; height: 54px; border-radius: 50%; background: var(--peri-soft); color: var(--indigo); display: grid; place-items: center; font-weight: 600; font-size: 20px; flex: none; }
+.chip { margin-left: auto; font-size: 17px; font-weight: 600; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+.chip.good { background: var(--good-soft); color: var(--good); } .chip.warn { background: var(--warn-soft); color: var(--warn); }
+.tabs { position: absolute; display: flex; gap: 8px; font-size: 18px; }
+.tabs span { padding: 8px 14px; border-radius: 10px; color: var(--muted); } .tabs span.on { background: var(--peri-soft); color: var(--indigo); font-weight: 600; }
+.qcard { position: absolute; border: 1px solid var(--line); border-radius: 22px; padding: 30px 34px; background: #fff; box-shadow: 0 20px 40px -26px rgba(46,42,107,.4); }
+.tag { font-size: 15px; font-weight: 700; letter-spacing: .08em; color: var(--peri); }
+.qtext { font-size: 30px; font-weight: 500; line-height: 1.3; margin: 10px 0 18px; }
+.anch { background: var(--paper); border-radius: 14px; padding: 14px 18px; font-size: 19px; display: grid; gap: 6px; }
+.anch b { color: var(--indigo); display: inline-block; width: 92px; }
+.scores { display: flex; gap: 16px; margin-top: 22px; }
+.scores span { width: 62px; height: 62px; border-radius: 50%; border: 2px solid #D5D7E6; display: grid; place-items: center; font-size: 24px; color: var(--muted); }
+.table { position: absolute; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #fff; }
+.trow { position: absolute; left: 0; right: 0; height: 96px; display: flex; align-items: center; padding: 0 26px; gap: 18px; font-size: 22px; border-bottom: 1px solid var(--line); background: #fff; }
+.thead .col-a { font-size: 16px; } .thead { height: 58px; background: var(--paper); font-size: 16px; font-weight: 700; color: var(--indigo); letter-spacing: .02em; }
+.col-n { width: 290px; display: flex; align-items: center; gap: 14px; } .col-a { width: 150px; font-weight: 700; color: var(--indigo); font-size: 30px; } .col-s { width: 130px; color: var(--muted); } .col-r { flex: 1; }
+.reel .col-s { display: none; } .reel .col-n { width: 230px; } .reel .col-a { width: 120px; }
+.bar { height: 10px; border-radius: 5px; background: var(--peri-soft); overflow: hidden; } .bar i { display: block; height: 100%; background: var(--peri); }
+.step { position: absolute; display: flex; align-items: center; gap: 18px; font-size: 24px; }
+.dot { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #D5D7E6; display: grid; place-items: center; flex: none; }
+.pdf { position: absolute; display: flex; align-items: center; gap: 18px; background: var(--indigo); color: #fff; border-radius: 18px; padding: 20px 26px; box-shadow: 0 24px 40px -18px rgba(46,42,107,.6); }
+.pdf .doc { width: 50px; height: 62px; background: #fff; border-radius: 6px; position: relative; } .pdf .doc::after { content: "PDF"; position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 700; color: #C0392B; }
+.status { position: absolute; font-size: 22px; font-weight: 700; padding: 10px 20px; border-radius: 999px; }
+.progress { position: absolute; height: 14px; border-radius: 7px; background: var(--peri-soft); overflow: hidden; } .progress i { display: block; height: 100%; background: var(--good); }
+.role { position: absolute; width: 280px; height: 84px; border: 1px solid var(--line); border-radius: 14px; background: #fff; padding: 14px 18px; }
+.role b { display: block; font-size: 21px; font-weight: 600; color: var(--indigo); } .role span { font-size: 15px; color: var(--muted); }
+/* cursor */
+#cursor { position: absolute; width: 40px; height: 40px; z-index: 50; }
+#ripple { position: absolute; width: 90px; height: 90px; margin: -45px 0 0 -45px; border-radius: 50%; border: 4px solid var(--peri); z-index: 49; }
+/* end card */
+#end { position: absolute; inset: 0; background: var(--indigo); }
+#end .tl { position: absolute; left: 0; right: 0; text-align: center; color: #fff; font-weight: 700; letter-spacing: -.02em; line-height: 1.05; }
+#end .tl em { font-style: normal; color: #AEB8FF; }
+#end .cta { position: absolute; left: 50%; background: var(--peri); color: #fff; font-weight: 700; border-radius: 999px; display: grid; place-items: center; }
+#end .url { position: absolute; left: 0; right: 0; text-align: center; color: #fff; font-weight: 500; }
+#end .ns { position: absolute; left: 0; right: 0; text-align: center; color: #B9BCE6; font-weight: 500; }
+</style></head>
+<body><div id="stage"></div>
+<script>
+const FORMAT = new URLSearchParams(location.search).get('f') || 'reel';
+const REEL = FORMAT === 'reel';
+const W = REEL ? 1080 : 1920, H = REEL ? 1920 : 1080;
+document.body.classList.add(REEL ? 'reel' : 'yt');
+const stage = document.getElementById('stage');
+
+// ---------- easing helpers (everything is a pure function of time t, so any frame can be rendered) ----------
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const seg = (t, a, d) => clamp((t - a) / d);
+const eo = (x) => 1 - Math.pow(1 - x, 3);
+const eio = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const back = (x) => { const c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const el = (html) => { const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; };
+const set = (e, o, tf) => { e.style.opacity = o; if (tf !== undefined) e.style.transform = tf; };
+
+const RINGS = (sw = 4, c1 = '#2E2A6B', c2 = '#7B8CF5') => `<svg viewBox="3 8 34 24" width="100%" height="100%"><circle cx="15" cy="20" r="10" fill="none" stroke="${c1}" stroke-width="${sw}"/><circle cx="25" cy="20" r="10" fill="none" stroke="${c2}" stroke-width="${sw}"/></svg>`;
+const ICON = {
+  doc: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2E2A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>',
+  clip: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2E2A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>',
+  chart: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2E2A6B" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-6M22 20H2"/></svg>',
+  ok: (c = '#1F8A5B', s = 22) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>`,
+  dl: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>',
+};
+
+// ---------- timeline ----------
+const S = REEL
+  ? { hook: [0, 2.5], logo: [2.3, 4.6], job: [4.4, 8.6], pre: [8.4, 12.4], score: [12.2, 16.8], refs: [16.6, 20.8], hired: [20.6, 23.1], end: [22.9, 26] }
+  : { hook: [0, 3.2], logo: [3.0, 6.2], job: [6.0, 12.2], pre: [12.0, 17.2], score: [17.0, 23.6], refs: [23.4, 29.6], hired: [29.4, 33.6], tpl: [33.4, 39.2], end: [39.0, 45] };
+const DUR = REEL ? 26 : 45;
+window.DUR = DUR;
+const vis = (t, [a, b], fin = .35, fout = .3) => Math.min(seg(t, a, fin), 1 - seg(t, b - fout, fout));
+
+// ---------- background rings ----------
+const bg1 = el(`<div class="bgrings">${RINGS(3)}</div>`); stage.appendChild(bg1);
+
+// ---------- HOOK: paper pile ----------
+const pile = el('<div class="abs" style="inset:0"></div>'); stage.appendChild(pile);
+const k = REEL ? 1.25 : .82;
+const PC = REEL ? { x: 540, y: 1150 } : { x: 960, y: 700 };
+const notes = ['call back?', 'refs??', 'Tues 3pm', 'which one was Sam?', 'TD1 form', 'lost resume'];
+const papers = [];
+for (let i = 0; i < 17; i++) {
+  const sticky = i % 3 === 2;
+  let node;
+  if (sticky) {
+    const col = ['#FFE58A', '#FFC9D6', '#C9F0D8'][Math.floor(i / 3) % 3];
+    node = el(`<div class="sticky" style="width:${230 * k}px;height:${230 * k}px;background:${col};font-size:${30 * k}px">${notes[Math.floor(i / 3) % notes.length]}</div>`);
+  } else {
+    const form = i % 2;
+    const inner = form ? '<div class="h"></div>' + '<div class="box"><i></i><b></b></div>'.repeat(7)
+                       : '<div class="h"></div>' + Array.from({ length: 11 }, (_, j) => `<div class="l" style="width:${[92, 80, 96, 60, 88, 94, 70, 85, 90, 64, 78][j]}%"></div>`).join('');
+    node = el(`<div class="sheet" style="width:${340 * k}px;height:${440 * k}px">${inner}</div>`);
+  }
+  const rnd = (n) => { const x = Math.sin(i * 12.9898 + n * 78.233) * 43758.5453; return x - Math.floor(x); };
+  const w = sticky ? 230 * k : 340 * k, h = sticky ? 230 * k : 440 * k;
+  const spreadX = REEL ? 360 : 640, spreadY = REEL ? 380 : 180;
+  papers.push({ node, w, h, x: PC.x + (rnd(1) - .5) * spreadX - w / 2, y: PC.y + (rnd(2) - .5) * spreadY - h / 2, r: (rnd(3) - .5) * 50, delay: i * (REEL ? .1 : .13), fx: -900 - rnd(4) * 700, fr: -120 + rnd(5) * 240 });
+  pile.appendChild(node);
+}
+const hookCap = el(`<div class="cap" style="z-index:40;left:0;right:0;text-align:center;top:${REEL ? 330 : 120}px;font-size:${REEL ? 96 : 88}px"></div>`);
+stage.appendChild(hookCap);
+function words(node, html) {
+  html = html.replace(/<em>(.*?)<\/em>/g, (m, inner) => inner.split(' ').map((x) => `<em>${x}</em>`).join(' '));
+  node.innerHTML = html.split('<br>').map((part) => part.replace(/(<em>)?([^\s<]+)(<\/em>)?/g, (m, a, w, b) => `<span class="w">${a || ''}${w}${b || ''}</span>`)).join('<br>');
+}
+words(hookCap, 'Hiring a <em>line cook?</em>');
+const hookSub = el(`<div class="sub" style="z-index:40;left:0;right:0;text-align:center;top:${REEL ? 560 : 240}px;font-size:${REEL ? 44 : 40}px">Here comes the paperwork.</div>`);
+stage.appendChild(hookSub);
+
+// ---------- LOGO ----------
+const logoL = el(`<div class="abs"><svg viewBox="3 8 24 24" width="100%" height="100%"><circle cx="15" cy="20" r="10" fill="none" stroke="#2E2A6B" stroke-width="4"/></svg></div>`);
+const logoR = el(`<div class="abs"><svg viewBox="13 8 24 24" width="100%" height="100%"><circle cx="25" cy="20" r="10" fill="none" stroke="#7B8CF5" stroke-width="4"/></svg></div>`);
+stage.appendChild(logoL); stage.appendChild(logoR);
+const LS = REEL ? 300 : 240; // one ring's box size
+const logoY = REEL ? 700 : 250;
+const logoWord = el(`<div class="abs" style="left:0;right:0;text-align:center;top:${logoY + LS + 30}px;font-size:${REEL ? 84 : 72}px;font-weight:500;color:var(--indigo);letter-spacing:-.01em">staffkin</div>`);
+stage.appendChild(logoWord);
+const logoTag = el(`<div class="cap" style="left:0;right:0;text-align:center;top:${logoY + LS + (REEL ? 170 : 140)}px;font-size:${REEL ? 92 : 84}px"></div>`);
+words(logoTag, REEL ? 'Hire people,<br> <em>not paperwork.</em>' : 'Hire people, <em>not paperwork.</em>');
+stage.appendChild(logoTag);
+
+// ---------- captions for app scenes ----------
+const CAPS = {
+  job: ['One job. <em>Everything ready.</em>', 'Job description, prescreen and interview guide in one click.'],
+  pre: ['Prescreens by email. <em>Answers land here.</em>', 'Must-haves checked for you.'],
+  score: ['Score every answer <em>the same way.</em>', 'Then compare side by side.'],
+  refs: ['Reference checks <em>in one click.</em>', '$9 each. No subscription.'],
+  hired: ['Hired. <em>Onboarding’s started.</em>', 'TD1, direct deposit, WHMIS, check-ins.'],
+  tpl: ['Free templates <em>for 70 roles.</em>', 'Job descriptions, offer letters, interview questions.'],
+};
+const capNodes = {};
+for (const [key, [c, s]] of Object.entries(CAPS)) {
+  if (!S[key]) continue;
+  const cap = el(`<div class="cap"></div>`), sub = el(`<div class="sub"></div>`);
+  sub.textContent = s;
+  if (REEL) {
+    Object.assign(cap.style, { left: '90px', right: '90px', top: '230px', fontSize: '74px' });
+    Object.assign(sub.style, { left: '92px', right: '90px', top: '0px', fontSize: '36px' });
+  } else {
+    Object.assign(cap.style, { left: '110px', width: '600px', top: '380px', fontSize: '74px' });
+    Object.assign(sub.style, { left: '112px', width: '560px', top: '0px', fontSize: '32px', lineHeight: '1.3' });
+  }
+  words(cap, c);
+  stage.appendChild(cap); stage.appendChild(sub);
+  capNodes[key] = { cap, sub };
+}
+
+// ---------- the app panel ----------
+const panelWrap = el(`<div id="panelWrap">${REEL ? '' : '<div class="chrome"><i></i><i></i><i></i><div class="url">staffkin.com/app</div></div>'}<div id="panel"></div></div>`);
+stage.appendChild(panelWrap);
+const panel = panelWrap.querySelector('#panel');
+const PW = REEL ? 700 : 960, PH = REEL ? 700 : 720, CW = PW - 96; // panel design size and content width
+panel.style.width = PW + 'px'; panel.style.height = PH + 'px';
+if (!REEL) panelWrap.querySelector('.chrome').style.width = PW + 'px';
+const PS = REEL ? 900 / PW : 1040 / PW; // panel scale
+const PX = REEL ? 90 : 790, PY = REEL ? 560 : 150;
+panel.appendChild(el(`<div class="apphead"><span class="brand"><span style="width:38px;height:27px;display:inline-block">${RINGS()}</span>staffkin</span><span class="nav on">Jobs</span><span class="nav">Settings</span><span class="pill">Free plan</span></div>`));
+const scenes = {};
+const addScene = (key, html) => { const s = el(`<div class="scene">${html}</div>`); panel.appendChild(s); scenes[key] = s; return s; };
+
+// JOB: form, then the job with three ready cards
+addScene('job', `
+  <div id="jobForm" class="abs" style="inset:0">
+    <div class="h1" style="left:48px;top:34px">New job</div>
+    <div class="label" style="left:48px;top:118px">Job title</div>
+    <div class="input focus" id="titleIn" style="left:48px;top:146px;width:${CW}px"><span id="typed"></span><span class="caret" id="caret"></span></div>
+    <div class="label" style="left:48px;top:236px">Location</div>
+    <div class="input" style="left:48px;top:264px;width:${CW}px">Kentville, NS</div>
+    <div class="abs" style="left:48px;top:362px;display:flex;gap:16px;align-items:center;font-size:22px"><span class="check">${ICON.ok('#fff', 20)}</span>Set up a prescreen and an interview guide</div>
+    <div class="abs" style="left:48px;top:414px;display:flex;gap:16px;align-items:center;font-size:22px"><span class="check">${ICON.ok('#fff', 20)}</span>Add the line cook job description</div>
+    <div class="btn" id="createBtn" style="left:${48 + CW - 240}px;top:540px;width:240px;height:70px">Create job</div>
+  </div>
+  <div id="jobView" class="abs" style="inset:0">
+    <div class="h1" style="left:48px;top:34px">Line cook</div>
+    <div class="abs muted" style="left:50px;top:92px;font-size:20px">Kentville, NS · Created just now</div>
+    <div class="card jc" style="left:48px;top:156px;width:${CW}px;height:132px"><span class="ico">${ICON.doc}</span><div><div class="t">Job description</div><div class="s">Line cook template, ready to edit</div></div><span class="tick">${ICON.ok()}</span></div>
+    <div class="card jc" style="left:48px;top:310px;width:${CW}px;height:132px"><span class="ico">${ICON.clip}</span><div><div class="t">Prescreen</div><div class="s">8 questions, sent by email</div></div><span class="tick">${ICON.ok()}</span></div>
+    <div class="card jc" style="left:48px;top:464px;width:${CW}px;height:132px"><span class="ico">${ICON.chart}</span><div><div class="t">Interview guide</div><div class="s">9 questions with a 1 to 5 scoring guide</div></div><span class="tick">${ICON.ok()}</span></div>
+  </div>`);
+
+// PRESCREEN answers
+const CANDS = [['JS', 'Jordan S.', 'All must-haves met', 'good'], ['PK', 'Priya K.', 'All must-haves met', 'good'], ['ST', 'Sam T.', 'Check: weekends', 'warn']];
+addScene('pre', `
+  <div class="h1" style="left:48px;top:30px">Line cook</div>
+  <div class="tabs" style="left:44px;top:96px"><span class="on">Candidates 3</span><span>Guides 2</span><span>Compare</span><span>Job description</span></div>
+  ${CANDS.map(([i, n, c, k2], j) => `<div class="card pc" style="left:48px;top:${176 + j * 146}px;width:${CW}px;height:124px"><span class="av">${i}</span><div><div class="t">${n}</div><div class="s">${REEL ? 'Answered · just now' : 'Answered the prescreen · just now'}</div></div><span class="chip ${k2}">${c}</span></div>`).join('')}`);
+
+// SCORE: question card, then compare table
+addScene('score', `
+  <div class="qcard" id="qcard" style="left:48px;top:30px;width:${CW}px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span class="tag">SAFETY AND CARE</span><span class="chip" style="background:var(--peri-soft);color:var(--indigo);margin:0">Q3 of 9</span></div>
+    <div class="qtext">Tell me about a time you noticed something unsafe at work. What did you do?</div>
+    <div class="anch"><div><b>1 Weak</b>Ignored it.</div><div><b>3 Solid</b>Mentioned it to someone.</div><div><b>5 Strong</b>Made it safe, reported it, followed up.</div></div>
+    <div class="scores" id="scores"><span>1</span><span>2</span><span>3</span><span id="s4">4</span><span>5</span></div>
+  </div>
+  <div class="table" id="ctable" style="left:48px;top:40px;width:${CW}px;height:${58 + 3 * 96}px">
+    <div class="trow thead" style="top:0"><span class="col-n">CANDIDATE</span><span class="col-a">AVERAGE</span><span class="col-s">SAFETY</span><span class="col-r">REFERENCES</span></div>
+    ${[['ST', 'Sam T.', 3.1, 3, '1 of 2'], ['JS', 'Jordan S.', 4.2, 4, '2 of 2'], ['PK', 'Priya K.', 3.8, 4, '2 of 2']].map(([i, n, a, s, r], j) => `<div class="trow crow" data-avg="${a}" style="top:${58 + j * 96}px"><span class="col-n"><span class="av" style="width:46px;height:46px;font-size:17px">${i}</span>${n}</span><span class="col-a" data-n="${a}">0.0</span><span class="col-s">${s}</span><span class="col-r"><div class="bar"><i style="width:${r === '2 of 2' ? 100 : 50}%"></i></div><div style="font-size:15px;color:var(--muted);margin-top:4px">${r}</div></span></div>`).join('')}
+  </div>
+  <div class="abs muted" id="cnote" style="left:50px;top:${40 + 58 + 3 * 96 + 26}px;font-size:19px;width:${CW}px">Scores your interviewers entered, sorted by average. You make the call.</div>`);
+
+// REFERENCES
+addScene('refs', `
+  <div class="abs" style="left:48px;top:30px;display:flex;align-items:center;gap:18px"><span class="av" style="width:64px;height:64px;font-size:22px">JS</span><div><div style="font-size:36px;font-weight:700;color:var(--indigo)">Jordan S.</div><div class="muted" style="font-size:19px">Line cook · Interview score 4.2</div></div></div>
+  <div class="btn" id="refBtn" style="left:48px;top:140px;width:${CW}px;height:80px;font-size:26px">Run a reference check · $9</div>
+  <div class="step rs" style="left:56px;top:262px"><span class="dot"></span><span>Jordan gave consent</span></div>
+  <div class="step rs" style="left:56px;top:338px"><span class="dot"></span><span>Alex M., former supervisor, answered</span></div>
+  <div class="step rs" style="left:56px;top:414px"><span class="dot"></span><span>Dana R., former manager, answered</span></div>
+  <div class="pdf" id="pdf" style="left:${48 + CW - 472}px;top:510px;width:472px"><span class="doc"></span><div><div style="font-size:23px;font-weight:600">Reference report.pdf</div><div style="font-size:17px;opacity:.75">2 referees · 9 questions each</div></div><span style="margin-left:auto">${ICON.dl}</span></div>`);
+
+// HIRED + onboarding
+const OB = ['TD1 forms, federal and Nova Scotia', 'Direct deposit details', 'WHMIS training', '30-day check-in booked'];
+addScene('hired', `
+  <div class="abs" style="left:48px;top:30px;display:flex;align-items:center;gap:18px"><span class="av" style="width:64px;height:64px;font-size:22px">JS</span><div><div style="font-size:36px;font-weight:700;color:var(--indigo)">Jordan S.</div><div class="muted" style="font-size:19px">Line cook · starts Monday</div></div></div>
+  <div class="status" id="stInt" style="right:48px;top:44px;background:var(--warn-soft);color:var(--warn)">Interviewing</div>
+  <div class="status" id="stHired" style="right:48px;top:44px;background:var(--good-soft);color:var(--good)">Hired</div>
+  <div id="burst" class="abs" style="left:${PW - 110}px;top:66px"></div>
+  <div class="abs" style="left:48px;top:150px;font-size:24px;font-weight:700;color:var(--indigo)">Onboarding checklist</div>
+  <div class="progress" style="left:48px;top:196px;width:${CW}px"><i id="obBar" style="width:0%"></i></div>
+  ${OB.map((o, j) => `<div class="step ob" style="left:56px;top:${250 + j * 84}px"><span class="dot"></span><span>${o}</span></div>`).join('')}`);
+const burst = scenes.hired.querySelector('#burst');
+for (let i = 0; i < 10; i++) burst.appendChild(el(`<div class="abs" style="width:18px;height:18px;border-radius:50%;border:3px solid ${i % 2 ? '#7B8CF5' : '#1F8A5B'}"></div>`));
+
+// TEMPLATES (YouTube only)
+const ROLES = ['Line cook', 'Server', 'Dishwasher', 'Bartender', 'Cashier', 'Receptionist', 'Bookkeeper', 'Carpenter', 'Welder', 'Plumber', 'Delivery driver', 'Warehouse associate', 'Forklift operator', 'Landscaper', 'Custodian', 'Retail sales associate', 'Office manager', 'Payroll administrator', 'Continuing care assistant', 'Early childhood educator', 'Security guard', 'Dispatcher', 'Estimator', 'Site supervisor', 'Front desk agent', 'Housekeeper', 'Marketing coordinator', 'IT support technician', 'Restaurant manager', 'Machine operator'];
+if (S.tpl) {
+  addScene('tpl', `
+    <div class="abs" style="left:0;right:0;top:0;height:120px;background:#fff;z-index:2;border-bottom:1px solid var(--line)"><div class="h1" style="left:48px;top:26px;font-size:36px">Job description templates</div><div class="abs muted" style="left:50px;top:80px;font-size:18px">70 roles · Download as Word · Free</div></div>
+    <div class="abs" id="roleGrid" style="left:48px;top:150px;right:48px;height:2000px">${ROLES.map((r, j) => `<div class="role" style="left:${(j % 3) * 298}px;top:${Math.floor(j / 3) * 104}px"><b>${r}</b><span>Job description template</span></div>`).join('')}</div>`);
+}
+
+// cursor + ripple (inside the panel so they scale with it)
+const cursor = el(`<div id="cursor"><svg viewBox="0 0 24 24" width="40" height="40"><path d="M4 2 L4 19 L8.5 14.8 L11.6 21.5 L14.4 20.3 L11.4 13.6 L17.5 13.6 Z" fill="#23213F" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>`);
+const ripple = el('<div id="ripple"></div>');
+panel.appendChild(ripple); panel.appendChild(cursor);
+
+// ---------- END CARD ----------
+const end = el(`<div id="end">
+  <div class="abs" id="endRings"></div>
+  <div class="tl" id="endTl"></div>
+  <div class="cta" id="endCta">Try for free</div>
+  <div class="url" id="endUrl">staffkin.com</div>
+  <div class="ns" id="endNs">Made in Nova Scotia · Free for your first job</div>
+  <div class="abs" id="endCursor" style="width:${REEL ? 64 : 52}px;height:${REEL ? 64 : 52}px"><svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M4 2 L4 19 L8.5 14.8 L11.6 21.5 L14.4 20.3 L11.4 13.6 L17.5 13.6 Z" fill="#fff" stroke="#2E2A6B" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+</div>`);
+stage.appendChild(end);
+const E = REEL
+  ? { rings: [360, 560, 360], tl: [860, 104], cta: [1180, 520, 124, 50], url: [1370, 48], ns: [1446, 32] }
+  : { rings: [760, 150, 400 * 0.75], tl: [460, 96], cta: [640, 440, 110, 44], url: [800, 40], ns: [868, 28] };
+const endRings = end.querySelector('#endRings'); endRings.innerHTML = RINGS(4, '#fff', '#AEB8FF');
+Object.assign(endRings.style, { left: E.rings[0] + 'px', top: E.rings[1] + 'px', width: E.rings[2] + 'px', height: E.rings[2] * 24 / 34 + 'px' });
+const endTl = end.querySelector('#endTl'); endTl.style.top = E.tl[0] + 'px'; endTl.style.fontSize = E.tl[1] + 'px';
+words(endTl, REEL ? 'Hire people,<br> <em>not paperwork.</em>' : 'Hire people, <em>not paperwork.</em>'); 
+const endCta = end.querySelector('#endCta'); Object.assign(endCta.style, { top: E.cta[0] + 'px', width: E.cta[1] + 'px', height: E.cta[2] + 'px', marginLeft: -E.cta[1] / 2 + 'px', fontSize: E.cta[3] + 'px' });
+const endUrl = end.querySelector('#endUrl'); endUrl.style.top = E.url[0] + 'px'; endUrl.style.fontSize = E.url[1] + 'px';
+const endNs = end.querySelector('#endNs'); endNs.style.top = E.ns[0] + 'px'; endNs.style.fontSize = E.ns[1] + 'px';
+const endCursor = end.querySelector('#endCursor');
+
+// ---------- per-frame render ----------
+function wordsIn(node, t0, t, step = .07) {
+  node.querySelectorAll('.w').forEach((w, i) => { const x = eo(seg(t, t0 + i * step, .45)); w.style.opacity = x; w.style.transform = `translateY(${(1 - x) * 40}px)`; });
+}
+function cursorAt(x, y, show = 1) { cursor.style.opacity = show; cursor.style.left = x + 'px'; cursor.style.top = y + 'px'; }
+function click(x, y, t, tc) { const p = seg(t, tc, .5); ripple.style.left = x + 'px'; ripple.style.top = y + 'px'; ripple.style.opacity = p > 0 && p < 1 ? (1 - p) : 0; ripple.style.transform = `scale(${.3 + p})`; }
+function path(t, pts) { // pts: [time, x, y] keyframes, eased between
+  if (t <= pts[0][0]) return pts[0].slice(1);
+  for (let i = 1; i < pts.length; i++) if (t <= pts[i][0]) { const [a, x0, y0] = pts[i - 1], [b, x1, y1] = pts[i]; const q = eio((t - a) / (b - a)); return [lerp(x0, x1, q), lerp(y0, y1, q)]; }
+  return pts.at(-1).slice(1);
+}
+function centerOf(node) { let x = node.offsetWidth / 2, y = node.offsetHeight / 2, n = node; while (n && n !== panel) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; } return [x, y]; }
+function pressScale(t, tc) { const p = seg(t, tc - .05, .25); return 1 - Math.sin(p * Math.PI) * .06; }
+
+function render(t) {
+  // background rings drift
+  const bgS = REEL ? 1500 : 1300;
+  Object.assign(bg1.style, { width: bgS + 'px', height: bgS * 24 / 34 + 'px', left: (REEL ? 200 : 900) + Math.sin(t * .25) * 30 + 'px', top: (REEL ? 1250 : 520) + Math.cos(t * .2) * 20 + 'px' });
+  bg1.style.opacity = t > S.end[0] + .4 ? 0 : .07;
+
+  // HOOK
+  const [ha, hb] = S.hook;
+  pile.style.display = t < S.logo[0] + 1.6 ? 'block' : 'none';
+  papers.forEach((p, i) => {
+    const land = back(seg(t, p.delay, .55));
+    const sweep = eio(seg(t, hb - .25 + i * .02, .7));
+    const y = p.y + sweep * 300;
+    const x = p.x + sweep * p.fx;
+    const r = lerp(p.r - 25, p.r, land) + sweep * p.fr;
+    p.node.style.left = x + 'px'; p.node.style.top = y + 'px';
+    p.node.style.transform = `rotate(${r}deg) scale(${lerp(1.45, 1, land)})`;
+    p.node.style.opacity = eo(seg(t, p.delay, .18)) * (1 - seg(t, hb + .35, .3));
+    p.node.style.zIndex = i;
+  });
+  hookCap.style.opacity = 1 - seg(t, hb - .3, .3); wordsIn(hookCap, .15, t);
+  hookSub.style.opacity = eo(seg(t, 1.0, .4)) * (1 - seg(t, hb - .3, .3));
+  hookSub.style.transform = `translateY(${(1 - eo(seg(t, 1.0, .4))) * 20}px)`;
+
+  // LOGO
+  const [la, lb] = S.logo;
+  const lv = 1 - seg(t, lb - .3, .3);
+  const meet = eo(seg(t, la + .1, .7));
+  const cx = W / 2, ringW = LS; // each ring box LS wide, overlap by ~ (22-12)/22
+  const gap = LS * 10 / 24; // centres are 10 units apart (24-unit box)
+  const lxL = cx - gap / 2 - LS / 2 - (1 - meet) * (W * .6), lxR = cx + gap / 2 - LS / 2 + (1 - meet) * (W * .6);
+  [[logoL, lxL], [logoR, lxR]].forEach(([n, x]) => { Object.assign(n.style, { left: x + 'px', top: logoY + 'px', width: LS + 'px', height: LS + 'px' }); n.style.opacity = seg(t, la, .2) * lv; n.style.transform = `rotate(${(1 - meet) * (n === logoL ? -90 : 90)}deg)`; });
+  const pop = back(seg(t, la + .8, .35));
+  logoL.style.transform += ` scale(${t > la + .8 ? lerp(1.08, 1, pop) : 1})`; logoR.style.transform += ` scale(${t > la + .8 ? lerp(1.08, 1, pop) : 1})`;
+  logoWord.style.opacity = eo(seg(t, la + .75, .35)) * lv; logoWord.style.transform = `translateY(${(1 - eo(seg(t, la + .75, .35))) * 24}px)`;
+  logoTag.style.opacity = lv; wordsIn(logoTag, la + 1.05, t, .09);
+
+  // PANEL visibility (job -> last app scene)
+  const lastApp = S.tpl ? S.tpl : S.hired;
+  const pIn = eo(seg(t, S.job[0] + .2, .5)), pOut = eio(seg(t, lastApp[1] - .35, .35));
+  panelWrap.style.opacity = pIn * (1 - pOut);
+  panelWrap.style.transform = `translate(${PX}px, ${PY + (1 - pIn) * 80 - pOut * 40}px) scale(${PS * lerp(.94, 1, pIn)})`;
+  panelWrap.style.display = pIn * (1 - pOut) > 0 ? 'block' : 'none';
+  cursor.style.opacity = 0; ripple.style.opacity = 0;
+
+  // captions
+  for (const [key, { cap, sub }] of Object.entries(capNodes)) {
+    const v = vis(t, [S[key][0] + .25, S[key][1]], .3, .3);
+    cap.style.display = sub.style.display = v > 0 ? 'block' : 'none';
+    if (v <= 0) continue;
+    cap.style.opacity = 1 - seg(t, S[key][1] - .3, .3);
+    wordsIn(cap, S[key][0] + .3, t, .06);
+    const ch = cap.getBoundingClientRect().height;
+    sub.style.top = (parseFloat(cap.style.top) + ch + (REEL ? 26 : 30)) + 'px';
+    const sv = eo(seg(t, S[key][0] + .75, .4));
+    sub.style.opacity = sv * (1 - seg(t, S[key][1] - .3, .3)); sub.style.transform = `translateY(${(1 - sv) * 16}px)`;
+  }
+  if (!REEL) { // vertically centre caption block in the left column
+    for (const { cap, sub } of Object.values(capNodes)) if (cap.style.display !== 'none') {
+      const total = cap.getBoundingClientRect().height + 30 + sub.getBoundingClientRect().height;
+      cap.style.top = (H / 2 - total / 2 - 10) + 'px';
+      sub.style.top = (H / 2 - total / 2 - 10 + cap.getBoundingClientRect().height + 30) + 'px';
+    }
+  }
+
+  // scenes inside the panel: crossfade
+  for (const [key, node] of Object.entries(scenes)) {
+    const inP = eo(seg(t, S[key][0] + .2, .3)), outP = eio(seg(t, S[key][1] - .22, .22));
+    const v = Math.min(inP, 1 - outP);
+    node.style.display = v > 0 ? 'block' : 'none';
+    node.style.opacity = v;
+    node.style.transform = `translateX(${(1 - inP) * 60 - outP * 60}px)`;
+  }
+
+  // JOB
+  { const lt = t - S.job[0], s = scenes.job;
+    if (s.style.display !== 'none') {
+      const txt = 'Line cook', n = Math.floor(clamp((lt - .45) / .7) * txt.length);
+      s.querySelector('#typed').textContent = txt.slice(0, n);
+      s.querySelector('#caret').style.opacity = (Math.floor(lt * 2.4) % 2 === 0 || (lt > .45 && lt < 1.2)) ? 1 : 0;
+      const form = s.querySelector('#jobForm'), view = s.querySelector('#jobView');
+      const sw = eio(seg(lt, 2.15, .35));
+      form.style.opacity = 1 - sw; form.style.transform = `translateY(${-sw * 30}px)`;
+      view.style.opacity = eo(seg(lt, 2.45, .3));
+      s.querySelector('#createBtn').style.transform = `scale(${pressScale(lt, 1.95)})`;
+      s.querySelectorAll('.jc').forEach((c, i) => { const x = back(seg(lt, 2.55 + i * .26, .5)); c.style.opacity = clamp(x); c.style.transform = `translateY(${(1 - x) * 60}px)`; c.querySelector('.tick').style.transform = `scale(${back(seg(lt, 2.9 + i * .26, .35))})`; });
+      if (lt < 2.3) { const [bx, by] = centerOf(s.querySelector('#createBtn')); const [x, y] = path(lt, [[0, PW - 60, PH - 30], [1.2, PW - 60, PH - 30], [1.8, bx, by]]); cursorAt(x, y, clamp(seg(lt, .9, .2)) * (1 - seg(lt, 2.1, .2))); click(bx, by, lt, 1.9); }
+    } }
+
+  // PRESCREEN
+  { const lt = t - S.pre[0], s = scenes.pre;
+    if (s.style.display !== 'none') s.querySelectorAll('.pc').forEach((c, i) => {
+      const x = eo(seg(lt, .45 + i * .55, .5)); c.style.opacity = x; c.style.transform = `translateX(${(1 - x) * 260}px)`;
+      const chip = c.querySelector('.chip'); const cx2 = back(seg(lt, .8 + i * .55, .35)); chip.style.transform = `scale(${cx2})`;
+      if (i === 2) chip.style.boxShadow = `0 0 0 ${Math.max(0, Math.sin(clamp((lt - 2.2) / 1.2) * Math.PI * 2)) * 8}px rgba(183,121,31,.18)`;
+    }); }
+
+  // SCORE
+  { const lt = t - S.score[0], s = scenes.score;
+    if (s.style.display !== 'none') {
+      const q = s.querySelector('#qcard'), tb = s.querySelector('#ctable'), note = s.querySelector('#cnote');
+      const sw = eio(seg(lt, 2.1, .3)), sw2 = eo(seg(lt, 2.45, .35));
+      q.style.opacity = 1 - sw; q.style.transform = `translateY(${-sw * 40}px) scale(${1 - sw * .03})`;
+      tb.style.opacity = sw2; tb.style.transform = `translateY(${(1 - sw2) * 40}px)`; note.style.opacity = eo(seg(lt, 3.9, .4));
+      const s4 = s.querySelector('#s4'); const on = lt > 1.35;
+      s4.style.background = on ? 'var(--indigo)' : ''; s4.style.borderColor = on ? 'var(--indigo)' : ''; s4.style.color = on ? '#fff' : '';
+      s4.style.transform = `scale(${on ? lerp(1.25, 1, back(seg(lt, 1.35, .3))) : 1})`;
+      if (lt < 2.2) { const [bx, by] = centerOf(s4); const [x, y] = path(lt, [[0, PW - 80, PH - 40], [.5, PW - 80, PH - 40], [1.2, bx, by]]); cursorAt(x, y, clamp(seg(lt, .3, .2)) * (1 - seg(lt, 2.0, .2))); click(bx, by, lt, 1.3); }
+      const rows = [...s.querySelectorAll('.crow')];
+      const order = rows.map((r, i) => [i, +r.dataset.avg]).sort((a, b) => b[1] - a[1]).map((x) => x[0]);
+      const ro = eio(seg(lt, 3.45, .6));
+      rows.forEach((r, i) => {
+        const from = i, to = order.indexOf(i);
+        r.style.top = (58 + lerp(from, to, ro) * 96) + 'px';
+        const a = r.querySelector('.col-a'); a.textContent = (+a.dataset.n * eo(seg(lt, 2.6 + i * .1, .7))).toFixed(1);
+        r.style.background = to === 0 && ro > .9 ? '#F3F5FF' : '#fff'; r.style.zIndex = to === 0 ? 2 : 1;
+      });
+    } }
+
+  // REFERENCES
+  { const lt = t - S.refs[0], s = scenes.refs;
+    if (s.style.display !== 'none') {
+      s.querySelector('#refBtn').style.transform = `scale(${pressScale(lt, 1.0)})`;
+      s.querySelector('#refBtn').style.background = lt > 1.05 ? 'var(--good)' : 'var(--indigo)';
+      s.querySelector('#refBtn').textContent = lt > 1.05 ? 'Reference check sent' : 'Run a reference check · $9';
+      if (lt < 1.5) { const [bx, by] = centerOf(s.querySelector('#refBtn')); const [x, y] = path(lt, [[0, PW - 80, PH - 60], [.3, PW - 80, PH - 60], [.9, bx + 60, by]]); cursorAt(x, y, clamp(seg(lt, .15, .2)) * (1 - seg(lt, 1.3, .2))); click(bx + 60, by, lt, 1.0); }
+      s.querySelectorAll('.rs').forEach((r, i) => {
+        const tt = 1.45 + i * .55, x = eo(seg(lt, tt - .25, .3)); r.style.opacity = .35 + .65 * x;
+        const d = r.querySelector('.dot'), done = lt > tt;
+        d.style.background = done ? 'var(--good)' : ''; d.style.borderColor = done ? 'var(--good)' : '';
+        d.innerHTML = done ? ICON.ok('#fff', 24) : ''; d.style.transform = `scale(${done ? lerp(1.3, 1, back(seg(lt, tt, .3))) : 1})`;
+      });
+      const px = back(seg(lt, 3.2, .55)); const pdf = s.querySelector('#pdf'); pdf.style.opacity = clamp(px); pdf.style.transform = `translateX(${(1 - px) * 220}px) rotate(${(1 - px) * 6}deg)`;
+    } }
+
+  // HIRED
+  { const lt = t - S.hired[0], s = scenes.hired;
+    if (s.style.display !== 'none') {
+      const f = eio(seg(lt, .45, .3));
+      s.querySelector('#stInt').style.opacity = 1 - f; s.querySelector('#stInt').style.transform = `translateY(${-f * 20}px)`;
+      s.querySelector('#stHired').style.opacity = f; s.querySelector('#stHired').style.transform = `scale(${lerp(.6, 1, back(seg(lt, .5, .35)))})`;
+      [...burst.children].forEach((b, i) => { const a = i / 10 * Math.PI * 2, p = eo(seg(lt, .55, .7)); b.style.transform = `translate(${Math.cos(a) * p * 90}px, ${Math.sin(a) * p * 60}px) scale(${1 - p * .5})`; b.style.opacity = p > 0 && p < 1 ? 1 - p : 0; });
+      let done = 0;
+      s.querySelectorAll('.ob').forEach((r, i) => {
+        const tt = .95 + i * .3, d = r.querySelector('.dot'), ok = lt > tt; if (ok) done++;
+        d.style.background = ok ? 'var(--good)' : ''; d.style.borderColor = ok ? 'var(--good)' : ''; d.innerHTML = ok ? ICON.ok('#fff', 24) : '';
+        d.style.transform = `scale(${ok ? lerp(1.3, 1, back(seg(lt, tt, .3))) : 1})`;
+        r.style.opacity = .45 + .55 * eo(seg(lt, tt - .3, .3));
+      });
+      s.querySelector('#obBar').style.width = (clamp((lt - .95) / 1.0) * 100) + '%';
+    } }
+
+  // TEMPLATES
+  if (S.tpl) { const lt = t - S.tpl[0], s = scenes.tpl;
+    if (s.style.display !== 'none') s.querySelector('#roleGrid').style.transform = `translateY(${-eio(seg(lt, .4, 5)) * 560}px)`; }
+
+  // END CARD
+  { const [ea] = S.end, lt = t - ea;
+    const v = eio(seg(lt, 0, .45));
+    end.style.display = v > 0 ? 'block' : 'none';
+    end.style.clipPath = `circle(${v * 150}% at 50% ${REEL ? 60 : 55}%)`;
+    const rp = back(seg(lt, .3, .6)); endRings.style.opacity = clamp(rp); endRings.style.transform = `scale(${lerp(.6, 1, rp)})`;
+    wordsIn(endTl, ea + .55, t, .08);
+    const cp = back(seg(lt, 1.2, .45)); endCta.style.opacity = clamp(cp);
+    const press = lt > 2.35 ? 1 - Math.sin(seg(lt, 2.35, .25) * Math.PI) * .07 : 1;
+    const breathe = lt > 2.8 ? 1 + Math.sin((lt - 2.8) * 3.2) * .025 : 1;
+    endCta.style.transform = `scale(${lerp(.7, 1, cp) * press * breathe})`;
+    endUrl.style.opacity = eo(seg(lt, 1.6, .4)); endNs.style.opacity = eo(seg(lt, 1.85, .4));
+    const ctaY = E.cta[0] + E.cta[2] / 2;
+    const [cx3, cy3] = path(lt, [[1.3, W * .82, ctaY + (REEL ? 360 : 200)], [2.2, W / 2 + E.cta[1] * .36, ctaY + 8]]);
+    endCursor.style.left = cx3 + 'px'; endCursor.style.top = cy3 + 'px';
+    endCursor.style.opacity = eo(seg(lt, 1.3, .3)) * (1 - seg(lt, 3.3, .4));
+  }
+}
+window.render = render;
+document.fonts.ready.then(() => { render(0); window.READY = true; });
+</script></body></html>

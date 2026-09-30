@@ -1,0 +1,401 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!--
+  Staffkin HR Agent videos. Open with ?v=1..8 or ?v=avatar and ?f=reel (1080x1920) or ?f=yt (1920x1080).
+  Every frame is a pure function of time: window.render(t). window.DUR is the length in seconds.
+  Edit caption text in the CAPS blocks below, then re-render.
+-->
+<style>
+@font-face { font-family: Outfit; font-weight: 400; src: url(fonts/outfit-latin-400-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 500; src: url(fonts/outfit-latin-500-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 600; src: url(fonts/outfit-latin-600-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 700; src: url(fonts/outfit-latin-700-normal.woff2); }
+:root { --indigo:#2E2A6B; --peri:#7B8CF5; --peri-soft:#E3E7FE; --mist:#EEF0FD; --paper:#F5F6FC; --ink:#23213F; --muted:#6B6890; --line:#E4E6F2;
+  --good:#1F8A5B; --good-soft:#DDF3E8; --warn:#B7791F; --warn-soft:#FDF1D8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: var(--paper); font-family: Outfit, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; inset: 0; overflow: hidden; background: var(--paper); }
+.abs { position: absolute; }
+.bgrings { position: absolute; opacity: .07; }
+.cap { position: absolute; font-weight: 700; color: var(--indigo); letter-spacing: -.02em; line-height: 1.08; }
+.cap .w { display: inline-block; white-space: pre; }
+.cap .em { color: var(--peri); }
+#vis { position: absolute; width: 800px; height: 800px; transform-origin: 0 0; }
+.card { position: absolute; background: #fff; border-radius: 22px; box-shadow: 0 30px 70px -30px rgba(46,42,107,.40), 0 3px 10px rgba(46,42,107,.06); border: 1px solid var(--line); }
+.chip { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 12px 22px; font-weight: 600; font-size: 26px; color: var(--indigo); white-space: nowrap; box-shadow: 0 14px 30px -16px rgba(46,42,107,.4); }
+.tag { display: inline-block; font-size: 20px; font-weight: 600; border: 2px solid #CDD1EA; border-radius: 8px; padding: 1px 9px; color: var(--indigo); }
+.pill { display: inline-block; font-size: 22px; font-weight: 600; border-radius: 999px; padding: 6px 16px; }
+.amber { background: var(--warn-soft); color: #8F5A10; }
+.green { background: var(--good-soft); color: var(--good); }
+.peri { background: var(--peri-soft); color: var(--indigo); }
+.line { height: 16px; border-radius: 8px; background: #E6E7EF; margin-bottom: 16px; transform-origin: 0 50%; }
+.btn { display: inline-block; border-radius: 12px; padding: 12px 24px; font-weight: 600; font-size: 24px; border: 2px solid #CDD1EA; color: var(--indigo); background: #fff; }
+.btn.pri { background: var(--indigo); color: #fff; border-color: var(--indigo); }
+.av { position: absolute; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: var(--indigo); background: var(--peri-soft); }
+.bubble { position: absolute; background: #fff; border-radius: 26px; padding: 22px 28px; font-size: 30px; font-weight: 500; color: var(--ink); box-shadow: 0 20px 44px -22px rgba(46,42,107,.45); border: 1px solid var(--line); max-width: 460px; line-height: 1.2; }
+.qhead { background: var(--indigo); color: #fff; padding: 22px 28px; border-radius: 22px 22px 0 0; display: flex; justify-content: space-between; align-items: baseline; font-size: 28px; font-weight: 600; }
+.qhead span { color: #B9C3FB; font-size: 22px; font-weight: 500; }
+.qitem { padding: 20px 28px; border-bottom: 1px solid var(--line); }
+.qitem:last-child { border-bottom: 0; }
+.qitem b { display: block; font-size: 27px; color: var(--indigo); font-weight: 600; }
+.qitem small { font-size: 21px; color: var(--muted); }
+.row { display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-bottom: 1px solid var(--line); font-size: 27px; font-weight: 500; }
+.row:last-child { border-bottom: 0; }
+.tick { width: 38px; height: 38px; border-radius: 50%; border: 3px solid #CDD1EA; flex: none; display: grid; place-items: center; }
+.cursor { position: absolute; width: 34px; height: 34px; border-radius: 50%; background: rgba(123,140,245,.35); border: 3px solid var(--peri); }
+#end { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; }
+#end h2 { font-size: 72px; color: var(--indigo); letter-spacing: -.02em; }
+#end p { font-size: 36px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+#end .cta { background: var(--indigo); color: #fff; font-size: 32px; font-weight: 600; padding: 20px 36px; border-radius: 16px; margin-top: 10px; }
+.sub { position: absolute; font-weight: 600; color: var(--indigo); background: rgba(255,255,255,.92); border-radius: 18px; padding: 18px 26px; box-shadow: 0 16px 40px -20px rgba(46,42,107,.35); line-height: 1.2; }
+</style></head>
+<body><div id="stage"></div>
+<script>
+const Q = new URLSearchParams(location.search);
+const F = Q.get('f') || 'reel', V = Q.get('v') || '1', REEL = F === 'reel';
+const W = REEL ? 1080 : 1920, H = REEL ? 1920 : 1080;
+const stage = document.getElementById('stage');
+
+// ---------- helpers ----------
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const seg = (t, a, d) => clamp((t - a) / d);
+const eio = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const eo = (x) => 1 - Math.pow(1 - x, 3);
+const back = (x) => { const c1 = 1.6, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const el = (html, parent) => { const d = document.createElement('div'); d.innerHTML = html.trim(); const n = d.firstChild; (parent || stage).appendChild(n); return n; };
+const RINGS = (sw = 4, c1 = '#2E2A6B', c2 = '#7B8CF5') => `<svg viewBox="3 8 34 24" width="100%" height="100%"><circle cx="15" cy="20" r="10" fill="none" stroke="${c1}" stroke-width="${sw}"/><circle cx="25" cy="20" r="10" fill="none" stroke="${c2}" stroke-width="${sw}"/></svg>`;
+const OK = (c = '#1F8A5B', s = 24) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>`;
+
+// Tracks: keyframes of {o, x, y, s, r} per element, eased between. Missing props carry forward.
+const TR = [], HOOKS = [];
+function track(e, keys) {
+  let cur = { o: 1, x: 0, y: 0, s: 1, r: 0 };
+  const k = keys.map(([t, p, ease]) => { cur = Object.assign({}, cur, p); return [t, cur, ease || 'eio']; });
+  TR.push({ e, k }); return e;
+}
+const EASE = { eio, eo, back, lin: (x) => x };
+function applyTracks(t) {
+  for (const { e, k } of TR) {
+    let v = k[0][1];
+    if (t >= k[k.length - 1][0]) v = k[k.length - 1][1];
+    else for (let i = 0; i < k.length - 1; i++) {
+      if (t >= k[i][0] && t < k[i + 1][0]) {
+        const x = EASE[k[i + 1][2]]((t - k[i][0]) / (k[i + 1][0] - k[i][0])), a = k[i][1], b = k[i + 1][1];
+        v = { o: lerp(a.o, b.o, clamp(x)), x: lerp(a.x, b.x, x), y: lerp(a.y, b.y, x), s: lerp(a.s, b.s, x), r: lerp(a.r, b.r, x) };
+        break;
+      }
+    }
+    e.style.opacity = clamp(v.o);
+    e.style.transform = `translate(${v.x}px, ${v.y}px) scale(${v.s}) rotate(${v.r}deg)`;
+  }
+}
+// in/out helper: appear at a (from below), leave at b
+const inout = (a, b, dy = 30, sFrom = .96) => [[0, { o: 0, y: dy, s: sFrom }], [a, { o: 0, y: dy, s: sFrom }], [a + .45, { o: 1, y: 0, s: 1 }, 'eo'], [b, { o: 1, y: 0, s: 1 }], [b + .35, { o: 0, y: -16, s: 1 }]];
+const pop = (a, b = 99) => [[0, { o: 0, s: .6 }], [a, { o: 0, s: .6 }], [a + .45, { o: 1, s: 1 }, 'back'], [b, { o: 1, s: 1 }], [b + .3, { o: 0, s: .9 }]];
+
+// ---------- layout ----------
+const bg = el(`<div class="bgrings" style="width:${REEL ? 1300 : 1500}px;height:${REEL ? 920 : 1060}px;right:${REEL ? -480 : -520}px;bottom:${REEL ? -300 : -420}px">${RINGS(2.4)}</div>`);
+const vis = el('<div id="vis"></div>');
+const VK = REEL ? 1.2 : 1.16;
+vis.style.left = (REEL ? 60 : 960) + 'px'; vis.style.top = (REEL ? 640 : 76) + 'px'; vis.style.transform = `scale(${VK})`;
+const CAP = REEL ? { left: 80, top: 190, width: 920, size: 84 } : { left: 130, top: 540, width: 780, size: 78 };
+
+// Captions: *text* = periwinkle. Words reveal one by one.
+function captions(list) {
+  for (const [a, b, text] of list) {
+    const c = el(`<div class="cap" style="left:${CAP.left}px;top:${CAP.top}px;width:${CAP.width}px;font-size:${CAP.size}px"></div>`);
+    if (!REEL) c.style.transform = 'translateY(-50%)';
+    let em = false; const words = [];
+    for (const raw of text.split(' ')) {
+      let w = raw; const starts = w.startsWith('*'); if (starts) { em = true; w = w.slice(1); }
+      const ends = w.endsWith('*'); if (ends) w = w.slice(0, -1);
+      const s = document.createElement('span'); s.className = 'w' + (em ? ' em' : ''); s.textContent = w + ' ';
+      c.appendChild(s); words.push(s); if (ends) em = false;
+    }
+    HOOKS.push((t) => {
+      const out = seg(t, b - .3, .3);
+      c.style.opacity = 1 - out;
+      words.forEach((s, i) => { const x = eo(seg(t, a + i * .07, .32)); s.style.opacity = x; s.style.transform = `translateY(${(1 - x) * 26}px)`; });
+    });
+  }
+}
+
+// End card
+let DUR = 18;
+function endCard(at) {
+  const end = el(`<div id="end"><div style="width:${REEL ? 260 : 220}px;height:${REEL ? 184 : 156}px">${RINGS(4)}</div>
+    <h2>Staffkin HR Agent</h2>
+    <p>You're there for your people.<br>We handle the sheets and systems.</p>
+    <div class="cta">Book a demo at staffkin.com/hr-agent</div></div>`);
+  HOOKS.push((t) => {
+    const x = eo(seg(t, at, .6));
+    end.style.opacity = x; end.style.transform = `translateY(${(1 - x) * 30}px)`;
+    vis.style.opacity = 1 - seg(t, at - .5, .45);
+  });
+}
+
+// ---------- reusable pieces ----------
+function queueCard(x, y, w, items, head = 'Ready for your approval', time = '7:00 am') {
+  const c = el(`<div class="card" style="left:${x}px;top:${y}px;width:${w}px"><div class="qhead">${head}<span>${time}</span></div>${items.map(([b, s]) => `<div class="qitem"><b>${b}</b><small>${s}</small></div>`).join('')}</div>`, vis);
+  return c;
+}
+function letter(x, y, w, h, title, prov, n = 8) {
+  const c = el(`<div class="card" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;padding:40px 44px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:30px"><b style="font-size:32px;color:var(--indigo)">${title}</b><span class="tag">${prov}</span></div>
+    ${Array.from({ length: n }, (_, i) => `<div class="line" style="width:${[92, 100, 86, 97, 70, 95, 88, 60, 90, 75][i % 10]}%"></div>`).join('')}</div>`, vis);
+  return c;
+}
+function drawLines(c, a, step = .35) {
+  const ls = [...c.querySelectorAll('.line')];
+  HOOKS.push((t) => ls.forEach((l, i) => { const x = eio(seg(t, a + i * step, .5)); l.style.transform = `scaleX(${x})`; }));
+}
+function tickRows(c, times) {
+  const rows = [...c.querySelectorAll('.row')];
+  HOOKS.push((t) => rows.forEach((r, i) => {
+    const on = seg(t, times[i], .3), tk = r.querySelector('.tick');
+    r.style.opacity = .35 + .65 * seg(t, times[i] - .6, .4);
+    tk.style.background = on > .5 ? 'var(--good)' : '#fff'; tk.style.borderColor = on > .5 ? 'var(--good)' : '#CDD1EA';
+    tk.innerHTML = on > .5 ? OK('#fff', 22) : '';
+  }));
+}
+
+// ---------- videos ----------
+const VIDEOS = {
+  // 1. You're there for your people
+  '1'() {
+    captions([[0.3, 5.0, 'Your job is people.'], [5.2, 10.0, 'Not spreadsheets, deadlines and forms.'], [10.2, 14.8, "You're there for your people. *We handle the sheets and systems.*"]]);
+    const a1 = track(el('<div class="av" style="left:90px;top:170px;width:130px;height:130px;font-size:44px">JT</div>', vis), inout(.4, 4.8));
+    const b1 = track(el('<div class="bubble" style="left:240px;top:150px">How\'s your first week going?</div>', vis), inout(1.1, 4.8));
+    track(el('<div class="av" style="left:580px;top:420px;width:130px;height:130px;font-size:44px;background:#E1F3EA;color:#1F8A5B">PS</div>', vis), inout(2.0, 4.8));
+    track(el('<div class="bubble" style="left:120px;top:420px;background:var(--indigo);color:#fff;border-color:var(--indigo)">Better than I expected!</div>', vis), inout(2.8, 4.8));
+    const sheet = el(`<div class="card" style="left:70px;top:90px;width:660px;height:470px;padding:30px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px">${Array.from({ length: 30 }, (_, i) => `<div style="background:${i < 5 ? '#DADDF0' : '#F0F1F7'};border-radius:6px"></div>`).join('')}</div>`, vis);
+    track(sheet, inout(5.1, 10.1));
+    const chips = [['Probation ends', 40, 150, -6], ['ROE due', 470, 120, 5], ['First aid expiring', 300, 300, -3], ['Back from leave', 60, 440, 4], ['Offer letter', 500, 460, -5], ['Vacation pay', 230, 580, 3]];
+    const tile = el(`<div class="abs" style="left:310px;top:560px;width:180px;height:180px;border-radius:40px;background:var(--indigo);display:grid;place-items:center;box-shadow:0 30px 60px -24px rgba(46,42,107,.6)"><div style="width:120px;height:85px">${RINGS(4, '#fff', '#AEB8FF')}</div></div>`, vis);
+    track(tile, [[0, { o: 0, s: .5 }], [10.3, { o: 0, s: .5 }], [10.8, { o: 1, s: 1 }, 'back'], [12.6, { s: 1 }], [12.8, { s: 1.12 }], [13.1, { s: 1 }]]);
+    chips.forEach(([txt, x, y, r], i) => {
+      const c = el(`<div class="chip" style="left:${x}px;top:${y}px">${txt}</div>`, vis);
+      const tx = 400 - x - 110, ty = 650 - y - 30;
+      track(c, [[0, { o: 0, s: .5, r }], [5.4 + i * .35, { o: 0, s: .5, r }], [5.85 + i * .35, { o: 1, s: 1, r }, 'back'], [10.6 + i * .28, { o: 1, x: 0, y: 0, s: 1, r }], [11.3 + i * .28, { o: 0, x: tx, y: ty, s: .3, r: 0 }]]);
+      HOOKS.push((t) => { if (t > 6 && t < 10.5) c.style.marginTop = Math.sin(t * 3 + i) * 5 + 'px'; });
+    });
+    track(el(`<div class="pill green" style="left:285px;top:760px;position:absolute;font-size:26px">${OK('#1F8A5B', 22)} All handled</div>`, vis), pop(12.9));
+  },
+
+  // 2. Letters on deadline
+  '2'() {
+    captions([[0.3, 4.2, 'Probation ends Friday.'], [4.4, 8.8, 'Your agent drafts the letter overnight.'], [9.0, 14.8, 'It waits for your approval. *Nothing sends without you.*']]);
+    const day = el(`<div class="card" style="left:190px;top:160px;width:420px;padding:36px 40px">
+      <div style="font-size:26px;color:var(--muted);font-weight:500">This week</div>
+      <div style="font-size:82px;font-weight:700;color:var(--indigo);letter-spacing:-.02em;margin:4px 0 18px">Friday</div>
+      <span class="pill amber">Probation ends</span>
+      <div style="font-size:26px;margin-top:18px;color:var(--ink)">Priya S., line cook <span class="tag">ON</span></div></div>`, vis);
+    track(day, inout(.4, 4.2));
+    const L = letter(130, 60, 540, 640, 'Probation extension letter', 'ON', 9);
+    const conf = el('<div class="abs pill amber" style="left:170px;top:420px;font-size:21px">[confirm: extension length]</div>', vis);
+    track(L, [[0, { o: 0, y: 40 }], [4.4, { o: 0, y: 40 }], [4.9, { o: 1, y: 0 }, 'eo'], [9.2, { o: 1, y: 0, s: 1 }], [9.9, { o: 1, x: -80, y: -40, s: .5 }], [13.8, { o: 1, x: -80, y: -40, s: .5 }]]);
+    track(conf, [[0, { o: 0, s: .7 }], [7.4, { o: 0, s: .7 }], [7.8, { o: 1, s: 1 }, 'back'], [9.1, { o: 1 }], [9.4, { o: 0 }]]);
+    drawLines(L, 4.9, .3);
+    const q = queueCard(170, 360, 520, [['Probation extension letter', 'Priya S., line cook · ON']]);
+    const acts = el('<div style="padding:4px 28px 26px;display:flex;gap:12px"><span class="btn pri" id="ap">Approve</span><span class="btn">Edit</span></div>', q);
+    track(q, inout(9.9, 14.5));
+    const ap = acts.querySelector('#ap');
+    const cur = track(el('<div class="cursor" style="left:640px;top:760px"></div>', vis), [[0, { o: 0 }], [10.6, { o: 0 }], [10.9, { o: 1 }], [11.9, { x: -420, y: -170 }], [12.1, { s: .8 }], [12.3, { s: 1 }], [13.2, { o: 1 }], [13.5, { o: 0 }]]);
+    HOOKS.push((t) => {
+      const done = t > 12.15;
+      ap.style.background = done ? 'var(--good)' : 'var(--indigo)'; ap.style.borderColor = ap.style.background;
+      ap.innerHTML = done ? `${OK('#fff', 20)} Approved` : 'Approve';
+    });
+  },
+
+  // 3. Never miss a date
+  '3'() {
+    captions([[0.3, 4.4, 'Every HR date. Tracked.'], [4.6, 9.9, 'Probation ends. Certifications expire. People come back from leave.'], [10.1, 14.8, 'You hear about it *before it\'s due.*']]);
+    const ev = { 9: ['#B7791F', 'Probation ends'], 14: ['#7B8CF5', 'First aid expires'], 20: ['#1F8A5B', 'Back from leave'], 27: ['#2E2A6B', 'Work anniversary'] };
+    const cells = []; let html = '';
+    ['S', 'M', 'T', 'W', 'T', 'F', 'S'].forEach((d) => html += `<div style="text-align:center;font-size:20px;color:var(--muted);font-weight:600">${d}</div>`);
+    for (let i = 0; i < 35; i++) { const d = i - 2; html += `<div data-d="${d}" style="height:62px;border-radius:12px;background:${d > 0 && d <= 31 ? '#F3F4FA' : 'transparent'};font-size:21px;padding:8px 10px;color:var(--ink);position:relative">${d > 0 && d <= 31 ? d : ''}</div>`; }
+    const cal = el(`<div class="card" style="left:70px;top:40px;width:660px;padding:30px"><div style="font-size:32px;font-weight:700;color:var(--indigo);margin-bottom:18px">October</div><div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px">${html}</div></div>`, vis);
+    track(cal, [[0, { o: 0, y: 30 }], [.4, { o: 0, y: 30 }], [.9, { o: 1, y: 0 }, 'eo'], [10.2, { o: 1, s: 1 }], [10.8, { o: .1, s: .94 }]]);
+    const keys = Object.keys(ev);
+    keys.forEach((d, i) => {
+      const c = cal.querySelector(`[data-d="${d}"]`);
+      const dot = el(`<div style="position:absolute;right:8px;bottom:8px;width:18px;height:18px;border-radius:50%;background:${ev[d][0]}"></div>`, c);
+      HOOKS.push((t) => { const x = seg(t, 4.8 + i * 1.1, .35); dot.style.transform = `scale(${back(x)})`; dot.style.opacity = x; c.style.background = x > .5 ? ev[d][0] + '22' : (c.textContent ? '#F3F4FA' : 'transparent'); });
+      const lg = el(`<div class="abs" style="left:${80 + (i % 2) * 330}px;top:${650 + Math.floor(i / 2) * 64}px;font-size:25px;font-weight:600;color:var(--indigo);display:flex;gap:12px;align-items:center"><i style="width:18px;height:18px;border-radius:50%;background:${ev[d][0]}"></i>${ev[d][1]}</div>`, vis);
+      track(lg, [[0, { o: 0, x: -14 }], [4.8 + i * 1.1, { o: 0, x: -14 }], [5.2 + i * 1.1, { o: 1, x: 0 }], [10.2, { o: 1 }], [10.6, { o: 0 }]]);
+    });
+    const al = (y, when, what, who, cls, a) => track(el(`<div class="card" style="left:90px;top:${y}px;width:620px;padding:28px 32px"><span class="pill ${cls}">${when}</span><div style="font-size:32px;font-weight:700;color:var(--indigo);margin-top:14px">${what}</div><div style="font-size:25px;color:var(--muted);margin-top:4px">${who}</div></div>`, vis), inout(a, 14.5, 40));
+    al(190, 'In 3 days', 'Probation ends', 'Priya S., line cook · ON', 'amber', 10.8);
+    al(420, 'In 12 days', 'First aid expires', 'Marc L., care aide · QC', 'peri', 11.5);
+  },
+
+  // 4. Works 24 hours
+  '4'() {
+    captions([[0.3, 4.0, '6:00 pm. You go home.'], [4.2, 10.8, 'Your agent keeps working.'], [11.0, 14.8, '7:00 am. *Ready for your approval.*']]);
+    const sky = el('<div class="abs" style="left:0;top:0;width:800px;height:800px;border-radius:36px"></div>', vis);
+    const clock = el('<div class="abs" style="left:0;top:70px;width:800px;text-align:center;font-size:120px;font-weight:700;letter-spacing:-.03em"></div>', vis);
+    const lab = el('<div class="abs" style="left:0;top:215px;width:800px;text-align:center;font-size:30px;font-weight:500"></div>', vis);
+    const stars = el(`<div class="abs" style="inset:0">${Array.from({ length: 18 }, (_, i) => `<i style="position:absolute;left:${(i * 137) % 760 + 20}px;top:${(i * 89) % 260 + 20}px;width:5px;height:5px;border-radius:50%;background:#fff"></i>`).join('')}</div>`, vis);
+    const C0 = [227, 231, 254], C1 = [46, 42, 107], C2 = [245, 246, 252];
+    const mix = (a, b, x) => a.map((v, i) => Math.round(lerp(v, b[i], x)));
+    HOOKS.push((t) => {
+      const n = eio(seg(t, 4.2, 1.4)) - eio(seg(t, 10.2, 1.2));
+      const c = t < 9 ? mix(C0, C1, n) : mix(C2, C1, n);
+      sky.style.background = `rgb(${c})`;
+      const light = n > .5; clock.style.color = light ? '#fff' : 'var(--indigo)'; lab.style.color = light ? '#B9C3FB' : 'var(--muted)';
+      stars.style.opacity = n * .7;
+      const hrs = 18 + 13 * eio(seg(t, 4.4, 6.2)); let h = Math.floor(hrs) % 24, m = Math.floor((hrs % 1) * 4) * 15;
+      if (t >= 10.6) { h = 7; m = 0; }
+      const ap = h >= 12 ? 'pm' : 'am', h12 = ((h + 11) % 12) + 1;
+      clock.textContent = `${h12}:${String(m).padStart(2, '0')} ${ap}`;
+      lab.textContent = t < 4.6 ? 'Monday evening' : t < 10.6 ? 'Overnight' : 'Tuesday morning';
+    });
+    const tasks = el(`<div class="card" style="left:110px;top:300px;width:580px">${['Checked every deadline', 'Drafted 3 letters', 'Built 1 last-day checklist', 'Flagged 1 item to confirm'].map((s) => `<div class="row"><div class="tick"></div>${s}</div>`).join('')}</div>`, vis);
+    track(tasks, inout(4.6, 10.6, 40));
+    tickRows(tasks, [5.6, 7.0, 8.4, 9.8]);
+    const q = queueCard(110, 300, 580, [['Probation extension letter', 'Priya S. · ON'], ['Renewal reminder email', 'Marc L. · QC'], ['Return-to-work plan', 'Dana M. · NS']]);
+    track(q, inout(11.2, 14.5, 40));
+  },
+
+  // 5. Every province
+  '5'() {
+    captions([[0.3, 4.0, 'HR rules differ across Canada.'], [4.2, 9.9, 'Same question. The right answer for where they work.'], [10.1, 14.8, 'All 13 provinces and territories. *Plus federal.*']]);
+    const J = ['Federal', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NB', 'NS', 'PE', 'NL', 'YT', 'NT', 'NU'];
+    const grid = el(`<div class="abs" style="left:40px;top:40px;width:720px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">${J.map((j) => `<span data-j="${j}" style="font-size:30px;font-weight:700;padding:14px 22px;border-radius:14px;border:2px solid #CDD1EA;background:#fff;color:var(--indigo);min-width:92px;text-align:center">${j}</span>`).join('')}</div>`, vis);
+    track(grid, [[0, { o: 0, y: 20 }], [.4, { o: 0, y: 20 }], [.9, { o: 1, y: 0 }], [10.2, { o: 1, y: 0 }], [10.9, { o: 1, y: 230 }]]);
+    const spans = [...grid.children];
+    HOOKS.push((t) => spans.forEach((s, i) => {
+      const j = s.dataset.j;
+      const lit = (t > 5.9 && t < 10.2 && j === 'NS') || (t > 6.9 && t < 10.2 && j === 'ON') || t > 11 + i * .12;
+      s.style.background = lit ? 'var(--indigo)' : '#fff'; s.style.color = lit ? '#fff' : 'var(--indigo)'; s.style.borderColor = lit ? 'var(--indigo)' : '#CDD1EA';
+    }));
+    track(el('<div class="bubble" style="left:170px;top:300px;background:var(--indigo);color:#fff;border-color:var(--indigo)">How much notice do I owe?</div>', vis), inout(4.4, 10.0));
+    const ans = (x, prov, src, a) => {
+      const c = el(`<div class="card" style="left:${x}px;top:440px;width:360px;padding:26px 28px"><div style="font-size:28px;font-weight:700;color:var(--indigo);margin-bottom:18px">${prov}</div><div class="line" style="width:95%"></div><div class="line" style="width:80%"></div><div class="line" style="width:88%"></div><div style="font-size:19px;color:var(--muted);margin-top:6px">Source: ${src}</div></div>`, vis);
+      track(c, inout(a, 10.0, 40)); drawLines(c, a + .4, .25);
+    };
+    ans(30, 'Nova Scotia', 'Labour Standards Code', 5.8);
+    ans(410, 'Ontario', 'Employment Standards Act, 2000', 6.8);
+  },
+
+  // 6. Last day, sorted
+  '6'() {
+    captions([[0.3, 4.2, "Someone's last day is coming."], [4.4, 10.8, 'Your agent builds the checklist.'], [11.0, 14.8, '*Sorted before Friday.*']]);
+    const emp = el(`<div class="card" style="left:130px;top:40px;width:540px;padding:28px 30px;display:flex;gap:22px;align-items:center"><div class="av" style="position:static;width:96px;height:96px;font-size:34px">DM</div><div><div style="font-size:32px;font-weight:700;color:var(--indigo)">Dana M.</div><div style="font-size:24px;color:var(--muted)">Office admin <span class="tag">NS</span></div><span class="pill amber" id="st" style="margin-top:10px">Last day: Friday</span></div></div>`, vis);
+    track(emp, inout(.4, 14.5));
+    const st = emp.querySelector('#st');
+    HOOKS.push((t) => { const d = t > 11.4; st.className = 'pill ' + (d ? 'green' : 'amber'); st.textContent = d ? 'All set for Friday' : 'Last day: Friday'; });
+    const list = el(`<div class="card" style="left:100px;top:260px;width:600px"><div style="padding:24px 28px 8px;font-size:28px;font-weight:700;color:var(--indigo)">Last-day checklist · Nova Scotia</div>${['Final pay timing', 'Vacation pay owed', 'Record of Employment', 'Company property returned', 'Exit letter drafted'].map((s) => `<div class="row"><div class="tick"></div>${s}</div>`).join('')}</div>`, vis);
+    track(list, inout(4.6, 14.5, 40));
+    tickRows(list, [5.6, 6.8, 8.0, 9.2, 10.4]);
+    track(el('<div class="abs pill peri" style="left:230px;top:740px;font-size:25px">Ready for your approval</div>', vis), pop(11.6, 14.4));
+  },
+
+  // 7. Burnout is real
+  '7'() {
+    captions([[0.3, 5.8, 'Burnout is real in HR.'], [6.0, 10.8, 'Forms. Deadlines. Rule changes. All on you.'], [11.0, 14.8, '*Hand the paperwork to your agent.*']]);
+    const stat = el('<div class="abs" style="left:0;top:120px;width:800px;text-align:center;font-size:220px;font-weight:700;color:var(--indigo);letter-spacing:-.04em;line-height:1"></div>', vis);
+    const st2 = el('<div class="abs" style="left:100px;top:370px;width:600px;text-align:center;font-size:36px;font-weight:500;color:var(--ink);line-height:1.25">of HR professionals burned out in the past five years</div>', vis);
+    const src = el('<div class="abs" style="left:80px;top:540px;width:640px;text-align:center;font-size:22px;color:var(--muted);line-height:1.3">Source: Personio survey of 500 HR professionals, reported by People Management, January 2025</div>', vis);
+    [stat, st2, src].forEach((e, i) => track(e, inout(.4 + i * .3, 5.9)));
+    HOOKS.push((t) => { stat.textContent = Math.round(54 * eo(seg(t, .6, 1.8))) + '%'; });
+    const colH = (x, txt, a) => track(el(`<div class="abs" style="left:${x}px;top:40px;width:340px;text-align:center;font-size:32px;font-weight:700;color:var(--indigo);border-bottom:4px solid ${txt === 'You' ? '#CDD1EA' : 'var(--peri)'};padding-bottom:12px">${txt}</div>`, vis), inout(a, 14.5, 20));
+    colH(40, 'You', 6.1); colH(420, 'Your agent', 6.3);
+    const items = ['Forms', 'Deadlines', 'Rule changes', 'Letters', 'Reminders'];
+    items.forEach((s, i) => {
+      const c = el(`<div class="card" style="left:60px;top:${130 + i * 104}px;width:300px;padding:22px 26px;font-size:30px;font-weight:600;color:var(--indigo);display:flex;justify-content:space-between;align-items:center">${s}<span class="ok"></span></div>`, vis);
+      const r = [-4, 3, -2, 5, -3][i];
+      track(c, [[0, { o: 0, y: -300, r }], [6.4 + i * .4, { o: 0, y: -300, r }], [6.9 + i * .4, { o: 1, y: 0, r }, 'back'], [11.2 + i * .3, { o: 1, x: 0, r }], [11.8 + i * .3, { o: 1, x: 380, r: 0 }]]);
+      const ok = c.querySelector('.ok');
+      HOOKS.push((t) => { ok.innerHTML = t > 11.8 + i * .3 ? OK('#1F8A5B', 30) : ''; if (t > 8 && t < 11.2) c.style.marginLeft = Math.sin(t * 5 + i) * 4 + 'px'; else c.style.marginLeft = '0px'; });
+    });
+    track(el('<div class="abs" style="left:40px;top:340px;width:340px;text-align:center;font-size:32px;font-weight:700;color:var(--peri);line-height:1.2">Time for<br>your people</div>', vis), pop(13.3, 14.4));
+  },
+
+  // 8. Wording and law changes
+  '8'() {
+    captions([[0.3, 4.8, 'Not sure how to word it?'], [5.0, 9.4, 'Get a clear, professional draft.'], [9.6, 14.8, 'Law changed? *We update the rules.*']]);
+    const box = el('<div class="card" style="left:60px;top:220px;width:680px;padding:34px 36px"><div style="font-size:24px;color:var(--muted);font-weight:500;margin-bottom:14px">Written warning</div><div id="ty" style="font-size:36px;font-weight:500;min-height:92px;line-height:1.25;color:var(--ink)"></div></div>', vis);
+    track(box, inout(.4, 4.9, 30));
+    const ty = box.querySelector('#ty');
+    const seq = [[.9, 2.7, 'Unfortunately, it has come to our attention that', 1], [2.9, 3.3, 'Unfortunately, it has come to our attention that', -1], [3.5, 4.3, 'We regret to inform you', 1], [4.4, 4.7, 'We regret to inform you', -1]];
+    HOOKS.push((t) => {
+      let s = '';
+      for (const [a, b, txt, dir] of seq) if (t >= a) { const x = seg(t, a, b - a); s = dir > 0 ? txt.slice(0, Math.round(txt.length * x)) : txt.slice(0, Math.round(txt.length * (1 - x))); }
+      const blink = Math.floor(t * 2.2) % 2 === 0 ? '<span style="color:var(--peri)">|</span>' : '<span style="opacity:0">|</span>';
+      ty.innerHTML = s + blink;
+    });
+    const L = letter(130, 60, 540, 620, 'Written warning', 'NS', 9);
+    track(L, inout(5.0, 9.5, 40)); drawLines(L, 5.4, .25);
+    track(el('<div class="abs pill green" style="left:300px;top:720px;font-size:25px">Draft ready</div>', vis), pop(7.9, 9.5));
+    const rule = el(`<div class="card" style="left:80px;top:200px;width:640px;padding:32px 36px"><div style="font-size:24px;color:var(--muted);font-weight:500">Employment standards</div><div style="font-size:34px;font-weight:700;color:var(--indigo);margin:4px 0 24px">Nova Scotia</div><div class="line" style="width:90%"></div><div id="old" class="line" style="width:78%;position:relative"></div><div class="line" style="width:84%"></div><div style="font-size:23px;color:var(--muted);margin-top:8px">Your drafts now use the new rule.</div></div>`, vis);
+    track(rule, inout(9.8, 14.5, 40));
+    const old = rule.querySelector('#old');
+    const badge = el('<div class="abs pill peri" style="left:560px;top:180px;font-size:24px;transform-origin:50% 50%">Updated</div>', vis);
+    const note = rule.lastElementChild;
+    HOOKS.push((t) => {
+      const x = seg(t, 10.8, .4);
+      old.style.background = x < 1 ? '#E6E7EF' : '#7B8CF5';
+      old.style.boxShadow = t > 10.6 && t < 11.2 ? 'inset 0 0 0 999px rgba(168,38,27,.35)' : 'none';
+      const b = seg(t, 11.2, .5); badge.style.opacity = b * (1 - seg(t, 14.5, .3)); badge.style.transform = `perspective(400px) rotateX(${(1 - eo(b)) * 90}deg)`;
+      note.style.opacity = seg(t, 12.2, .4);
+    });
+  },
+
+  // Avatar: ring character, captions timed for a voice track added later
+  avatar() {
+    DUR = 36;
+    const LINES = [[0.6, 4.2, "Hi, I'm your Staffkin HR Agent."], [4.6, 9.4, "You're there for your people. I handle the sheets and systems."], [9.8, 14.2, 'Overnight, I check every deadline for your whole team.'], [14.6, 19.4, "I draft the letters, written for each employee's province."], [19.8, 24.2, "By morning, it's all waiting for your approval."], [24.6, 28.6, 'And I never send anything without you.'], [29.0, 32.4, 'Book a demo at staffkin.com/hr-agent.']];
+    window.LINES = LINES;
+    vis.style.left = (REEL ? 60 : 110) + 'px'; vis.style.top = (REEL ? 260 : 140) + 'px';
+    const body = el('<div class="abs" style="left:250px;top:560px;width:300px;height:220px;border-radius:120px 120px 30px 30px;background:var(--peri)"></div>', vis);
+    const badgeA = el('<div class="abs" style="left:336px;top:640px;background:#fff;color:var(--indigo);font-weight:700;font-size:24px;border-radius:10px;padding:6px 14px">HR Agent</div>', vis);
+    const head = el(`<div class="abs" style="left:170px;top:120px;width:460px;height:440px;border-radius:150px;background:linear-gradient(160deg,#3A3584,#2E2A6B);box-shadow:0 40px 80px -30px rgba(46,42,107,.6)">
+      <div id="eyes" class="abs" style="left:70px;top:120px;width:320px;height:226px">${RINGS(4.2, '#fff', '#AEB8FF')}</div>
+      <div id="p1" class="abs" style="left:152px;top:218px;width:34px;height:34px;border-radius:50%;background:#fff"></div>
+      <div id="p2" class="abs" style="left:274px;top:218px;width:34px;height:34px;border-radius:50%;background:#fff"></div>
+      <div id="mouth" class="abs" style="left:190px;top:350px;width:80px;height:14px;border-radius:14px;background:#fff"></div></div>`, vis);
+    const p1 = head.querySelector('#p1'), p2 = head.querySelector('#p2'), mouth = head.querySelector('#mouth'), eyes = head.querySelector('#eyes');
+    track(head, [[0, { o: 0, s: .8 }], [.2, { o: 0, s: .8 }], [.8, { o: 1, s: 1 }, 'back']]);
+    track(body, [[0, { o: 0, y: 40 }], [.3, { o: 0, y: 40 }], [.9, { o: 1, y: 0 }, 'eo']]);
+    track(badgeA, [[0, { o: 0, y: 40 }], [.5, { o: 0, y: 40 }], [1.1, { o: 1, y: 0 }, 'eo']]);
+    const speaking = (t) => LINES.some(([a, b]) => t > a + .1 && t < b - .3);
+    HOOKS.push((t) => {
+      const bob = Math.sin(t * 1.6) * 8;
+      head.style.marginTop = bob + 'px';
+      const blink = [2.8, 7.1, 11.6, 16.4, 21.9, 26.2, 30.8, 34].some((b) => t > b && t < b + .16);
+      [p1, p2].forEach((p) => p.style.transform = `scaleY(${blink ? .1 : 1})`);
+      eyes.style.transform = `scaleY(${blink ? .92 : 1})`;
+      const look = Math.sin(t * .7) * 6; p1.style.marginLeft = p2.style.marginLeft = look + 'px';
+      const open = speaking(t) ? Math.abs(Math.sin(t * 13.5) * .6 + Math.sin(t * 7.3) * .4) : 0;
+      mouth.style.height = (14 + open * 40) + 'px'; mouth.style.width = (80 - open * 14) + 'px'; mouth.style.marginLeft = (open * 7) + 'px';
+      mouth.style.borderRadius = open > .15 ? '40px' : '14px';
+    });
+    // props that match each line
+    const prop = (x, y, html, a, b) => track(el(`<div class="card" style="left:${x}px;top:${y}px;padding:18px 22px;font-size:24px;font-weight:600;color:var(--indigo);white-space:nowrap">${html}</div>`, vis), pop(a, b));
+    prop(0, 60, '<span class="pill amber" style="font-size:20px">In 3 days</span><br>Probation ends', 10.2, 14.2);
+    prop(560, 40, '<span class="pill peri" style="font-size:20px">In 12 days</span><br>First aid expires', 11.2, 14.2);
+    prop(-10, 90, `Probation extension letter <span class="tag">ON</span>`, 15.0, 19.4);
+    prop(520, 60, `Return-to-work plan <span class="tag">NS</span>`, 16.0, 19.4);
+    prop(560, 60, `<span class="btn pri" style="font-size:22px">Approve</span> <span class="btn" style="font-size:22px">Edit</span>`, 20.2, 24.2);
+    prop(20, 70, `${OK('#1F8A5B', 24)} Nothing sent without you`, 25.0, 28.6);
+    // subtitles
+    const S = REEL ? { left: 80, top: 1480, width: 920, size: 54 } : { left: 1060, top: 540, width: 720, size: 56 };
+    for (const [a, b, txt] of LINES) {
+      const s = el(`<div class="sub" style="left:${S.left}px;top:${S.top}px;width:${S.width}px;font-size:${S.size}px">${txt}</div>`);
+      if (!REEL) s.style.transform = 'translateY(-50%)';
+      HOOKS.push((t) => { const x = seg(t, a, .25) * (1 - seg(t, b, .25)); s.style.opacity = x; s.style.marginTop = (1 - x) * 16 + 'px'; });
+    }
+    endCard(32.6);
+  },
+};
+
+VIDEOS[V]();
+if (V !== 'avatar') endCard(14.9);
+window.DUR = DUR;
+function render(t) { applyTracks(t); for (const h of HOOKS) h(t); }
+window.render = render;
+document.fonts.ready.then(() => { render(0); window.READY = true; });
+</script></body></html>

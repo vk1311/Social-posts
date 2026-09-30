@@ -1,0 +1,186 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Outfit; font-weight: 400; src: url(fonts/outfit-latin-400-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 500; src: url(fonts/outfit-latin-500-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 600; src: url(fonts/outfit-latin-600-normal.woff2); }
+@font-face { font-family: Outfit; font-weight: 700; src: url(fonts/outfit-latin-700-normal.woff2); }
+:root { --indigo:#2E2A6B; --peri:#7B8CF5; --peri-soft:#E3E7FE; --paper:#F5F6FC; --ink:#23213F; --muted:#5F5C85; --line:#E1E3F0; --good:#1F8A5B; --good-soft:#DDF3E8; --bad:#C0392B; --warn:#9A6414; --warn-soft:#FDF1D8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); font-family: Outfit, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.abs { position: absolute; }
+.big { position: absolute; left: 90px; right: 90px; font-weight: 700; color: var(--indigo); letter-spacing: -.025em; line-height: 1.04; }
+.big em { font-style: normal; color: var(--peri); }
+.w { display: inline-block; }
+.cap { position: absolute; left: 90px; right: 90px; top: 260px; font-size: 64px; font-weight: 700; color: var(--indigo); letter-spacing: -.02em; line-height: 1.08; }
+.cap em { font-style: normal; color: var(--peri); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 30px; box-shadow: 0 30px 60px -34px rgba(46,42,107,.45); }
+.notif { position: absolute; left: 150px; width: 780px; background: #fff; border-radius: 30px; padding: 26px 30px; display: flex; gap: 22px; align-items: center; box-shadow: 0 24px 50px -28px rgba(35,33,63,.5); border: 2px solid var(--line); }
+.notif .ic { width: 70px; height: 70px; border-radius: 18px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 30px; flex: none; }
+.notif .t { font-size: 26px; color: var(--muted); } .notif .m { font-size: 33px; font-weight: 600; margin-top: 2px; }
+.bubble { position: absolute; font-size: 36px; padding: 22px 30px; border-radius: 30px; max-width: 760px; }
+.bubble.me { right: 110px; background: var(--indigo); color: #fff; border-bottom-right-radius: 8px; }
+.bubble.them { left: 110px; background: #fff; border: 2px solid var(--line); border-bottom-left-radius: 8px; }
+.row { display: flex; align-items: center; gap: 22px; padding: 22px 0; border-bottom: 2px solid var(--line); font-size: 34px; }
+.av { width: 66px; height: 66px; border-radius: 50%; background: var(--peri-soft); color: var(--indigo); display: grid; place-items: center; font-weight: 700; font-size: 26px; flex: none; }
+.chip { margin-left: auto; font-size: 26px; font-weight: 700; padding: 10px 18px; border-radius: 999px; white-space: nowrap; }
+.good { background: var(--good-soft); color: var(--good); }
+.sticky { position: absolute; width: 380px; height: 380px; background: #FFE58A; padding: 36px; font-size: 54px; font-weight: 600; color: #5b4a00; line-height: 1.1; box-shadow: 0 26px 40px -22px rgba(35,33,63,.55); }
+.item { position: absolute; left: 110px; width: 860px; height: 108px; background: #fff; border: 2px solid var(--line); border-radius: 26px; display: flex; align-items: center; gap: 24px; padding: 0 30px; font-size: 38px; font-weight: 500; box-shadow: 0 18px 36px -26px rgba(46,42,107,.45); }
+.item .ok { width: 56px; height: 56px; border-radius: 50%; background: var(--good-soft); display: grid; place-items: center; flex: none; }
+.scores { display: flex; gap: 22px; }
+.scores span { width: 96px; height: 96px; border-radius: 50%; border: 3px solid #D5D7E6; display: grid; place-items: center; font-size: 40px; color: var(--muted); }
+.anch div { font-size: 34px; padding: 16px 22px; border-radius: 16px; margin-bottom: 8px; } .anch b { display: inline-block; width: 150px; color: var(--indigo); }
+#end { position: absolute; inset: 0; background: var(--indigo); }
+#end .tl { position: absolute; left: 0; right: 0; text-align: center; color: #fff; font-weight: 700; font-size: 104px; letter-spacing: -.02em; line-height: 1.04; top: 820px; }
+#end .tl em { font-style: normal; color: #AEB8FF; }
+#end .cta { position: absolute; left: 50%; width: 560px; margin-left: -280px; height: 128px; top: 1150px; background: var(--peri); color: #fff; font-size: 52px; font-weight: 700; border-radius: 999px; display: grid; place-items: center; }
+#end .url { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; color: #fff; font-size: 50px; font-weight: 500; }
+#end .ns { position: absolute; left: 0; right: 0; top: 1408px; text-align: center; color: #B9BCE6; font-size: 34px; }
+#end .rings { position: absolute; left: 360px; top: 470px; width: 360px; height: 254px; }
+.tag { position: absolute; left: 90px; top: 190px; font-size: 30px; font-weight: 700; letter-spacing: .12em; color: var(--peri); }
+.deco { position: absolute; width: 1500px; height: 1060px; left: 200px; top: 1250px; opacity: .07; }
+</style></head>
+<body><div id="stage"></div>
+<script>
+const R = new URLSearchParams(location.search).get('r') || 'pov';
+const stage = document.getElementById('stage');
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const seg = (t, a, d) => clamp((t - a) / d);
+const eo = (x) => 1 - Math.pow(1 - x, 3);
+const eio = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const back = (x) => { const c1 = 1.6, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const el = (h) => { const d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstChild; };
+const add = (h) => { const n = el(h); stage.appendChild(n); return n; };
+const RINGS = (c1 = '#2E2A6B', c2 = '#7B8CF5', sw = 4) => `<svg viewBox="3 8 34 24" width="100%" height="100%"><circle cx="15" cy="20" r="10" fill="none" stroke="${c1}" stroke-width="${sw}"/><circle cx="25" cy="20" r="10" fill="none" stroke="${c2}" stroke-width="${sw}"/></svg>`;
+const OK = (c = '#1F8A5B', s = 32) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>`;
+function words(node, html) {
+  html = html.replace(/<em>(.*?)<\/em>/g, (m, inner) => inner.split(' ').map((x) => `<em>${x}</em>`).join(' '));
+  node.innerHTML = html.split('<br>').map((part) => part.replace(/(<em>)?([^\s<]+)(<\/em>)?/g, (m, a, w, b) => `<span class="w">${a || ''}${w}${b || ''}</span>`)).join('<br>');
+}
+function wordsIn(node, t0, t, step = .07) { node.querySelectorAll('.w').forEach((w, i) => { const x = eo(seg(t, t0 + i * step, .4)); w.style.opacity = x; w.style.transform = `translateY(${(1 - x) * 44}px)`; }); }
+const win = (t, a, b, fi = .3, fo = .25) => Math.min(eo(seg(t, a, fi)), 1 - eio(seg(t, b - fo, fo)));
+const show = (n, v, tf = '') => { n.style.display = v > 0.001 ? '' : 'none'; n.style.opacity = v; if (tf) n.style.transform = tf; };
+const cap = (html, top = 260, size = 64) => { const n = add(`<div class="cap" style="top:${top}px;font-size:${size}px"></div>`); words(n, html); return n; };
+add(`<div class="deco">${RINGS('#2E2A6B', '#7B8CF5', 3)}</div>`);
+
+// shared end card
+const end = add(`<div id="end"><div class="rings">${RINGS('#fff', '#AEB8FF')}</div><div class="tl"></div><div class="cta">Try for free</div><div class="url">staffkin.com</div><div class="ns">No card needed · Made in Nova Scotia</div></div>`);
+const endTl = end.querySelector('.tl');
+function endCard(t, a, html) {
+  if (!endTl.dataset.set) { words(endTl, html); endTl.dataset.set = 1; }
+  const lt = t - a, v = eio(seg(lt, 0, .45));
+  end.style.display = v > 0 ? '' : 'none'; end.style.clipPath = `circle(${v * 150}% at 50% 60%)`;
+  const rp = back(seg(lt, .25, .55)); const r = end.querySelector('.rings'); r.style.opacity = clamp(rp); r.style.transform = `scale(${lerp(.6, 1, rp)})`;
+  wordsIn(endTl, a + .45, t, .08);
+  const c = end.querySelector('.cta'), cp = back(seg(lt, 1.0, .45)); c.style.opacity = clamp(cp); c.style.transform = `scale(${lerp(.7, 1, cp) * (lt > 1.8 ? 1 + Math.sin((lt - 1.8) * 3.4) * .025 : 1)})`;
+  end.querySelector('.url').style.opacity = eo(seg(lt, 1.3, .4)); end.querySelector('.ns').style.opacity = eo(seg(lt, 1.5, .4));
+}
+
+let DUR = 15, render;
+
+// =============================================================== REEL 1: POV, the old way
+if (R === 'pov') {
+  DUR = 18.5;
+  const pov = add('<div class="big" style="top:640px;font-size:70px;color:var(--muted)">POV:</div>');
+  const title = add('<div class="big" style="top:740px;font-size:112px"></div>'); words(title, 'you’re hiring a line cook <em>the old way.</em>');
+  // notifications
+  const c1 = cap('Monday, <em>9:02 am.</em>');
+  const N = [['#2557A7', 'in', 'Indeed', '43 new applicants for Line cook'], ['#7A7A8C', '?', 'Unknown number', 'hi is the job still open'], ['#C0392B', '☎', 'Phone', '3 missed calls'], ['#2E2A6B', '@', 'Mail', 'RE: RE: RE: line cook job??'], ['#1D6F42', 'X', 'Excel', 'hiring_FINAL_v3_REAL.xlsx was changed']];
+  const notifs = N.map(([c, i, t, m], k) => add(`<div class="notif" style="top:${560 + k * 170}px"><span class="ic" style="background:${c}">${i}</span><div><div class="t">${t} · now</div><div class="m">${m}</div></div></div>`));
+  // lost resume
+  const c2 = cap('Where did that <em>resume</em> go?');
+  const search = add(`<div class="card" style="left:110px;top:600px;width:860px;padding:34px 38px"><div style="display:flex;gap:18px;align-items:center;border:3px solid var(--peri);border-radius:20px;padding:22px 26px;font-size:40px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5F5C85" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span id="q"></span></div><div id="nores" style="font-size:36px;color:var(--muted);text-align:center;padding:60px 0 30px">No results found.</div></div>`);
+  const sticky = add('<div class="sticky" style="left:540px;top:980px">which one was Sam??</div>');
+  // phone tag
+  const c3 = cap('Phone tag, <em>day 3.</em>');
+  const B = [['me', 'Called Jordan. Voicemail.'], ['them', 'Missed call from Jordan'], ['me', 'Called back. Voicemail.'], ['them', 'Missed call from Jordan'], ['me', 'Called back. Voicemail.']];
+  const bubbles = B.map(([w, s], k) => add(`<div class="bubble ${w}" style="top:${560 + k * 150}px">${s}</div>`));
+  // references
+  const refT = add('<div class="big" style="top:760px;font-size:100px;text-align:center;left:40px;right:40px;white-space:nowrap">Reference check?</div>');
+  const strike = add('<div class="abs" style="left:130px;top:818px;height:14px;background:#C0392B;border-radius:7px;width:0"></div>');
+  const maybe = add('<div class="big" style="top:930px;font-size:72px;text-align:center;color:var(--muted);font-weight:600">…maybe next time.</div>');
+  // clean
+  const c4 = cap('Or. <em>One link.</em>');
+  const clean = add(`<div class="card" style="left:110px;top:560px;width:860px;padding:40px 44px">
+    <div style="display:flex;align-items:center;gap:16px;font-size:46px;font-weight:700;color:var(--indigo)"><i style="width:64px;height:45px;display:inline-block">${RINGS()}</i>Line cook</div>
+    <div style="font-size:30px;color:var(--muted);margin:8px 0 18px">3 candidates · scored side by side</div>
+    ${[['JS', 'Jordan S.', '4.2', 'References 2/2'], ['PK', 'Priya K.', '3.8', 'References 2/2'], ['ST', 'Sam T.', '3.1', 'References 1/2']].map(([i, n, s, r]) => `<div class="row cr"><span class="av">${i}</span><div><div style="font-weight:600">${n}</div><div style="font-size:26px;color:var(--muted)">${r}</div></div><span class="chip good">${s}</span></div>`).join('')}
+  </div>`);
+  render = (t) => {
+    const tv = win(t, 0, 2.3); show(title, tv); show(pov, tv); wordsIn(title, .1, t, .08);
+    show(c1, win(t, 2.3, 5.1)); wordsIn(c1, 2.35, t);
+    notifs.forEach((n, k) => { const p = back(seg(t, 2.6 + k * .42, .45)); show(n, clamp(p) * (1 - eio(seg(t, 4.85, .25))), `translateY(${(1 - p) * -120}px) rotate(${(k % 2 ? 1 : -1) * (1 - clamp(p)) * 4}deg)`); });
+    show(c2, win(t, 5.1, 7.8)); wordsIn(c2, 5.15, t);
+    const sv = win(t, 5.2, 7.8); show(search, sv, `translateY(${(1 - eo(seg(t, 5.2, .35))) * 60}px)`);
+    search.querySelector('#q').textContent = 'resume line cook'.slice(0, Math.floor(clamp((t - 5.5) / .8) * 16));
+    search.querySelector('#nores').style.opacity = eo(seg(t, 6.45, .25));
+    const sp = back(seg(t, 6.8, .4)); show(sticky, clamp(sp) * (1 - eio(seg(t, 7.55, .25))), `rotate(${lerp(-30, -6, clamp(sp))}deg) scale(${lerp(1.6, 1, clamp(sp))})`);
+    show(c3, win(t, 7.8, 10.3)); wordsIn(c3, 7.85, t);
+    bubbles.forEach((n, k) => { const p = back(seg(t, 8.05 + k * .4, .35)); show(n, clamp(p) * (1 - eio(seg(t, 10.05, .25))), `scale(${lerp(.6, 1, clamp(p))})`); n.style.transformOrigin = n.classList.contains('me') ? 'right bottom' : 'left bottom'; });
+    const rv = win(t, 10.3, 12.6); show(refT, rv); show(strike, rv); strike.style.width = eio(seg(t, 11.0, .35)) * 820 + 'px'; show(maybe, eo(seg(t, 11.35, .35)) * (1 - eio(seg(t, 12.35, .25))));
+    show(c4, win(t, 12.6, 15.8, .3, .01)); wordsIn(c4, 12.65, t, .1);
+    show(clean, win(t, 12.8, 15.8, .35, .01), `translateY(${(1 - eo(seg(t, 12.8, .45))) * 80}px)`);
+    clean.querySelectorAll('.cr').forEach((r, k) => { const p = eo(seg(t, 13.2 + k * .25, .35)); r.style.opacity = p; r.style.transform = `translateX(${(1 - p) * 60}px)`; });
+    endCard(t, 15.4, 'Hire people,<br><em>not paperwork.</em>');
+  };
+}
+
+// =============================================================== REEL 2: scoring in 10 seconds
+if (R === 'score') {
+  DUR = 15;
+  const title = add('<div class="big" style="top:700px;font-size:110px"></div>'); words(title, 'How to score an interview answer <em>in 10 seconds.</em>');
+  const steps = ['<em>1.</em> Read the guide.', '<em>2.</em> Write what they <em>did.</em>', '<em>3.</em> Score it against the guide.', '<em>4.</em> Average it. <em>Compare.</em>'].map((h) => cap(h));
+  const q = add(`<div class="card" style="left:90px;top:520px;width:900px;padding:40px 44px">
+    <div style="font-size:26px;font-weight:700;letter-spacing:.1em;color:var(--peri)">SAFETY AND CARE</div>
+    <div style="font-size:44px;font-weight:500;line-height:1.25;margin:14px 0 24px">Tell me about a time you noticed something unsafe at work. What did you do?</div>
+    <div class="anch"><div class="a1"><b>1 Weak</b>Ignored it.</div><div class="a3"><b>3 Solid</b>Told someone.</div><div class="a5"><b>5 Strong</b>Made it safe, reported it, followed up.</div></div>
+    <div style="border:2px dashed #D5D7E6;border-radius:18px;padding:20px 24px;margin:22px 0;font-size:32px;min-height:128px;color:var(--ink)" id="note"></div>
+    <div class="scores">${[1, 2, 3, 4, 5].map((n) => `<span id="s${n}">${n}</span>`).join('')}</div></div>`);
+  const cursor = add(`<div class="abs" style="width:70px;height:70px;z-index:9"><svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M4 2 L4 19 L8.5 14.8 L11.6 21.5 L14.4 20.3 L11.4 13.6 L17.5 13.6 Z" fill="#23213F" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg></div>`);
+  const avg = add(`<div class="card" style="left:90px;top:560px;width:900px;padding:44px">
+    ${[['Interviewer A', 4], ['Interviewer B', 4], ['Interviewer C', 5]].map(([n, s]) => `<div class="row ia"><span class="av">${n.slice(-1)}</span><span>${n}</span><span class="chip" style="background:var(--peri-soft);color:var(--indigo);font-size:34px">${s}</span></div>`).join('')}
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:30px"><span style="font-size:38px;font-weight:600">Average</span><span id="avgN" style="font-size:120px;font-weight:700;color:var(--indigo)">0.0</span></div></div>`);
+  const NOTE = 'Saw a wet floor by the dish pit. Put out a sign, mopped it, told the manager and logged it.';
+  render = (t) => {
+    show(title, win(t, 0, 2.3)); wordsIn(title, .1, t, .08);
+    const wins = [[2.3, 5.6], [5.6, 8.2], [8.2, 10.0], [10.0, 12.6]];
+    steps.forEach((s, i) => { show(s, win(t, wins[i][0], wins[i][1])); wordsIn(s, wins[i][0] + .05, t, .06); });
+    show(q, win(t, 2.4, 10.0), `translateY(${(1 - eo(seg(t, 2.4, .4))) * 70}px)`);
+    ['a1', 'a3', 'a5'].forEach((c, i) => { const on = t > 3.1 + i * .7 && t < 5.7; const d = q.querySelector('.' + c); d.style.background = on ? 'var(--peri-soft)' : 'var(--paper)'; d.style.transform = `scale(${on ? lerp(1.04, 1, eo(seg(t, 3.1 + i * .7, .3))) : 1})`; });
+    q.querySelector('#note').textContent = NOTE.slice(0, Math.floor(clamp((t - 5.9) / 1.8) * NOTE.length));
+    const s4 = q.querySelector('#s4'), on = t > 9.05;
+    s4.style.background = on ? 'var(--indigo)' : ''; s4.style.color = on ? '#fff' : ''; s4.style.borderColor = on ? 'var(--indigo)' : '';
+    s4.style.transform = `scale(${on ? lerp(1.3, 1, back(seg(t, 9.05, .3))) : 1})`;
+    const qr = q.getBoundingClientRect(), sr = s4.getBoundingClientRect();
+    const tx = sr.left + sr.width / 2, ty = sr.top + sr.height / 2, p = eio(seg(t, 8.35, .6));
+    cursor.style.left = lerp(900, tx, p) + 'px'; cursor.style.top = lerp(1650, ty, p) + 'px'; show(cursor, eo(seg(t, 8.25, .2)) * (1 - seg(t, 9.6, .25)));
+    show(avg, win(t, 10.05, 12.7), `translateY(${(1 - eo(seg(t, 10.05, .4))) * 70}px)`);
+    avg.querySelectorAll('.ia').forEach((r, i) => { const p2 = eo(seg(t, 10.3 + i * .25, .3)); r.style.opacity = p2; r.style.transform = `translateX(${(1 - p2) * 50}px)`; });
+    avg.querySelector('#avgN').textContent = (4.3 * eo(seg(t, 11.1, .8))).toFixed(1);
+    endCard(t, 12.6, 'Scoring guides for <em>78 roles.</em> Free.');
+  };
+}
+
+// =============================================================== REEL 3: your first job is free
+if (R === 'free') {
+  DUR = 14;
+  const title = add('<div class="big" style="top:700px;font-size:118px"></div>'); words(title, 'Your first job on Staffkin is <em>free.</em>');
+  const c = cap('Here’s what’s <em>in it:</em>', 250, 72);
+  const ITEMS = ['Job description template', 'Prescreen, sent by email', 'Interview guide with scoring', 'Fillable PDFs', 'Compare candidates side by side', 'Onboarding checklist', 'Reference checks, $9 each'];
+  const items = ITEMS.map((s, i) => add(`<div class="item" style="top:${440 + i * 136}px"><span class="ok">${OK()}</span>${s}</div>`));
+  const note = add('<div class="abs" style="left:110px;top:1410px;font-size:34px;color:var(--muted)">One open job · 5 candidates · no card needed</div>');
+  render = (t) => {
+    show(title, win(t, 0, 2.4)); wordsIn(title, .1, t, .09);
+    show(c, win(t, 2.4, 10.4)); wordsIn(c, 2.45, t);
+    items.forEach((n, i) => { const p = back(seg(t, 2.9 + i * .72, .45)); show(n, clamp(p) * (1 - eio(seg(t, 10.15, .25))), `translateX(${(1 - p) * 160}px)`); n.querySelector('.ok').style.transform = `scale(${back(seg(t, 3.15 + i * .72, .35))})`; });
+    show(note, eo(seg(t, 8.3, .4)) * (1 - eio(seg(t, 10.15, .25))));
+    endCard(t, 10.4, 'Hire people,<br><em>not paperwork.</em>');
+  };
+}
+
+window.DUR = DUR;
+window.render = render;
+document.fonts.ready.then(() => { render(0); window.READY = true; });
+</script></body></html>

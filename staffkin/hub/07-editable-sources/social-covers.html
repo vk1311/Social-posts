@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Outfit;src:url(file:///tmp/claude-0/-home-claude/fffb45f8-352e-556b-aae3-cd594ca02152/scratchpad/t/node_modules/@fontsource/outfit/files/outfit-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Outfit;src:url(file:///tmp/claude-0/-home-claude/fffb45f8-352e-556b-aae3-cd594ca02152/scratchpad/t/node_modules/@fontsource/outfit/files/outfit-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Outfit;src:url(file:///tmp/claude-0/-home-claude/fffb45f8-352e-556b-aae3-cd594ca02152/scratchpad/t/node_modules/@fontsource/outfit/files/outfit-latin-700-normal.woff2);font-weight:700}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Outfit;background:#2E2A6B;overflow:hidden;position:relative;color:#fff}
+.bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,#3B3688 0%,#2E2A6B 60%)}
+.ring{position:absolute;border-radius:50%;border-style:solid}
+.center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.row{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.peri{color:#7B8CF5}.sub{color:#C9CCF0;font-weight:400}
+</style></head><body><div class="bg"></div><div id="c"></div>
+<script>
+const q=new URLSearchParams(location.search), kind=q.get('k'), W=+q.get('w'), H=+q.get('h');
+document.body.style.width=W+'px';document.body.style.height=H+'px';
+const c=document.getElementById('c');
+const MARK='file:///home/claude/staffkin/brand/staffkin-mark-white-peri.svg', LOGO='file:///home/claude/staffkin/brand/staffkin-logo-white.svg';
+// Big linked rings peeking in from the edges (same idea as the site hero)
+function rings(side,size,top){const s=size*0.1;const x=side==='l'?-size*0.62:W-size*0.38-size*0.5;
+  c.insertAdjacentHTML('beforeend',`<div class="ring" style="width:${size}px;height:${size}px;left:${x}px;top:${top}px;border-width:${s}px;border-color:rgba(255,255,255,.07)"></div><div class="ring" style="width:${size}px;height:${size}px;left:${x+size*0.5}px;top:${top}px;border-width:${s}px;border-color:rgba(123,140,245,.16)"></div>`);}
+if(kind==='profile'){
+  c.innerHTML=`<div class="center"><img src="${MARK}" style="width:${W*0.9}px"></div>`;
+}else if(kind==='fb'){
+  rings('l',H*1.25,-H*0.12);rings('r',H*1.25,-H*0.12);
+  c.insertAdjacentHTML('beforeend',`<div class="center" style="gap:0"><img src="${LOGO}" style="height:${H*0.13}px">
+   <div style="font-size:${H*0.118}px;font-weight:700;letter-spacing:-.02em;margin-top:${H*0.07}px;line-height:1.05">Hire people, <span class="peri">not paperwork.</span></div>
+   <div class="sub" style="font-size:${H*0.046}px;margin-top:${H*0.05}px">Interview guides, reference checks and onboarding for small Canadian employers</div>
+   <div style="font-size:${H*0.042}px;font-weight:600;margin-top:${H*0.045}px;padding:${H*0.018}px ${H*0.045}px;border-radius:999px;background:rgba(123,140,245,.2);color:#E6E8FD">staffkin.com · Free to start</div></div>`);
+}else if(kind==='li'){
+  rings('r',H*1.9,-H*0.45);
+  c.insertAdjacentHTML('beforeend',`<div class="row" style="padding-left:${W*0.2}px;gap:${H*0.2}px;justify-content:flex-start">
+   <div style="text-align:left"><div style="font-size:${H*0.2}px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Hire people, <span class="peri">not paperwork.</span></div>
+   <div class="sub" style="font-size:${H*0.085}px;margin-top:${H*0.07}px">Interview guides, reference checks and onboarding for small Canadian employers · <b style="color:#fff;font-weight:600">staffkin.com</b></div></div></div>`);
+}
+</script></body></html>
