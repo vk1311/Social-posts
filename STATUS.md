@@ -38,6 +38,7 @@ Drafts never post, so the duplicates are harmless, but delete them to avoid conf
 - Replace the old house-and-keyhole logo on LinkedIn.
 - Fiverr gig for the $39 setup.
 - Nothing is scheduled after Nov 10.
+- An older Keegix logo (key fob with a roofline) is still in Canva as "Practical Key Fob Logo with Subtle Roofline". Delete it so nobody uses it by mistake.
 
 ## Staffkin
 
@@ -54,6 +55,7 @@ Drafts never post, so the duplicates are harmless, but delete them to avoid conf
 - Directory listings (the same approach as Keegix).
 - Clean up the Postiz drafts, and decide about the Nov 16 post, which only exists as a draft.
 - Check the sources behind the stats in queued posts ("3 in 4 employers…", "735 hours…", "54% of HR professionals…").
+- There are two copies of the brand bible: `staffkin/00-BRAND-BIBLE.md` and `staffkin/hub/02-brand-bible/Staffkin-Brand-Bible.md`. They match today. When you change one, change both, or keep only one.
 
 ## Waypoint
 
@@ -75,9 +77,11 @@ Drafts never post, so the duplicates are harmless, but delete them to avoid conf
 - 20 posts made (singles, carousels, festival posts) and uploaded to `jj/`.
 - 1 post published Sep 30; 14 queued on each channel to Nov 12.
 - Logo animations, catalogue pages, product photos and product line drawings.
+- Static logo files: 4 lockups plus a transparent mark in `jj/brand/logos/`.
+- Final brand bible: `jj/BRAND-BIBLE.md` (Poppins, colours, voice, festival rules). It replaces the draft `jj/00-BRAND-BIBLE.md`.
+- JJ hub with the full schedule and to-do list: `jj/README.md`.
 
 **Open**
-- **The static logo file (SVG or PNG) is missing from everything here.** Get it from the other account.
-- Written brand guide: `jj/00-BRAND-BIBLE.md` is a draft read from the posts. Confirm the colours and fonts.
+- 5 reels in `jj/reels/videos/` are silent. Add the Hinglish voiceover (see `jj/video/editor-brief.md`), then schedule them. The English scripts in `jj/reels/` are superseded.
 - Delete the duplicate drafts in Postiz.
 - IndiaMART catalogue refresh; WhatsApp automation idea (Co-Existence) not started.
