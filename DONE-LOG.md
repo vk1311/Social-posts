@@ -13,6 +13,7 @@ What's finished so far, per brand, and what's still open. Last updated 30 Sep 20
 - [x] Favicon + phone icon set rebuilt with the full mark
 - [x] Horizontal lockups (white, cream)
 - [x] Facebook cover (1640×856)
+- [x] YouTube banner (2560×1440) and LinkedIn cover (2256×382), in `brand/`
 - [x] Tagline: *Workflows, built to order.*
 
 **Website — waypointns.ca**
@@ -56,6 +57,8 @@ What's finished so far, per brand, and what's still open. Last updated 30 Sep 20
 - [x] Sitemap + robots file; submitted to Bing Webmaster
 - [x] Facebook + Instagram connected to the scheduler
 - [x] Canva logo lockup (house + dot)
+- [x] YouTube banner (2560×1440) and LinkedIn cover (2256×382), in `brand/`
+- [ ] LinkedIn page still shows the retired house-and-keyhole logo — swap for `brand/profile-picture-1080.png`
 - [ ] **Pick one logo** — site uses a tag shape, Canva lockup uses a house shape
 - [ ] **Facebook profile picture is blank** (default grey avatar)
 - [ ] **Instagram profile picture is a personal photo** — swap for the logo
@@ -69,6 +72,7 @@ What's finished so far, per brand, and what's still open. Last updated 30 Sep 20
 - [x] Palette, font, two-ring mark, favicon set
 - [x] Link preview card (OG image)
 - [x] Facebook + Instagram connected; Facebook profile = the mark
+- [x] YouTube banner (2560×1440) in `profiles/`; LinkedIn cover already there
 - [ ] **Instagram profile picture is a personal photo** — swap for the mark
 - [ ] Directory listings (Staffkin + Staffkin HR Suite)
 - [ ] Written voice rules
