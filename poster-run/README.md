@@ -108,14 +108,35 @@ Every code was scanned card by card from the print PDF (22 Oct) and opens the ri
 
 Mail letters, key cards and flyers for Keegix hosts (B&Bs, inns, cottages) around the Valley and Cape Breton. Start with `keegix/00-START-HERE.txt`.
 
+This run uses card option A (yellow key cards) and flyer option 4 (Airbnb house rules, timely until Nov 20). After Nov 20, flyer option 3 (tear-off) replaces it for the same spots.
+
 | Folder | What it is |
 |---|---|
-| `keegix/1-print-final/` | The print set: 30 window-envelope letters with numbered key cards, card options A (yellow key cards) and B (business cards), flyer options 1 poster, 2 table tent, 3 tear-off, 4 Airbnb house rules. One page per spot (page number = spot number). `00-OPTIONS-overview.png` shows them all |
-| `keegix/2-lists/` | `keegix-dropoff-spots-valley.xlsx`: 41 drop-off spots west to east (cafés, hardware, furniture, markets, libraries, visitor centre, realtors), with hours and map links. `mail-30.csv` and `mail-backup-20.csv` for the letters |
+| `keegix/1-print-final/` | What to print: `10-CARD-option-A-keycards-37-spots.pdf`, `23-FLYER-option-4-airbnb-rules-21-spots.pdf`, the 30 window-envelope letters with numbered mail key cards, the key card backs, and flyer 3 (tear-off) for after Nov 20. `00-READ-ME-printing.txt` has the full page-to-spot lists |
+| `keegix/2-lists/` | `keegix-dropoff-spots-valley.xlsx`: 41 drop-off spots west to east (cafés, hardware, furniture, markets, libraries, visitor centre, realtors), with hours, map links, who gets cards and a flyer, and the PDF page for each spot. `mail-30.csv` and `mail-backup-20.csv` for the letters |
 | `keegix/3-qr-codes/` | All 8 keegix.com QR sign styles |
 | `keegix/4-source/` | Scripts, fonts and data to rebuild any piece |
-| `keegix/old-versions/` | Earlier drafts. Don't print |
+| `keegix/old-versions/` | Earlier drafts, plus card option B and flyer options 1 and 2 in `v3-unused-options/`. Don't print |
 
-QR codes: every piece has its own code. Letters `keegix.com/demo?src=m01`–`m30`, cards left at a spot `src=c01`–`c41`, flyers at a spot `src=l01`–`l41` (flyer 4 opens `keegix.com/airbnb-house-rules?src=l##`). Scans and sign-ups go in the Google Sheet "Keegix print tracker (mail + public spots)".
+**Who gets what** (from "What to leave" in the spreadsheet):
+
+- Key cards: 37 spots, spots 1–10, 12–15, 17–18, 20–33, 35–41. Pages 1–37 of the key card PDF are those spots in that order.
+- Flyer: 21 spots, spots 1, 2, 4, 6, 7, 8, 11, 13, 14, 16, 19, 24, 25, 28, 29, 30, 31, 34, 39, 40, 41. Pages 1–21 of the flyer 4 PDF are those spots in that order.
+- Flyer only, no key cards: 11 Berwick and District Library, 16 Kentville Library, 19 Maytag Coin Laundry, 34 Wolfville Memorial Library.
+
+**Sheets** (colour, office printer, 100% / Actual size):
+
+| Stock | What | Sheets |
+|---|---|---|
+| Cardstock (Pen+Gear 65 lb white) | Spot key cards (9 per sheet) | 37 |
+| | Mail key cards (30 cards) | 4 |
+| | Key card backs (`03-keycards-BACK.pdf`, 41 copies on the reverse) | 0 extra |
+| | **Total cardstock** | **41** |
+| Copy paper | Flyer 4 | 21 |
+| | Mail letters | 30 |
+| | **Total copy paper** | **51** |
+| Later | Flyer 3 tear-off after Nov 20 (print only the 21 flyer spots' pages; page = spot number) | 21 copy paper |
+
+QR codes: every piece has its own code. Letters `keegix.com/demo?src=m01`–`m30`, cards left at a spot `src=c01`–`c41`, flyers at a spot `src=l01`–`l41` (flyer 4 opens `keegix.com/airbnb-house-rules?src=l##`). Each page prints its page number, spot number, spot name and code small at the bottom. Scans and sign-ups go in the Google Sheet "Keegix print tracker (mail + public spots)".
 
 The Keegix stops can be merged into the "All stops in driving order" tab of `waypoint-flyer-run.xlsx` for one route.

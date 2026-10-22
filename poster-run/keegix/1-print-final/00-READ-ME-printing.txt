@@ -1,28 +1,102 @@
-KEEGIX PRINT SET (v3, 21 Oct 2026) - this folder replaces v2-window-mail
+KEEGIX PRINT SET (updated 22 Oct 2026)
 
-00-OPTIONS-overview.png ......... all options on one page, to pick from
-keegix-dropoff-spots-valley.xlsx  41 drop-off spots west to east, with codes, hours, map links
+Print in colour at 100% / "Actual size" on the office printer.
+Cardstock = Pen+Gear 65 lb white. Paper = regular copy paper.
+This run: card option A (yellow key cards) + flyer option 4 (Airbnb house rules, timely until Nov 20).
+After Nov 20: switch to flyer option 3 (tear-off) for the same flyer spots.
 
-MAIL (30 window envelopes)
-01-mail-letters-30.pdf ........... plain paper. Address shows through a #10 window.
+SHEET COUNTS
+Cardstock ........ 41 sheets
+  10-CARD-option-A-keycards-37-spots.pdf ... 37 sheets (one per spot, 9 key cards each)
+  02-mail-keycards-30-FRONT.pdf ............ 4 sheets (30 mail key cards, last sheet has 3)
+  03-keycards-BACK.pdf ..................... print 41 copies on the reverse of those 41 sheets
+                                             (flip on the long edge; no extra sheets)
+Copy paper ....... 51 sheets
+  23-FLYER-option-4-airbnb-rules-21-spots.pdf  21 sheets
+  01-mail-letters-30.pdf ................... 30 sheets
+Later (after Nov 20): 22-FLYER-option-3-tearoff-per-spot.pdf, 21 sheets of copy paper.
+  That file still has all 41 spots (page = spot number), so print only pages 1, 2, 4, 6, 7, 8, 11, 13, 14, 16, 19, 24, 25, 28, 29, 30, 31, 34, 39, 40, 41.
+
+WHO GETS WHAT (from "What to leave" in 2-lists/keegix-dropoff-spots-valley.xlsx)
+Key cards: 37 spots, spots 1–10, 12–15, 17–18, 20–33, 35–41.
+  No key cards (flyer only): 11 Berwick and District Library, 16 Kentville Library, 19 Maytag Coin Laundry, 34 Wolfville Memorial Library.
+Flyer: 21 spots, spots 1, 2, 4, 6, 7, 8, 11, 13, 14, 16, 19, 24, 25, 28, 29, 30, 31, 34, 39, 40, 41.
+Every spot keeps its own codes: key cards C##, flyer L## (## = spot number).
+Each page prints its page number, spot number, spot name and code small at the bottom.
+
+KEY CARDS: 10-CARD-option-A-keycards-37-spots.pdf, page to spot
+  page  1 = spot  1  C01  Annapolis Royal Visitor Information Centre (Annapolis Royal)
+  page  2 = spot  2  C02  Lazy Daisy Café (Annapolis Royal)
+  page  3 = spot  3  C03  ARCH & PO (Annapolis Royal)
+  page  4 = spot  4  C04  Fort Anne Cafe (Annapolis Royal)
+  page  5 = spot  5  C05  Annapolis Home Hardware Building Centre (Annapolis Royal)
+  page  6 = spot  6  C06  Rockin' Rogi Diner (Middleton)
+  page  7 = spot  7  C07  Green Elephant Café (Kingston)
+  page  8 = spot  8  C08  North Mountain Fine Coffees (Berwick)
+  page  9 = spot  9  C09  Wheaton's Cider Press Cafe (Berwick)
+  page 10 = spot 10  C10  Berwick Home Hardware Building Centre (Berwick)
+  page 11 = spot 12  C12  Sourdough Country Bakery and Windmill Cafe (Cambridge)
+  page 12 = spot 13  C13  Wheelhouse Coffee Co. (Kentville)
+  page 13 = spot 14  C14  T.A.N. Coffee - Kentville (Kentville)
+  page 14 = spot 15  C15  Half Acre Cafe (Kentville)
+  page 15 = spot 17  C17  Kentville Farmers Market (Kentville)
+  page 16 = spot 18  C18  Rockwell Home Hardware (Kentville)
+  page 17 = spot 20  C20  Fraser’s Pro Home Centre (Kentville)
+  page 18 = spot 21  C21  Kent Building Supplies (New Minas)
+  page 19 = spot 22  C22  Nothin' Fancy Furniture Warehouse (New Minas)
+  page 20 = spot 23  C23  Hampton House Furniture (New Minas)
+  page 21 = spot 24  C24  The Village Coffeehouse (Canning)
+  page 22 = spot 25  C25  Art Can Kitchen and Studios (Canning)
+  page 23 = spot 26  C26  Baked Inn Homemade (Centreville)
+  page 24 = spot 27  C27  Elderkin's Farm Market, Bakery, & U-Pick (Wolfville)
+  page 25 = spot 28  C28  Hennigar's Farm Market (Wolfville)
+  page 26 = spot 29  C29  Charts Café (Wolfville)
+  page 27 = spot 30  C30  Just Us! Wolfville Café (Wolfville)
+  page 28 = spot 31  C31  T.A.N. Coffee - Wolfville (Wolfville)
+  page 29 = spot 32  C32  Juniper Luncheonette (Wolfville)
+  page 30 = spot 33  C33  Wolfville Farmers' Market (Wolfville)
+  page 31 = spot 35  C35  Rafuse Home Hardware Building Centre (Wolfville)
+  page 32 = spot 36  C36  MacKay Real Estate (Wolfville)
+  page 33 = spot 37  C37  Sherri & Carrie - Annapolis Valley Real Estate Team (Wolfville)
+  page 34 = spot 38  C38  Studio 14 Gifts & Gallery (Wolfville)
+  page 35 = spot 39  C39  Just Us! Grand Pré Café & Roastery (Hortonville)
+  page 36 = spot 40  C40  The Border Diner & Grill (Hantsport)
+  page 37 = spot 41  C41  GERRISH & GRAY CAFE (Windsor)
+
+FLYER 4: 23-FLYER-option-4-airbnb-rules-21-spots.pdf, page to spot
+  page  1 = spot  1  L01  Annapolis Royal Visitor Information Centre (Annapolis Royal)
+  page  2 = spot  2  L02  Lazy Daisy Café (Annapolis Royal)
+  page  3 = spot  4  L04  Fort Anne Cafe (Annapolis Royal)
+  page  4 = spot  6  L06  Rockin' Rogi Diner (Middleton)
+  page  5 = spot  7  L07  Green Elephant Café (Kingston)
+  page  6 = spot  8  L08  North Mountain Fine Coffees (Berwick)
+  page  7 = spot 11  L11  Berwick and District Library (Berwick)
+  page  8 = spot 13  L13  Wheelhouse Coffee Co. (Kentville)
+  page  9 = spot 14  L14  T.A.N. Coffee - Kentville (Kentville)
+  page 10 = spot 16  L16  Kentville Library (Kentville)
+  page 11 = spot 19  L19  Maytag Coin Laundry (Kentville)
+  page 12 = spot 24  L24  The Village Coffeehouse (Canning)
+  page 13 = spot 25  L25  Art Can Kitchen and Studios (Canning)
+  page 14 = spot 28  L28  Hennigar's Farm Market (Wolfville)
+  page 15 = spot 29  L29  Charts Café (Wolfville)
+  page 16 = spot 30  L30  Just Us! Wolfville Café (Wolfville)
+  page 17 = spot 31  L31  T.A.N. Coffee - Wolfville (Wolfville)
+  page 18 = spot 34  L34  Wolfville Memorial Library (Wolfville)
+  page 19 = spot 39  L39  Just Us! Grand Pré Café & Roastery (Hortonville)
+  page 20 = spot 40  L40  The Border Diner & Grill (Hantsport)
+  page 21 = spot 41  L41  GERRISH & GRAY CAFE (Windsor)
+
+MAIL (30 window envelopes, no change)
+01-mail-letters-30.pdf ........... copy paper. Address shows through a #10 window.
                                    Fold: bottom third up, then top third back (address faces out).
                                    Test ONE in an envelope before doing all 30.
-02-mail-keycards-30-FRONT.pdf .... cardstock, 4 sheets. Each card is numbered (M01...) to match its letter.
-03-keycards-BACK.pdf ............. print on the back of the key card sheets (flip on long edge).
+02-mail-keycards-30-FRONT.pdf .... cardstock. Each card is numbered (M01...) to match its letter.
 Tape each key card in the dashed box on its letter. Add return label + stamp.
 
-PUBLIC SPOTS (every spot has its own codes: cards = C##, flyer = L##, see the spreadsheet)
-Pick ONE card option and ONE flyer option, then print only the pages for the spots you'll visit
-(page number = spot number).
-Cards
-  10-CARD-option-A-keycards-per-spot.pdf ...... yellow key cards, 9 per sheet (cardstock) + backs from 03
-  11-CARD-option-B-business-cards-per-spot.pdf  business cards 3.5x2, 10 per sheet (cardstock) + backs from 12
-Flyers
-  20-FLYER-option-1-poster ............ navy poster for boards and windows
-  21-FLYER-option-2-table-tent ........ fold in half on the dashed line, stands on a counter (cardstock)
-  22-FLYER-option-3-tearoff ........... bulletin boards; cut the tabs at the bottom so people can tear one off
-  23-FLYER-option-4-airbnb-rules ...... timely: Airbnb's new house rules start Nov 20; QR opens the free checker
+OTHER FILES
+00-OPTIONS-overview.png .......... every option you chose from (A and 4 chosen).
+                                   Options B, 1 and 2 are in old-versions/v3-unused-options/.
+22-FLYER-option-3-tearoff ........ for after Nov 20; cut the tabs at the bottom so people can tear one off.
 
-Print everything at 100% / "Actual size".
-All codes open keegix.com/demo (or the free checker for flyer 4) with the spot's code, so scans can be counted.
-Tracker: Google Sheet "Keegix print tracker (mail + public spots)".
+All codes open keegix.com/demo?src=<code> (flyer 4 opens keegix.com/airbnb-house-rules?src=<code>),
+so scans can be counted per spot. Tracker: Google Sheet "Keegix print tracker (mail + public spots)".
