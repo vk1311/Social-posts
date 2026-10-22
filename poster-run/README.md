@@ -91,3 +91,19 @@ All four were scanned from the printed PDF and open the right page.
 
 - Care homes and home-care agencies (same sector as the day job).
 - National chains: head office decides.
+
+## Keegix (`keegix/`)
+
+Mail letters, key cards and flyers for Keegix hosts (B&Bs, inns, cottages) around the Valley and Cape Breton. Start with `keegix/00-START-HERE.txt`.
+
+| Folder | What it is |
+|---|---|
+| `keegix/1-print-final/` | The print set: 30 window-envelope letters with numbered key cards, card options A (yellow key cards) and B (business cards), flyer options 1 poster, 2 table tent, 3 tear-off, 4 Airbnb house rules. One page per spot (page number = spot number). `00-OPTIONS-overview.png` shows them all |
+| `keegix/2-lists/` | `keegix-dropoff-spots-valley.xlsx`: 41 drop-off spots west to east (cafés, hardware, furniture, markets, libraries, visitor centre, realtors), with hours and map links. `mail-30.csv` and `mail-backup-20.csv` for the letters |
+| `keegix/3-qr-codes/` | All 8 keegix.com QR sign styles |
+| `keegix/4-source/` | Scripts, fonts and data to rebuild any piece |
+| `keegix/old-versions/` | Earlier drafts. Don't print |
+
+QR codes: every piece has its own code. Letters `keegix.com/demo?src=m01`–`m30`, cards left at a spot `src=c01`–`c41`, flyers at a spot `src=l01`–`l41` (flyer 4 opens `keegix.com/airbnb-house-rules?src=l##`). Scans and sign-ups go in the Google Sheet "Keegix print tracker (mail + public spots)".
+
+The Keegix stops can be merged into the "All stops in driving order" tab of `waypoint-flyer-run.xlsx` for one route.
