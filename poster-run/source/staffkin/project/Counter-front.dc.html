@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Staffkin counter card, front</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2E2A6B}a:hover{color:#23213F}
+</style>
+</helmet>
+<div style="width: 816px; height: 1056px; background: #FFFFFF; font-family: Outfit, system-ui, sans-serif; color: #23213F; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); position: relative">
+<sc-for list="{{copies}}" as="c" hint-placeholder-count="4">
+<div style="width: 408px; height: 528px; box-sizing: border-box; padding: 44px 44px 44px; display: flex; flex-direction: column; gap: 18px; overflow: hidden">
+<img src="/_blob/c16d331316db5d74af8231d1430645f3" alt="staffkin" style="height: 28px; width: 117px; display: block">
+<h1 style="margin: 0; font-size: 42px; line-height: 1.04; font-weight: 600; color: #2E2A6B; letter-spacing: -0.01em">Hiring this month?</h1>
+<img src="/_blob/61e7acffaa86676d9034e8dc166fceb4" alt="QR code to staffkin.com" style="width: 168px; height: 168px; display: block; margin-top: 2px">
+<div style="margin-top: auto; background: #2E2A6B; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 24px; font-weight: 600; color: #FFFFFF; line-height: 1.15">Your first job is free.</div>
+<div style="font-size: 16px; color: #DDE1FF">No card needed.</div>
+</div>
+</div>
+</sc-for>
+<div aria-hidden="true" style="position: absolute; left: 407px; top: 0; height: 1056px; border-left: 1px dashed #9C99BF"></div>
+<div aria-hidden="true" style="position: absolute; left: 0; top: 527px; width: 816px; border-top: 1px dashed #9C99BF"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1056}}'>
+class Component extends DCLogic {
+renderVals() {
+return { copies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] };
+}
+}
+</script>
+</body>
+</html>

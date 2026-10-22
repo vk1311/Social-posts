@@ -46,7 +46,7 @@ Look: the "lining" style from the Waypoint posts (chart grid, two bearing lines,
 
 ---
 
-# Staffkin (added 21 Oct 2026)
+# Staffkin (added 21 Oct 2026, card A made smaller 22 Oct)
 
 Flyers, cards and a stop list for Staffkin around Kentville, New Minas, Coldbrook, Wolfville and Grand Pré.
 
@@ -55,17 +55,17 @@ Flyers, cards and a stop list for Staffkin around Kentville, New Minas, Coldbroo
 | File | What it is |
 |---|---|
 | `staffkin-flyer-stops.xlsx` | 59 stops plus 20 businesses hiring right now (Job Bank and Indeed, 21 Oct). Same columns as the Waypoint route tab, so the rows paste straight under it. 20 stops share an address with the Waypoint list (marked "Also on Waypoint list"), so one visit covers both. Tabs: Staffkin stops, Hiring now, Print count, How to use |
-| `staffkin-flyers-print.pdf` | 5 Letter pages, print at actual size (100%) on cardstock |
-| `png/7`–`png/11` | The same 5 pages as images |
+| `staffkin-flyers-print.pdf` | 6 Letter pages, print at actual size (100%). Pages 1–5 on 65 lb cardstock, page 6 on plain copy paper (see Printing below) |
+| `png/7a`, `png/7b`, `png/8`–`png/11` | The same pages as images |
 | `source/staffkin/` | Editable sources (`project/*.dc.html`), logo, QR codes, Outfit font, and `render.py` |
 
 ## The four options
 
 | | What | Per sheet | Where it goes |
 |---|---|---|---|
-| A | Counter card: "Hiring this month?" + "Your first job is free." | 2 (cut in half) | Restaurants, cafés, bookkeepers, wineries, shops with a hiring sign |
-| B | Reference-check postcard: "$9 CAD a check" (page 2 = front, page 3 = address side) | 4 | Mail to businesses that are hiring; print page 3 on the back, flip on the long edge |
-| C | Board poster: "Hire people, not paperwork." | 1 | Chamber office, libraries, print shops |
+| A | Counter card, quarter-letter (4.25 × 5.5 in), two-sided. Front: logo, "Hiring this month?", QR, "Your first job is free. No card needed." Back (dark text on white, fine in black and white): what it does, "Data stored in Canada.", staffkin.com, contact@staffkin.com | 4 (page 1 = front, page 2 = back) | Restaurants, cafés, bookkeepers, wineries, shops with a hiring sign |
+| B | Reference-check postcard: "$9 CAD a check" (page 3 = front, page 4 = address side) | 4 | Mail to businesses that are hiring; print page 4 on the back, flip on the long edge |
+| C | Board poster: "Hire people, not paperwork." Plain copy paper | 1 | Chamber office, libraries, print shops |
 | D | Pocket card: "Hiring? Your first job is free." | 10 | Trades counters, salons, garages, shops |
 
 ## QR codes
@@ -77,12 +77,24 @@ Flyers, cards and a stop list for Staffkin around Kentville, New Minas, Coldbroo
 | C | `staffkin.com/?utm_source=board-poster` |
 | D | `staffkin.com/?utm_source=pocket-card` |
 
-All four were scanned from the printed PDF and open the right page.
+Every code was scanned card by card from the print PDF (22 Oct) and opens the right link.
+
+## Printing (office colour printer, Pen+Gear 65 lb white cardstock + copy paper)
+
+| Stock | PDF pages | Sheets (from the Print count tab) |
+|---|---|---|
+| 65 lb cardstock | 1–2 card A (two-sided), 3–4 postcard B (two-sided), 5 pocket cards D | A 21 + B 3 + D 8 = **32** |
+| Plain copy paper | 6 board poster C | **9** |
+
+- Print at actual size (100%), not "fit to page".
+- Two-sided A and B: print the front page, put the printed stack back in the tray, then print the back page, flipping on the long edge. Or use the printer's two-sided setting with "flip on long edge" if it takes cardstock. Run one test sheet first and hold it to the light.
+- Checked 22 Oct: with the back flipped on the long edge, every back sits inside its front's card with at least 0.46 in (A) and 0.41 in (B) to spare, so a small printer shift won't push text onto the wrong card.
+- Cut on the dashed lines on the front.
 
 ## Design rules followed
 
 - Real brand files only: the two-ring logo from `staffkin/brand/`, Indigo/Periwinkle/Paper/Ink, Outfit.
-- Readability first: white stock, dark text, rings in the corner at low opacity, no photos (so nothing AI-made and no heavy ink).
+- Readability first: white stock, dark text, rings in the corner at low opacity on C, no photos (so nothing AI-made and no heavy ink). Card A has nothing running to the edge, so a slightly off cut doesn't show.
 - No stats, testimonials or time-saved claims. Facts only: 70 job description templates, 357 interview questions, $9 CAD reference checks, data stored in Canada, AI only drafts questions.
 - Contact is contact@staffkin.com. No day-job mention anywhere.
 - No street address on the postcard: return line is "Staffkin · Kentville, Nova Scotia".

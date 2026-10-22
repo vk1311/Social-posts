@@ -1,19 +1,74 @@
 {
   "v": 3,
-  "createdOnFiles": {"v": 1, "at": "2026-10-22T02:30:00Z"},
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-22T02:30:00Z"
+  },
   "title": "Staffkin print flyers",
-  "launch": {"view": "canvas"},
+  "launch": {
+    "view": "canvas"
+  },
   "pages": [],
   "boards": {
-    "Main.dc.html": {"x": 0, "y": 0, "w": 816, "h": 1056, "title": "A · Counter card, 2 per sheet"},
-    "Postcard-front.dc.html": {"x": 896, "y": 0, "w": 816, "h": 1056, "title": "B · Reference postcard front, 4 per sheet"},
-    "Postcard-back.dc.html": {"x": 1792, "y": 0, "w": 816, "h": 1056, "title": "B · Reference postcard back (address side)"},
-    "Board-poster.dc.html": {"x": 2688, "y": 0, "w": 816, "h": 1056, "title": "C · Board poster, 1 per sheet"},
-    "Pocket-cards.dc.html": {"x": 3584, "y": 0, "w": 816, "h": 1056, "title": "D · Pocket cards, 10 per sheet"}
+    "Counter-front.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 816,
+      "h": 1056,
+      "title": "A \u00b7 Counter card front, 4 per sheet"
+    },
+    "Counter-back.dc.html": {
+      "x": 896,
+      "y": 0,
+      "w": 816,
+      "h": 1056,
+      "title": "A \u00b7 Counter card back (flip on long edge)"
+    },
+    "Postcard-front.dc.html": {
+      "x": 1792,
+      "y": 0,
+      "w": 816,
+      "h": 1056,
+      "title": "B \u00b7 Reference postcard front, 4 per sheet"
+    },
+    "Postcard-back.dc.html": {
+      "x": 2688,
+      "y": 0,
+      "w": 816,
+      "h": 1056,
+      "title": "B \u00b7 Reference postcard back (address side)"
+    },
+    "Board-poster.dc.html": {
+      "x": 3584,
+      "y": 0,
+      "w": 816,
+      "h": 1056,
+      "title": "C \u00b7 Board poster, 1 per sheet"
+    },
+    "Pocket-cards.dc.html": {
+      "x": 4480,
+      "y": 0,
+      "w": 816,
+      "h": 1056,
+      "title": "D \u00b7 Pocket cards, 10 per sheet"
+    }
   },
-  "order": ["Main.dc.html", "Postcard-front.dc.html", "Postcard-back.dc.html", "Board-poster.dc.html", "Pocket-cards.dc.html"],
+  "order": [
+    "Counter-front.dc.html",
+    "Counter-back.dc.html",
+    "Postcard-front.dc.html",
+    "Postcard-back.dc.html",
+    "Board-poster.dc.html",
+    "Pocket-cards.dc.html"
+  ],
   "notes": {
-    "rowtitle": {"x": 0, "y": -300, "text": "Staffkin print options · letter cardstock · print at actual size", "kind": "title1", "maxW": 4400}
+    "rowtitle": {
+      "x": 0,
+      "y": -300,
+      "text": "Staffkin print options \u00b7 A, B, D on 65 lb cardstock \u00b7 C on plain paper \u00b7 print at actual size",
+      "kind": "title1",
+      "maxW": 5296
+    }
   },
   "designSystems": []
 }
