@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Staffkin counter card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2E2A6B}a:hover{color:#23213F}
+</style>
+</helmet>
+<div style="width: 816px; height: 1056px; background: #FFFFFF; font-family: Outfit, system-ui, sans-serif; color: #23213F; display: flex; flex-direction: column; position: relative">
+<sc-for list="{{copies}}" as="c" hint-placeholder-count="2">
+<div style="width: 816px; height: 528px; box-sizing: border-box; padding: 44px 48px; position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) 232px; column-gap: 36px; align-items: center">
+<svg width="420" height="300" viewBox="0 0 420 300" aria-hidden="true" style="position: absolute; right: -150px; top: -120px">
+<circle cx="150" cy="150" r="118" fill="none" stroke="#2E2A6B" stroke-width="26" opacity="0.12"></circle>
+<circle cx="268" cy="150" r="118" fill="none" stroke="#7B8CF5" stroke-width="26" opacity="0.2"></circle>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 14px; position: relative">
+<img src="/_blob/c16d331316db5d74af8231d1430645f3" alt="staffkin" style="height: 34px; width: 142px; display: block">
+<div style="font-size: 15px; font-weight: 500; color: #5F5C85; margin-top: 6px">Built in Kentville, Nova Scotia</div>
+<h1 style="margin: 0; font-size: 56px; line-height: 1.04; font-weight: 600; color: #2E2A6B; letter-spacing: -0.01em">Hiring this month?</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.45; color: #23213F">Run the whole hire in one place: the job ad, interview questions with scoring, reference checks and a first-week checklist.</p>
+<div style="margin-top: 6px; background: #2E2A6B; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 28px; font-weight: 600; color: #FFFFFF; line-height: 1.15">Your first job is free.</div>
+<div style="font-size: 15px; color: #DDE1FF">No card needed. Data stored in Canada.</div>
+</div>
+</div>
+<div style="position: relative; background: #FFFFFF; border: 2px solid #E1E3F2; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+<img src="/_blob/61e7acffaa86676d9034e8dc166fceb4" alt="QR code to staffkin.com" style="width: 196px; height: 196px; display: block">
+<div style="font-size: 16px; font-weight: 600; color: #23213F; margin-top: 4px">Scan to start</div>
+<div style="font-size: 22px; font-weight: 600; color: #2E2A6B">staffkin.com</div>
+<div style="font-size: 14px; color: #5F5C85">contact@staffkin.com</div>
+</div>
+</div>
+</sc-for>
+<div aria-hidden="true" style="position: absolute; left: 0; top: 527px; width: 816px; border-top: 1px dashed #9C99BF"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1056}}'>
+class Component extends DCLogic {
+renderVals() {
+return { copies: [{ id: 1 }, { id: 2 }] };
+}
+}
+</script>
+</body>
+</html>
