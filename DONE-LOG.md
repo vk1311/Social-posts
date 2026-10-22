@@ -26,6 +26,9 @@ What's finished so far, per brand, and what's still open. Last updated 30 Sep 20
 - [ ] Replace the three "review pending" cards as clients finish
 - [ ] Magenta weight pass (start with /solutions and /industries)
 
+**Print**
+- [x] Poster run (21 Oct 2026): six flyer and card designs, print PDF and 61-stop list in [`poster-run/`](poster-run/README.md)
+
 **Listings**
 - [x] Google Business Profile (verified 3 Sep 2026, service area, first review in)
 - [x] Bing Places, Apple Business Connect, Yellow Pages, Clutch, Yelp
