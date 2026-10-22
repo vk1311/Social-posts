@@ -132,30 +132,37 @@ last3=sheet(ws3,"All stops (route)",allrows,"Every stop once, grouped by town in
 # Print list
 ws4=wb.create_sheet("Print list")
 ws4["A1"]="Print list"; ws4["A1"].font=Font(name="Arial",bold=True,size=14,color=ink)
-ws4["A2"]="Counts update from the 'All stops (route)' sheet. Change the blue numbers if you want more or fewer per stop."; ws4["A2"].font=Font(name="Arial",size=10,color="5A6B73")
-hdr=["Item","Stops that need it","Per stop","Pieces","Per sheet","Sheets to print","Paper"]
+ws4["A2"]="Counts update from the 'All stops (route)' sheet. Change the blue numbers for more or fewer per stop, or more spares. Page numbers are in waypoint-flyers-print.pdf."; ws4["A2"].font=Font(name="Arial",size=10,color="5A6B73")
+hdr=["Item","Stops that need it","Per stop","Spares","Pieces","Per sheet","Sheets to print","Paper","Sides","Notes"]
 for i,h in enumerate(hdr,1):
-    c=ws4.cell(row=4,column=i,value=h); c.font=hfont; c.fill=hfill
-for i,w in enumerate([34,18,10,10,10,16,40],1): ws4.column_dimensions[get_column_letter(i)].width=w
-items=[("Waypoint flyer (Letter)","*Waypoint flyer*",1,1,"Cardstock or paper. Spare +5 for torn ones."),
-       ("Waypoint counter cards (half-letter)","*Waypoint counter cards*",6,2,"Cardstock. Cut in half on the line."),
-       ("Apps poster (Letter)","*Apps poster*",1,1,"Paper is fine on boards."),
-       ("Apps take-one cards (quarter-letter)","*Apps take-one cards*",8,4,"Cardstock. Cut on the crop marks.")]
+    c=ws4.cell(row=4,column=i,value=h); c.font=hfont; c.fill=hfill; c.alignment=Alignment(vertical="center",wrap_text=True)
+for i,w in enumerate([36,12,10,9,10,10,12,12,28,52],1): ws4.column_dimensions[get_column_letter(i)].width=w
+ws4.row_dimensions[4].height=30
+# (item, stop-list match, per stop, spares, per sheet, paper, sides, notes)
+items=[("Waypoint flyer A or B (Letter)","*Waypoint flyer*",1,2,1,"Paper","One-sided","Plain copy paper. PDF page 1 (A) or 2 (B)."),
+       ("Waypoint counter cards (quarter-letter)","*Waypoint counter cards*",6,0,4,"Cardstock","Two-sided, flip on long edge","PDF pages 3 (front) and 4 (back). Cut on the dashed lines into 4."),
+       ("Apps poster A or B (Letter)","*Apps poster*",1,0,1,"Paper","One-sided","Paper is fine on boards. PDF page 5 (A) or 6 (B)."),
+       ("Apps take-one cards (quarter-letter)","*Apps take-one cards*",8,0,4,"Cardstock","One-sided","Cut on the crop marks. PDF page 7.")]
 blue=Font(name="Arial",size=10,color="0000FF")
-for r,(name,pat,per,ps,note) in enumerate(items,5):
+for r,(name,pat,per,spare,ps,paper,sides,note) in enumerate(items,5):
     ws4.cell(row=r,column=1,value=name).font=bfont
     ws4.cell(row=r,column=2,value=f"=COUNTIF('All stops (route)'!G5:G{last3},\"{pat}\")").font=bfont
     c=ws4.cell(row=r,column=3,value=per); c.font=blue
-    ws4.cell(row=r,column=4,value=f"=B{r}*C{r}").font=bfont
-    c=ws4.cell(row=r,column=5,value=ps); c.font=blue
-    ws4.cell(row=r,column=6,value=f"=ROUNDUP(D{r}/E{r},0)").font=Font(name="Arial",size=10,bold=True,color=mag)
-    ws4.cell(row=r,column=7,value=note).font=bfont
-ws4["A10"]="Total sheets"; ws4["A10"].font=Font(name="Arial",bold=True,size=10)
-ws4["F10"]="=SUM(F5:F8)"; ws4["F10"].font=Font(name="Arial",bold=True,size=10,color=mag)
-ws4["A12"]="Bring"; ws4["A12"].font=Font(name="Arial",bold=True,size=10)
-for i,t in enumerate(["Pushpins and a roll of tape","Scissors or a paper trimmer for the cards","Your phone with app.waypointns.ca open, to show someone in 30 seconds","Ask first everywhere. Boards get cleared every 2–4 weeks, so re-post on the 1st of each month."],13):
+    c=ws4.cell(row=r,column=4,value=spare); c.font=blue
+    ws4.cell(row=r,column=5,value=f"=B{r}*C{r}+D{r}").font=bfont
+    c=ws4.cell(row=r,column=6,value=ps); c.font=blue
+    ws4.cell(row=r,column=7,value=f"=ROUNDUP(E{r}/F{r},0)").font=Font(name="Arial",size=10,bold=True,color=mag)
+    ws4.cell(row=r,column=8,value=paper).font=bfont
+    ws4.cell(row=r,column=9,value=sides).font=bfont
+    c=ws4.cell(row=r,column=10,value=note); c.font=bfont; c.alignment=Alignment(wrap_text=True,vertical="top")
+for r,(label,f) in enumerate([("Cardstock sheets (65 lb)",'=SUMIF(H5:H8,"Cardstock",G5:G8)'),("Copy paper sheets",'=SUMIF(H5:H8,"Paper",G5:G8)'),("Total sheets","=G10+G11")],10):
+    ws4.cell(row=r,column=1,value=label).font=Font(name="Arial",bold=True,size=10)
+    ws4.cell(row=r,column=7,value=f).font=Font(name="Arial",bold=True,size=10,color=mag)
+ws4["A14"]="Bring"; ws4["A14"].font=Font(name="Arial",bold=True,size=10)
+for i,t in enumerate(["Pushpins and a roll of tape","Scissors or a paper trimmer for the cards","Your phone with app.waypointns.ca open, to show someone in 30 seconds","Ask first everywhere. Boards get cleared every 2–4 weeks, so re-post on the 1st of each month."],15):
     ws4.cell(row=i,column=1,value="• "+t).font=bfont
-ws4["A18"]="Addresses and hours come from Google Maps and earlier route notes (Oct 2026). Check hours before a long drive."; ws4["A18"].font=Font(name="Arial",size=9,italic=True,color="5A6B73")
+ws4["A20"]="Counter cards print on both sides: see 'How to print two-sided' in poster-run/README.md. Print one test sheet first."; ws4["A20"].font=Font(name="Arial",size=10,bold=True,color=ink)
+ws4["A21"]="Addresses and hours come from Google Maps and earlier route notes (Oct 2026). Check hours before a long drive."; ws4["A21"].font=Font(name="Arial",size=9,italic=True,color="5A6B73")
 
 import os
 out=os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","waypoint-flyer-run.xlsx")

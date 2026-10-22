@@ -107,10 +107,10 @@ def footer(dark, url, bottom=44, side=56, mk=60, fs=19, name=True):
 def bar(w=120, h=8, color=MAG, mt=22):
     return f'<div style="width: {w}px; height: {h}px; background: {color}; margin-top: {mt}px"></div>'
 
-def bullet(text, fs=19, dark=False, sq=12):
+def bullet(text, fs=19, dark=False, sq=12, sqc=MAG):
     col = PAPER if dark else INK
     return (f'<div style="display: flex; gap: 12px; align-items: flex-start">'
-            f'<div style="flex: none; width: {sq}px; height: {sq}px; background: {MAG}; margin-top: {int(fs*0.42)}px"></div>'
+            f'<div style="flex: none; width: {sq}px; height: {sq}px; background: {sqc}; margin-top: {int(fs*0.42)}px"></div>'
             f'<div style="font-size: {fs}px; line-height: 1.35; color: {col}">{text}</div></div>')
 
 W, H = 816, 1056
@@ -179,34 +179,57 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 </div>'''
 files["Waypoint-by-hand.dc.html"] = page("Waypoint flyer: by hand", W, H, body)
 
-# ---------- Waypoint C: counter cards 2-up (half-letter landscape) ----------
-def wcard(top):
-    q = qr_svg("https://waypointns.ca/?src=card", 150, "QR code to waypointns.ca")
-    ch = 528
-    return f'''<div style="position: absolute; left: 0; top: {top}px; width: {W}px; height: {ch}px; overflow: hidden">
-{lining(W, ch, step=44)}
-{coords(MUTED, 11, 40, 48)}
-<div style="position: absolute; left: 48px; top: 78px; width: 470px; display: flex; flex-direction: column">
-<h2 style="margin: 0; font-family: Manrope, sans-serif; font-weight: 800; font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; color: {INK}">I make the software fit your business.</h2>
-{bar(90, 6, mt=16)}
-<p style="margin: 16px 0 0 0; font-size: 16px; line-height: 1.45; color: {SLATE}">Built around the way your shop already runs.</p>
-<div style="margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px">{bullet("Quotes signed on a phone", 15, sq=9)}{bullet("Invoices as PDFs", 15, sq=9)}{bullet("Booking forms", 15, sq=9)}{bullet("Job records", 15, sq=9)}</div>
-<div style="margin-top: 22px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 20px; color: {INK}">From $1,200 CAD, then $60 CAD a month.</div>
-<div style="margin-top: 4px; font-size: 15px; color: {SLATE}">Half up front. No contract.</div>
+# ---------- Waypoint C: counter cards, quarter-letter, 4 per sheet, two-sided ----------
+# Each card is 4.25 x 5.5 in (408 x 528 px). Print the front and back pages on both sides,
+# flip on the long edge: the card in column c, row r on the front backs onto column 1-c, row r.
+CW, CH = 408, 528
+CPAD = 36  # 0.375 in clear on every card edge: the office printer can't print to the sheet edge
+SLOTS = [(0, 0), (1, 0), (0, 1), (1, 1)]
+
+def wcard_front(left, top):
+    q = qr_svg("https://waypointns.ca/?src=card", 132, "QR code to waypointns.ca")
+    return f"""<div style="position: absolute; left: {left}px; top: {top}px; width: {CW}px; height: {CH}px; overflow: hidden; background: #FFFFFF">
+{lining(CW, CH, step=34)}
+{coords(MUTED, 11, CPAD, CPAD)}
+<div style="position: absolute; left: {CPAD}px; right: {CPAD}px; top: 72px; display: flex; flex-direction: column">
+<h2 style="margin: 0; font-family: Manrope, sans-serif; font-weight: 800; font-size: 38px; line-height: 1.02; letter-spacing: -0.02em; color: {INK}; text-wrap: balance">I make the software fit your business.</h2>
+{bar(72, 6, mt=16)}
 </div>
-<div style="position: absolute; right: 48px; top: 96px; width: 210px; display: flex; flex-direction: column; align-items: center; gap: 12px">
-<div style="background: #FFFFFF; padding: 10px; border: 2px solid {INK}; box-shadow: 6px 6px 0 {MAG}">{q}</div>
-<div style="font-size: 15px; line-height: 1.4; text-align: center; color: {INK}">Call or text Vatsal<br><b>902-670-9297</b></div>
+<div style="position: absolute; left: {CPAD}px; right: {CPAD}px; top: 268px; display: flex; gap: 18px; align-items: center">
+<div style="flex: none; background: #FFFFFF; padding: 8px; border: 2px solid {INK}; box-shadow: 5px 5px 0 {MAG}">{q}</div>
+<div style="font-size: 15px; line-height: 1.45; color: {INK}">Call or text Vatsal<br><b style="font-size: 17px">902-670-9297</b></div>
 </div>
-{footer(False, "waypointns.ca", bottom=36, side=48, mk=44, fs=16)}
-</div>'''
-body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow: hidden; background: {PAPER}; color: {INK}; font-family: 'DM Sans', sans-serif">
-{wcard(0)}
-{wcard(528)}
-<div style="position: absolute; left: 0; right: 0; top: 527px; border-top: 2px dashed {MIST}"></div>
-<div style="position: absolute; right: 12px; top: 518px; font-size: 11px; letter-spacing: 0.1em; color: {MUTED}; background: {PAPER}; padding: 0 6px">CUT</div>
-</div>'''
-files["Waypoint-counter-cards.dc.html"] = page("Waypoint counter cards (2 per sheet)", W, H, body)
+{footer(False, "waypointns.ca", bottom=CPAD, side=CPAD, mk=38, fs=13)}
+</div>"""
+
+def wcard_back(left, top):
+    # Dark text on white only, so it also prints fine in black and white.
+    pts = "".join(bullet(t, 17, sq=10, sqc=INK) for t in
+                  ["Quotes signed on a phone", "Invoices as PDFs", "Booking forms", "Job records"])
+    return f"""<div style="position: absolute; left: {left}px; top: {top}px; width: {CW}px; height: {CH}px; overflow: hidden; background: #FFFFFF">
+<div style="position: absolute; left: {CPAD}px; right: {CPAD}px; top: 76px; display: flex; flex-direction: column">
+<p style="margin: 0; font-size: 17px; line-height: 1.4; color: {INK}; text-wrap: balance">Built around the way your shop already runs.</p>
+<div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px">{pts}</div>
+<div style="height: 2px; background: {INK}; margin-top: 26px"></div>
+<div style="margin-top: 22px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 22px; line-height: 1.2; color: {INK}">From $1,200 CAD,<br>then $60 CAD a month.</div>
+<div style="margin-top: 8px; font-size: 16px; line-height: 1.4; color: {INK}">Half up front. No contract.</div>
+</div>
+<div style="position: absolute; right: {CPAD}px; bottom: {CPAD}px; font-size: 14px; letter-spacing: 0.12em; color: {INK}">waypointns.ca</div>
+</div>"""
+
+fronts = "".join(wcard_front(c * CW, r * CH) for c, r in SLOTS)
+body = f"""<div style="width: {W}px; height: {H}px; position: relative; overflow: hidden; background: #FFFFFF; color: {INK}; font-family: 'DM Sans', sans-serif">
+{fronts}
+<div style="position: absolute; left: 0; right: 0; top: {CH - 1}px; border-top: 2px dashed {MIST}"></div>
+<div style="position: absolute; top: 0; bottom: 0; left: {CW - 1}px; border-left: 2px dashed {MIST}"></div>
+</div>"""
+files["Waypoint-counter-cards-front.dc.html"] = page("Waypoint counter cards, front (4 per sheet)", W, H, body)
+
+backs = "".join(wcard_back((1 - c) * CW, r * CH) for c, r in SLOTS)
+body = f"""<div style="width: {W}px; height: {H}px; position: relative; overflow: hidden; background: #FFFFFF; color: {INK}; font-family: 'DM Sans', sans-serif">
+{backs}
+</div>"""
+files["Waypoint-counter-cards-back.dc.html"] = page("Waypoint counter cards, back (4 per sheet)", W, H, body)
 
 # ---------- Apps A: whole business (light, tear-offs) ----------
 q = qr_svg("https://app.waypointns.ca/?src=poster-whole", 220, "QR code to app.waypointns.ca")
@@ -306,10 +329,11 @@ for name, src in files.items():
 
 # canvas index
 now = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-row1 = ["Main.dc.html", "Waypoint-by-hand.dc.html", "Waypoint-counter-cards.dc.html"]
+row1 = ["Main.dc.html", "Waypoint-by-hand.dc.html", "Waypoint-counter-cards-front.dc.html", "Waypoint-counter-cards-back.dc.html"]
 row2 = ["Apps-whole-business.dc.html", "Apps-market-sellers.dc.html", "Apps-take-one-cards.dc.html"]
 titles = {"Main.dc.html": "Waypoint A · Fit (Letter)", "Waypoint-by-hand.dc.html": "Waypoint B · By hand (Letter)",
-          "Waypoint-counter-cards.dc.html": "Waypoint C · Counter cards, 2 per sheet",
+          "Waypoint-counter-cards-front.dc.html": "Waypoint C · Counter cards, front (4 per sheet)",
+          "Waypoint-counter-cards-back.dc.html": "Waypoint C · Counter cards, back (flip on long edge)",
           "Apps-whole-business.dc.html": "Apps A · Whole business, tear-offs (Letter)",
           "Apps-market-sellers.dc.html": "Apps B · Market sellers (Letter)",
           "Apps-take-one-cards.dc.html": "Apps C · Take-one cards, 4 per sheet"}
@@ -318,7 +342,7 @@ for i, f in enumerate(row1): boards[f] = {"x": i * 896, "y": 300, "w": W, "h": H
 for i, f in enumerate(row2): boards[f] = {"x": i * 896, "y": 1700, "w": W, "h": H, "title": titles[f]}
 canvas = {"v": 3, "createdOnFiles": {"v": 1, "at": now}, "title": "Waypoint print run: flyers and cards",
           "launch": {"view": "canvas"}, "pages": [], "boards": boards, "order": row1 + row2,
-          "notes": {"t1": {"x": 0, "y": 20, "text": "Waypoint: business owners", "kind": "title1", "maxW": 2608},
+          "notes": {"t1": {"x": 0, "y": 20, "text": "Waypoint: business owners", "kind": "title1", "maxW": 3504},
                     "t2": {"x": 0, "y": 1420, "text": "Waypoint Apps: makers, sellers, side hustles", "kind": "title1", "maxW": 2608}},
           "designSystems": []}
 json.dump(canvas, open(os.path.join(PROJ, "canvas.json"), "w"))

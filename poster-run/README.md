@@ -1,27 +1,50 @@
 # Poster run (Oct 2026)
 
-Flyers, counter cards and the stop list for putting Waypoint and Waypoint Apps up around the Annapolis Valley.
+Flyers, counter cards and the stop list for putting Waypoint and Waypoint Apps up around the Annapolis Valley. Printed in colour on the office printer, on Pen+Gear 65 lb white cardstock and regular copy paper.
 
 ## What's here
 
 | File | What it is |
 |---|---|
-| `waypoint-flyer-run.xlsx` | 61 stops. Tabs: Waypoint (28), Waypoint Apps (41), All stops in driving order (for the route), Print list |
-| `waypoint-flyers-print.pdf` | All six designs, one per Letter page, ready to print |
-| `png/` | The same six designs as images |
-| `source/` | Editable sources: the six designs (`project/*.dc.html`) and the scripts that make them |
+| `waypoint-flyer-run.xlsx` | 61 stops. Tabs: Waypoint (28), Waypoint Apps (41), All stops in driving order (for the route), Print list (sheet counts by paper type) |
+| `waypoint-flyers-print.pdf` | 7 Letter pages, ready to print at actual size (100%). Page list below |
+| `png/1`–`png/6` | The same pages as images (`3a` = counter card fronts, `3b` = backs) |
+| `source/` | Editable sources: the designs (`project/*.dc.html`), `gen_print.py` (designs), `build_pdf.py` (PDF and images), `build_xlsx.py` (stop list) |
 
-## The six designs
+## What to print, and on what
 
-| | Waypoint (business owners) | Waypoint Apps (sellers, side hustles) |
-|---|---|---|
-| A | "I make the software fit your business." Light | "Digitize your whole business." Light, with tear-offs |
-| B | "Still doing it by hand?" Dark | "Selling at markets or online?" Dark |
-| C | Counter cards, 2 per sheet (cut in half) | Take-one cards, 4 per sheet (cut on the dashed lines) |
+| PDF page | Design | Paper | Sides | Per sheet |
+|---|---|---|---|---|
+| 1 | Waypoint A: "I make the software fit your business." Light | Copy paper | One | 1 |
+| 2 | Waypoint B: "Still doing it by hand?" Dark | Copy paper | One | 1 |
+| 3 + 4 | Waypoint C: counter cards, 4.25 × 5.5 in. Page 3 = fronts, page 4 = backs | Cardstock | **Two, flip on long edge** | 4 |
+| 5 | Apps A: "Digitize your whole business." Light, with tear-offs | Copy paper (so the tabs tear) | One | 1 |
+| 6 | Apps B: "Selling at markets or online?" Dark | Copy paper | One | 1 |
+| 7 | Apps C: take-one cards | Cardstock | One | 4 |
+
+At the default amounts (Print list tab): **81 sheets of cardstock** (39 counter cards + 42 Apps cards) and **33 sheets of copy paper** (12 Waypoint flyers including 2 spares, 21 Apps posters).
+
+Counter card front: headline, QR code, "Call or text Vatsal 902-670-9297", in the lining style on a white background. Back: "Built around the way your shop already runs.", the four bullets, the price and waypointns.ca, in dark text on white only, so it prints fine in black and white too. Everything sits at least 0.375 in inside each card, clear of the printer's unprintable edge and the cut lines.
+
+## How to print two-sided (counter cards)
+
+1. Load the cardstock. If the printer has a paper type setting, pick Cardstock or Heavy.
+2. Open `waypoint-flyers-print.pdf` and choose Print.
+3. Pages: `3-4`. Size: **Actual size** (100%), not "Fit". Colour: on.
+4. Two-sided: **Print on both sides, flip on long edge** (sometimes called "long-edge binding").
+5. Print **1 copy first**. Hold it up to a window: each back should sit inside the dashed lines on the front. Then print the rest (39 copies at the default amounts).
+6. Cut on the dashed lines: one cut down the middle, one across, 4 cards per sheet.
+
+If the printer won't print both sides on cardstock (some only take heavy paper one side at a time from the side tray):
+
+1. Print page 3 only, 1 copy.
+2. Put that sheet back in the same tray, turned over side to side, with the same edge going in first.
+3. Print page 4 only.
+4. If the back comes out upside down, turn the sheet the other way next time. Once the test sheet is right, print all the fronts, then feed the stack back the same way for the backs.
 
 ## QR codes
 
-Each design has its own tag, so you can see which one brings people in:
+Each design has its own tag, so you can see which one brings people in. All 12 codes in the PDF were scanned (also in black and white) and each opens its link.
 
 | Design | Link |
 |---|---|
@@ -32,15 +55,14 @@ Each design has its own tag, so you can see which one brings people in:
 | Apps B | `app.waypointns.ca/?src=poster-market` |
 | Apps C | `app.waypointns.ca/?src=card` |
 
-## Printing
+## Posting
 
-- Cardstock for the counter and take-one cards. Plain paper for Apps A, so the tear-offs tear.
-- The two dark designs use a lot of ink and get a white edge on a home printer.
+- The two dark designs (pages 2 and 6) use a lot of ink and get a white border, because the printer can't print to the edge.
 - Ask before posting anywhere. Boards get cleared every 2–4 weeks, so re-post on the 1st of each month.
 
 ## Changing a design
 
-Edit the text in `source/gen_print.py`, then run `python3 gen_print.py` in `source/`. It rewrites the six files in `source/project/`. `build_xlsx.py` rebuilds the stop list the same way.
+In `source/`: edit the text in `gen_print.py` and run `python3 gen_print.py` (rewrites `project/`), then `python3 build_pdf.py` (rewrites the PDF and `png/`). `python3 build_xlsx.py` rebuilds the stop list. The old one-sided, 2-per-sheet counter card is in the git history (before 22 Oct 2026).
 
 Look: the "lining" style from the Waypoint posts (chart grid, two bearing lines, coordinates at the top, magenta bar under the headline, full mark bottom-left, URL bottom-right). Manrope + DM Sans, chart palette. Prices carry CAD. Addresses and hours are from Google Maps, Oct 2026.
 
