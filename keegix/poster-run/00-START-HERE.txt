@@ -1,0 +1,16 @@
+KEEGIX POSTER RUN (Oct 2026)
+
+1-print-final/   Print these. Start with 00-READ-ME-printing.txt and 00-OPTIONS-overview.png.
+                 Mail: 30 window letters + numbered key cards. Public spots: card options A/B, flyer options 1-4,
+                 one page per spot (page number = spot number).
+2-lists/         keegix-dropoff-spots-valley.xlsx (41 spots, west to east, codes, hours, map links)
+                 mail-30.csv (who gets letters, codes M01-M30), mail-backup-20.csv (next batch)
+                 Tracker (scans + sign-ups): Google Sheet "Keegix print tracker (mail + public spots)"
+                 https://docs.google.com/spreadsheets/d/1Fk9o9tZfa_n9uufx0g8fZ6IQ_kzMzHDuwiTImDXtttg/edit
+3-qr-codes/      keegix-qr-styles-8x2.zip: all 8 keegix.com sign styles (cafe + mail versions)
+4-source/        poster-run-source.zip: scripts, fonts, logos and data to rebuild or change any piece
+old-versions/    earlier drafts from 21 Oct (keytag v1, Stannp postcard, v2 letters). Don't print these:
+                 v1 used the wifi hook and the old single codes.
+
+How tracking works: every code opens keegix.com/demo?src=<code> (flyer 4 opens the free Airbnb checker).
+Site logs keep about 7 days, so collect scans weekly (or approve the daily scan check).

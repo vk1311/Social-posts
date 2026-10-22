@@ -1,0 +1,28 @@
+KEEGIX PRINT SET (v3, 21 Oct 2026) - this folder replaces v2-window-mail
+
+00-OPTIONS-overview.png ......... all options on one page, to pick from
+keegix-dropoff-spots-valley.xlsx  41 drop-off spots west to east, with codes, hours, map links
+
+MAIL (30 window envelopes)
+01-mail-letters-30.pdf ........... plain paper. Address shows through a #10 window.
+                                   Fold: bottom third up, then top third back (address faces out).
+                                   Test ONE in an envelope before doing all 30.
+02-mail-keycards-30-FRONT.pdf .... cardstock, 4 sheets. Each card is numbered (M01...) to match its letter.
+03-keycards-BACK.pdf ............. print on the back of the key card sheets (flip on long edge).
+Tape each key card in the dashed box on its letter. Add return label + stamp.
+
+PUBLIC SPOTS (every spot has its own codes: cards = C##, flyer = L##, see the spreadsheet)
+Pick ONE card option and ONE flyer option, then print only the pages for the spots you'll visit
+(page number = spot number).
+Cards
+  10-CARD-option-A-keycards-per-spot.pdf ...... yellow key cards, 9 per sheet (cardstock) + backs from 03
+  11-CARD-option-B-business-cards-per-spot.pdf  business cards 3.5x2, 10 per sheet (cardstock) + backs from 12
+Flyers
+  20-FLYER-option-1-poster ............ navy poster for boards and windows
+  21-FLYER-option-2-table-tent ........ fold in half on the dashed line, stands on a counter (cardstock)
+  22-FLYER-option-3-tearoff ........... bulletin boards; cut the tabs at the bottom so people can tear one off
+  23-FLYER-option-4-airbnb-rules ...... timely: Airbnb's new house rules start Nov 20; QR opens the free checker
+
+Print everything at 100% / "Actual size".
+All codes open keegix.com/demo (or the free checker for flyer 4) with the spot's code, so scans can be counted.
+Tracker: Google Sheet "Keegix print tracker (mail + public spots)".
