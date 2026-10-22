@@ -54,7 +54,7 @@ Flyers, cards and a stop list for Staffkin around Kentville, New Minas, Coldbroo
 
 | File | What it is |
 |---|---|
-| `staffkin-flyer-stops.xlsx` | 59 stops. Same columns as the Waypoint route tab, so the rows paste straight under it. 20 stops share an address with the Waypoint list (marked "Also on Waypoint list"), so one visit covers both. Tabs: Staffkin stops, Hiring now, Print count, How to use |
+| `staffkin-flyer-stops.xlsx` | 59 stops plus 20 businesses hiring right now (Job Bank and Indeed, 21 Oct). Same columns as the Waypoint route tab, so the rows paste straight under it. 20 stops share an address with the Waypoint list (marked "Also on Waypoint list"), so one visit covers both. Tabs: Staffkin stops, Hiring now, Print count, How to use |
 | `staffkin-flyers-print.pdf` | 5 Letter pages, print at actual size (100%) on cardstock |
 | `png/7`–`png/11` | The same 5 pages as images |
 | `source/staffkin/` | Editable sources (`project/*.dc.html`), logo, QR codes, Outfit font, and `render.py` |
