@@ -1,87 +1,78 @@
 # Marketing status: all brands
 
-Last updated 30 Sep 2026. Postiz numbers were read from postiz.waypointns.ca the same day.
+Last updated 6 Oct 2026. "Published" counts are from the last full check (30 Sep). "Queued" is what was scheduled in Postiz on 6 Oct. "Made" means the post files are finished and in [`batches/`](batches/README.md), waiting to be reviewed and scheduled. Nothing in batches 1–3 was published or scheduled as of 6 Oct.
 
-## Postiz at a glance
+## At a glance
 
-| Brand | Published | Queued (FB + IG) | Queue runs until | Notes |
+| Brand | Published (30 Sep) | Queued to | Made, not yet scheduled | Calendar covered to |
 |---|---|---|---|---|
-| Keegix | 1 + 1 | 15 + 15 | Tue Nov 10 | 10 image posts at 9 am and 6 reels at 7 pm Atlantic |
-| Staffkin | none yet | 26 + 26 | Nov 13 | **5 extra Facebook drafts** sit on the same slots as queued posts. **Nov 16 "Meet your Staffkin HR Agent" exists only as a Facebook draft, so it won't post** |
-| Waypoint | 6 + 6 | 10 + 10 | **Oct 22** | **Nothing scheduled after Oct 22** |
-| JJ Pumps | 1 + 1 | 14 + 14 | Nov 12 | **4 + 4 extra drafts** duplicate queued posts (Dhanteras, Diwali, New Year, Nov 12 ordering) |
+| Waypoint | 6 | Oct 22 | Batches 1–3: Oct 7 to Dec 17, plus 6 Google Business Profile updates (Nov 3 to Dec 8) | Dec 17 |
+| Keegix | 1 | Nov 10 | Batches 1–3: Oct 14 to Dec 15, plus winter/launch posts on hold for Jan–Feb 2027 | Dec 15 (+ Jan holds) |
+| Staffkin | 0 | Nov 13 | Batches 1–3: Oct 14 to Dec 18 (feed, stories, LinkedIn) | Dec 18 |
+| JJ Pumps | 1 | Nov 12 | Batches 1–3: Oct 13 to Jan 14, 2027 | Dec 15 (+ Jan 1 and Jan 14 festival posts) |
 
-Drafts never post, so the duplicates are harmless, but delete them to avoid confusion. Also, LinkedIn and Google Business Profile are awaiting approval in Postiz; Threads and YouTube Shorts are planned.
+LinkedIn and Google Business Profile channels were waiting for approval in Postiz on 30 Sep.
 
 ---
+
+## Waypoint (waypointns.ca)
+
+**Done**
+- Site rebuilt with the chart-magenta lining design; logo system and social images.
+- 6 posts published (Sep 17–27); 10 queued to Oct 22.
+- Batch 1 (made): news posts, comparisons (spreadsheet, contact form), QuickBooks Online ProAdvisor post, Customer Translation Guide, listings carousel.
+- Batch 2 (made): revisions, two silent reels, the October Atlantic small-business report (PDF) and the website changes for the report page.
+- Batch 3 (made): Nov 14 to Dec 17. Comparisons (booking app, generic CRM, job-scheduling app for plow season), custom AI tools ("AI drafts, you decide"), year-end invoicing, a new Customer Translation Guide line, holiday hours, three posts about Waypoint's own projects (Staffkin, Keegix, one product decision), three silent reels, six Google Business Profile updates, and LinkedIn captions for the batch-1 posts.
+
+**Open**
+- Thursday news slots from Oct 28 to Dec 17 need a real headline from the two weeks before each date.
+- Listings carousel (Oct 24): official logos and live screenshots still to drop in.
+- Report: one section still to add before the PDF goes on the site; the report-based posts stay on hold until then.
+- Holiday hours (Dec 15): confirm the real hours.
+- The before/after post about a client's invoicing build stays on hold until the client agrees.
 
 ## Keegix (keegix.com)
 
 **Done**
-- Site live, and Stripe billing live and verified end to end.
-- SEO basics: sitemap, robots.txt, meta descriptions, one H1 per page, sitemap in Bing.
-- Asset kit: taglines, 25/50/100/250-word descriptions, categories, founder bio, awkward form answers, a list of 45 directories (`keegix/listings/`).
-- Listings: G2 (also covers Capterra, GetApp and Software Advice), AlternativeTo submitted, STR Specialist pitched. Prayas from STR Specialist is the first affiliate.
-- Brand kit taken from the site. Brand bible v1 is written.
-- Instagram @keegix.app and the Facebook page are set up: logo, cover, bio, link, email.
-- 16 posts made. 10 images are scheduled on Facebook and Instagram (Sep 30 to Nov 3, 9 am), and 6 reels were edited with audio and scheduled (Oct 8 to Nov 10, 7 pm).
-- A creator-outreach script runs every Monday on the Oracle server. Referral offer: 25% off for the audience and 30% for the creator for 12 months.
+- Site and billing live. SEO basics in place. Asset kit and directory list in `keegix/listings/`.
+- Listed on G2. Other directories submitted or queued.
+- Instagram and Facebook set up; 16 posts made, 10 images and 6 reels queued to Nov 10.
+- Batches 1–2 (made): news post on the Airbnb host-fee change, poll story, winter shutdown guide, co-host handover, Nova Scotia registration check, property managers and cleaners, a silent reel.
+- Batch 3 (made): Nov 14 to Dec 15. Winter guests (heat, parking, snow), holiday guests, winter checkout list, a plain gift-season post, a pre-season checklist, New Year's Eve house rules, and a winter pass for property managers.
 
 **Open**
-- The G2 profile claim is blocked by a G2 bug. Email G2 support.
-- AlternativeTo: "Suggest as alternative" on the Touch Stay and Hostfully pages once the listing is approved.
-- Two screenshots are missing: the host editor half-filled, and the QR sign PDF. They go in first position on G2 and AlternativeTo.
-- Directories: Launching Next, Crunchbase, Indie Hackers. Product Hunt waits for a Tuesday and 3–4 real users.
-- **20 direct messages to real hosts: not started. This is the highest-value item.**
-- IndexNow key file; Google "Request indexing" for / and /setup.
-- Remove the personal phone number from the Keegix Facebook page, if it isn't meant to be public.
-- Replace the old house-and-keyhole logo on LinkedIn.
-- Fiverr gig for the $39 setup.
-- Nothing is scheduled after Nov 10.
-- An older Keegix logo (key fob with a roofline) is still in Canva as "Practical Key Fob Logo with Subtle Roofline". Delete it so nobody uses it by mistake.
+- Uneed launch on Jan 11, 2027: countdown stories are made and on hold until the launch is confirmed.
+- G2 profile claim; AlternativeTo listing approval.
+- Two product screenshots (host editor, QR sign PDF) for directory listings.
+- Direct outreach to hosts: not started.
+- Keegix post files numbered 01_ to 21_ sit at the repo root; move them into `keegix/`.
 
-## Staffkin
-
-**Done** (from files in Downloads and the repo)
-- Brand guide v1: logo, colours, Outfit type, voice.
-- Logo set, social profile images and covers, an app icon.
-- First 10 posts: reels, carousels and photo posts, with a posting plan (`staffkin/brand-assets/launch-posts/`).
-- A launch reel, a YouTube video and a thumbnail.
-- App screenshots: 14 web, 10 mobile.
-- Site with SEO pages (ai-in-hiring, interview-questions, templates), plus an HR Agent update.
-- Postiz: 26 posts on each channel, Oct 5 to Nov 13.
-
-**Open**
-- Directory listings (the same approach as Keegix).
-- Clean up the Postiz drafts, and decide about the Nov 16 post, which only exists as a draft.
-- Check the sources behind the stats in queued posts ("3 in 4 employers…", "735 hours…", "54% of HR professionals…").
-- There are two copies of the brand bible: `staffkin/00-BRAND-BIBLE.md` and `staffkin/hub/02-brand-bible/Staffkin-Brand-Bible.md`. They match today. When you change one, change both, or keep only one.
-
-## Waypoint
+## Staffkin (staffkin.com)
 
 **Done**
-- Site rebuilt with the chart-magenta brand; logo system and Facebook images.
-- 6 posts published (Sep 17–27). 10 more are queued on each channel to Oct 22.
-- 47 October post images, 4 reels, 250 humour images (light and dark) with their text, and the Waypoint Ops ad video.
-- A business number (902-670-9297), and a podcast started in October.
+- Brand guide, logo set, profile images and covers, app screenshots (14 web, 10 mobile).
+- Site with SEO pages, 70 job description templates and the HR Agent page.
+- 26 posts queued on each channel, Oct 5 to Nov 13.
+- Batches 1–2 (made): two-truths-one-lie stories (Nova Scotia employment rules), LinkedIn HR news and unpopular opinions, TinyLaunch countdown (launch Nov 9), $9 reference check, app walkthrough, three job descriptions, a silent reel.
+- Batch 3 (made): Nov 18 to Dec 18. Holiday pay in Nova Scotia (checked on novascotia.ca), five job descriptions (seasonal retail associate, snow removal, prep cook, delivery driver, receptionist), seasonal hiring and reference checks, first job free, onboarding for January hires, five more stories and five LinkedIn opinions.
 
 **Open**
-- **Schedule posts after Oct 22.** The 250 humour images are a ready backlog.
-- The six /resources guides don't exist, and the form sends nothing. Write them or remove them.
-- Re-record the invoicing demo: your personal email and the app URL are visible in it.
-- Set up the hello@waypointns.ca mailbox (see NOTES.md in waypoint-complete).
+- Monday LinkedIn HR news posts need real headlines from the two weeks before each date.
+- Three Postiz drafts (Nov 16, Nov 18 and one duplicate set) still sit on posting slots; decide whether they post.
+- Directory listings (same approach as Keegix): only call a listing "live" once it opens.
+- Two copies of the brand bible (`staffkin/00-BRAND-BIBLE.md` and `staffkin/hub/02-brand-bible/`): keep them in sync, or keep one.
 
-## JJ Pumps
+## JJ Pumps (jayjalarampumps.in)
 
 **Done**
-- 20 posts made (singles, carousels, festival posts) and uploaded to `jj/`.
-- 1 post published Sep 30; 14 queued on each channel to Nov 12.
-- Logo animations, catalogue pages, product photos and product line drawings.
-- Static logo files: 4 lockups plus a transparent mark in `jj/brand/logos/`.
-- Final brand bible: `jj/BRAND-BIBLE.md` (Poppins, colours, voice, festival rules). It replaces the draft `jj/00-BRAND-BIBLE.md`.
-- JJ hub with the full schedule and to-do list: `jj/README.md`.
+- 20 posts made; 1 published, 14 queued to Nov 12.
+- Logo animations, catalogue pages, product photos, line drawings and logo files.
+- Final brand bible: `jj/BRAND-BIBLE.md`.
+- Batches 1–2 (made): borewell-depth poll story, dealer carousel, workshop carousel, Uttarayan greeting (Jan 14, 2027).
+- Batch 3 (made): Nov 14 to Dec 15 at 7:30 PM India time. Choosing a V6 pump (borewell size, water depth, field size), why depth decides the pump, rabi-season pump care, a dealer series, pump-only assemblies, Guru Nanak Jayanti (Nov 24) and New Year (Jan 1, 2027) greetings.
+- Hinglish voiceover scripts for the five silent reels are written (batch 3).
 
 **Open**
-- 5 reels in `jj/reels/videos/` are silent. Add the Hinglish voiceover (see `jj/video/editor-brief.md`), then schedule them. The English scripts in `jj/reels/` are superseded.
-- Delete the duplicate drafts in Postiz.
-- IndiaMART catalogue refresh; WhatsApp automation idea (Co-Existence) not started.
+- Record the voiceovers and fix the on-screen text flagged in the scripts, then schedule the five reels.
+- Three Postiz drafts for Nov 17, 20 and 25 cover pump care and dealers; check them against the batch-3 posts so topics don't repeat.
+- A real photo of a pump-only assembly would help the pump-only post.
