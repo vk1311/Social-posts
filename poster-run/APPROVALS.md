@@ -17,8 +17,8 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 | 2 | Waypoint | Flyer A "I make the software fit your business." (board poster) | **Change** | Same fix as #1: remove all pricing. Dark box now leads with bold "From nothing to built." then "You deal with me start to finish.", call/text line, email, QR stay. | Now: 1 stop (coworking) + 1 spare |
 | 3 | Waypoint | Counter card C (stays a card) | **Approved with change** | Exception to the paper rule: stays a quarter-letter card, 4 per sheet, **two-sided on cardstock** (flip on long edge, test 1 sheet first). Front unchanged. Back: remove pricing, put bold "From nothing to built." where the price was. Take-one stack by the till; audience = small business owners who still do paperwork by hand (trades, offices, accountants). | 26 stops × 6 = 156 cards = 39 cardstock sheets. Open: drop the 5 chains (Home Depot, Staples, NAPA, UPS Store, Kent) → 21 stops? |
 | 4 | Waypoint Apps | Poster A tear-off "Digitize your whole business." | **Approved with change** | Tear-off words were cut off at the paper edge. Fixed: words now stop 0.5 in above the edge (tabs still run to the edge, no extra cut). 9 tabs instead of 8. Each tab: "app.waypointns.ca / Start free / Vatsal 902-670-9297". New pretty QR (rounded dots, magenta eyes, Waypoint mark in the middle), scan-tested with two readers. Open: "140+" vs 200 apps; keep "$20 CAD a month"? | 17 stops, 1 each |
-| 5 | Waypoint Apps | Poster B "Selling at markets or online?" | Pending | | Now: 4 stops, 1 each |
-| 6 | Waypoint Apps | Take-one card C → half-page handout | Pending | | Now: 21 stops × 8 |
+| 5 | Waypoint Apps | Poster B "Selling at markets or online?" | **Approved** | Swap in the pretty QR (same as #4). Otherwise as is. | 4 stops, 1 each |
+| 6 | Waypoint Apps | Take-one card C (stays a card) | **Approved** | Stays a small card on cardstock, 4 per sheet, one-sided. Swap in the pretty QR. | 21 stops × 8 = 168 cards = 42 cardstock sheets |
 | 7 | Staffkin | Counter card A → half-page handout | Pending | | Now: 68 cards across stops |
 | 8 | Staffkin | Board poster C "Hire people, not paperwork." | Pending | | Now: 7 stops + 2 spares |
 | 9 | Staffkin | Pocket card D → half-page handout | Pending | | Now: 65 cards across stops |
@@ -37,3 +37,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: #3 Waypoint counter card: approved as a two-sided cardstock card, 4 per sheet, price swapped for "From nothing to built." Stop count (26 or 21 without chains) still open.
 - 25 Oct 2026: #4 Apps poster A: tear-offs fixed (safe margin, 9 tabs, name + number on each), pretty QR. Shown again for OK. Vatsal asked to see 2–3 pieces at a time from here.
 - 25 Oct 2026: #4 Apps poster A: approved as revised. "140+" and "$20 CAD" left as-is for now.
+- 25 Oct 2026: #5 Apps poster B and #6 Apps take-one card approved (pretty QR on both; #6 on cardstock).
