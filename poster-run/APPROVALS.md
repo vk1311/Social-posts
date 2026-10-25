@@ -19,9 +19,9 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 | 4 | Waypoint Apps | Poster A tear-off "Digitize your whole business." | **Approved with change** | Tear-off words were cut off at the paper edge. Fixed: words now stop 0.5 in above the edge (tabs still run to the edge, no extra cut). 9 tabs instead of 8. Each tab: "app.waypointns.ca / Start free / Vatsal 902-670-9297". New pretty QR (rounded dots, magenta eyes, Waypoint mark in the middle), scan-tested with two readers. Open: "140+" vs 200 apps; keep "$20 CAD a month"? | 17 stops, 1 each |
 | 5 | Waypoint Apps | Poster B "Selling at markets or online?" | **Approved** | Swap in the pretty QR (same as #4). Otherwise as is. | 4 stops, 1 each |
 | 6 | Waypoint Apps | Take-one card C (stays a card) | **Approved** | Stays a small card on cardstock, 4 per sheet, one-sided. Swap in the pretty QR. | 21 stops × 8 = 168 cards = 42 cardstock sheets |
-| 7 | Staffkin | Counter card A → half-page handout | Pending | | Now: 68 cards across stops |
-| 8 | Staffkin | Board poster C "Hire people, not paperwork." | Pending | | Now: 7 stops + 2 spares |
-| 9 | Staffkin | Pocket card D → half-page handout | Pending | | Now: 65 cards across stops |
+| 7 | Staffkin | Counter card A (stays a card) | **Approved** | Stays quarter-letter, 4 per sheet, two-sided on cardstock. Pretty QR in Staffkin colours/logo. | 68 cards = 17 cardstock sheets |
+| 8 | Staffkin | Board poster C "Hire people, not paperwork." | **Approved** | Plain paper, one-sided. Pretty QR in Staffkin colours/logo. | 7 stops + 2 spares = 9 sheets |
+| 9 | Staffkin | Pocket card D (stays a card) | **Approved** | Business-card size, 10 per sheet, one-sided cardstock. Pretty QR in Staffkin colours/logo. | 65 cards = 7 cardstock sheets |
 | 10 | Staffkin | Reference-check postcard B (mail) | Pending | | Now: 4 mailed |
 | 11 | Keegix | Key card (one per spot, own code) → half-page handout | Pending | | Now: 37 spots × 9 |
 | 12 | Keegix | Flyer 4 "Airbnb house rules" (one per spot, own code) | Pending | | Now: 21 spots, 1 each, until Nov 20 |
@@ -38,3 +38,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: #4 Apps poster A: tear-offs fixed (safe margin, 9 tabs, name + number on each), pretty QR. Shown again for OK. Vatsal asked to see 2–3 pieces at a time from here.
 - 25 Oct 2026: #4 Apps poster A: approved as revised. "140+" and "$20 CAD" left as-is for now.
 - 25 Oct 2026: #5 Apps poster B and #6 Apps take-one card approved (pretty QR on both; #6 on cardstock).
+- 25 Oct 2026: #7–9 Staffkin counter card, board poster, pocket card approved (pretty QR). Reminder: confirm staffkin.com signup and payment work before the run.
