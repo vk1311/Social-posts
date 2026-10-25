@@ -22,9 +22,9 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 | 7 | Staffkin | Counter card A (stays a card) | **Approved** | Stays quarter-letter, 4 per sheet, two-sided on cardstock. Pretty QR in Staffkin colours/logo. | 68 cards = 17 cardstock sheets |
 | 8 | Staffkin | Board poster C "Hire people, not paperwork." | **Approved** | Plain paper, one-sided. Pretty QR in Staffkin colours/logo. | 7 stops + 2 spares = 9 sheets |
 | 9 | Staffkin | Pocket card D (stays a card) | **Approved** | Business-card size, 10 per sheet, one-sided cardstock. Pretty QR in Staffkin colours/logo. | 65 cards = 7 cardstock sheets |
-| 10 | Staffkin | Reference-check postcard B (mail) | Pending | | Now: 4 mailed |
-| 11 | Keegix | Key card (one per spot, own code) → half-page handout | Pending | | Now: 37 spots × 9 |
-| 12 | Keegix | Flyer 4 "Airbnb house rules" (one per spot, own code) | Pending | | Now: 21 spots, 1 each, until Nov 20 |
+| 10 | Staffkin | Reference-check postcard B (mail) | **Approved** | Two-sided postcard on cardstock (front + address side), as is. | 4 mailed = 1 cardstock sheet |
+| 11 | Keegix | Key card (one per spot, own code, stays a card) | **Approved** | Yellow tag key cards, two-sided cardstock, as is (QR already pretty). | 37 spots × 9 = 37 cardstock sheets |
+| 12 | Keegix | Flyer 4 "Airbnb house rules" (one per spot, own code) | **Change** | Make the QR pretty (rule: every Keegix QR is the pretty style). Open: fill the empty bottom third (bigger headline/QR)? | 21 spots, 1 each, until Nov 20 = 21 sheets |
 | 13 | Keegix | Flyer 3 tear-off (after Nov 20) | Pending | | Now: same 21 spots |
 | 14 | Keegix | Mail letter (window envelope, M01–M30) | Pending | | Now: 30 mailed |
 | 15 | Keegix | Mail key card M01–M30 (taped into letter) | Pending | | Now: 30 |
@@ -39,3 +39,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: #4 Apps poster A: approved as revised. "140+" and "$20 CAD" left as-is for now.
 - 25 Oct 2026: #5 Apps poster B and #6 Apps take-one card approved (pretty QR on both; #6 on cardstock).
 - 25 Oct 2026: #7–9 Staffkin counter card, board poster, pocket card approved (pretty QR). Reminder: confirm staffkin.com signup and payment work before the run.
+- 25 Oct 2026: #10 Staffkin postcard approved (two-sided). #11 Keegix key card approved. #12 Keegix flyer 4: change, pretty QR. Rule: every Keegix QR must be the pretty style.
