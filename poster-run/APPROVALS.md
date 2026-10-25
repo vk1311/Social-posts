@@ -13,7 +13,7 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 
 | # | Brand | Piece | Decision | Notes / changes | Stops / qty |
 |---|---|---|---|---|---|
-| 1 | Waypoint | Flyer B "Still doing it by hand?" (board poster) | Pending | | Now: 9 stops, 1 each |
+| 1 | Waypoint | Flyer B "Still doing it by hand?" (board poster) | **Change** | Remove all pricing (no $1,200, no $60/month, no "half up front"). Box now says, bold: "From nothing to built." then "You deal with me start to finish." then "Call or text Vatsal · 902-670-9297", QR stays. Reason: price is on the site for transparency, not something to push on a flyer. | Now: 9 stops, 1 each (to confirm at the end) |
 | 2 | Waypoint | Flyer A "I make the software fit your business." (board poster) | Pending | | Now: 1 stop (coworking) |
 | 3 | Waypoint | Counter card C → half-page handout | Pending | | Now: 26 stops × 6 |
 | 4 | Waypoint Apps | Poster A tear-off "Digitize your whole business." | Pending | | Now: 17 stops, 1 each |
@@ -32,3 +32,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 ## Change log
 
 - 25 Oct 2026: list started. All 15 pieces pending.
+- 25 Oct 2026: #1 Waypoint flyer B: change, drop all pricing, bold line "From nothing to built."
