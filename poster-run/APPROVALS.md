@@ -24,10 +24,10 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 | 9 | Staffkin | Pocket card D (stays a card) | **Approved** | Business-card size, 10 per sheet, one-sided cardstock. Pretty QR in Staffkin colours/logo. | 65 cards = 7 cardstock sheets |
 | 10 | Staffkin | Reference-check postcard B (mail) | **Approved** | Two-sided postcard on cardstock (front + address side), as is. | 4 mailed = 1 cardstock sheet |
 | 11 | Keegix | Key card (one per spot, own code, stays a card) | **Approved** | Yellow tag key cards, two-sided cardstock, as is (QR already pretty). | 37 spots × 9 = 37 cardstock sheets |
-| 12 | Keegix | Flyer 4 "Airbnb house rules" (one per spot, own code) | **Change** | Make the QR pretty (rule: every Keegix QR is the pretty style). Open: fill the empty bottom third (bigger headline/QR)? | 21 spots, 1 each, until Nov 20 = 21 sheets |
-| 13 | Keegix | Flyer 3 tear-off (after Nov 20) | **Kept, details open** | Keep both flyers: #12 goes up now, #13 replaces it at the Dec 1 re-post. Open: fix tabs like #4 (words off the edge, 9 tabs)? | Same 21 spots = 21 sheets, printed later |
-| 14 | Keegix | Mail letter (window envelope, M01–M30) | Pending | | Now: 30 mailed |
-| 15 | Keegix | Mail key card M01–M30 (taped into letter) | Pending | | Now: 30 |
+| 12 | Keegix | Flyer 4 "Airbnb house rules" (one per spot, own code) | **Change** | Make the QR pretty (rule: every Keegix QR is the pretty style). Fill the empty bottom third: bigger headline and QR. | 21 spots, 1 each, until Nov 20 = 21 sheets |
+| 13 | Keegix | Flyer 3 tear-off (after Nov 20) | **Approved with change** | Keep both flyers: #12 goes up now, #13 replaces it at the Dec 1 re-post. Fix tabs like #4: words 0.5 in off the edge, 9 tabs. QR already pretty. | Same 21 spots = 21 sheets, printed later |
+| 14 | Keegix | Mail letter (window envelope, M01–M30) | **Approved** | As is. | 30 mailed = 30 sheets |
+| 15 | Keegix | Mail key card M01–M30 (taped into letter) | **Approved** | As is, two-sided cardstock, same back as #11. | 30 cards = 4 cardstock sheets |
 
 ## Change log
 
@@ -41,3 +41,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: #7–9 Staffkin counter card, board poster, pocket card approved (pretty QR). Reminder: confirm staffkin.com signup and payment work before the run.
 - 25 Oct 2026: #10 Staffkin postcard approved (two-sided). #11 Keegix key card approved. #12 Keegix flyer 4: change, pretty QR. Rule: every Keegix QR must be the pretty style.
 - 25 Oct 2026: #12/#13: keep both. #12 now, #13 at the Dec 1 re-post.
+- 25 Oct 2026: #12 fill space, #13 fix tabs, #14 and #15 approved. **All 15 pieces decided.** Next: pick stops, then build the print pack.
