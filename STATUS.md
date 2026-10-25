@@ -2,6 +2,15 @@
 
 Last updated 30 Sep 2026. Postiz numbers were read from postiz.waypointns.ca the same day.
 
+## Poster run (physical marketing), 25 Oct 2026
+
+- All 4 brands on one route around the Valley: 131 places in 7 outings plus 34 to mail. Context, files and open items: `poster-run/PROJECT-CONTEXT.md`.
+- Print files updated 22 Oct to save cardstock: 154 cardstock + 93 paper sheets for everything.
+- First outing the weekend of 24–25 Oct with the paper-only pack (`poster-run/run-kit/weekend-paper-pack-routes-2-4.pdf`). Cardstock run still to print.
+- Route app: https://poster-run-driver.netlify.app (routes 1–4, Google Maps / Android Auto hand-off).
+
+---
+
 ## Postiz at a glance
 
 | Brand | Published | Queued (FB + IG) | Queue runs until | Notes |

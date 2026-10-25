@@ -2,6 +2,8 @@
 
 Flyers, counter cards and the stop list for putting Waypoint and Waypoint Apps up around the Annapolis Valley. Printed in colour on the office printer, on Pen+Gear 65 lb white cardstock and regular copy paper.
 
+> **Start with [`PROJECT-CONTEXT.md`](PROJECT-CONTEXT.md)**: what the run is, where every file lives, routes, printing and open items. The merged route, the one print list, the route maps and the route app are in [`run-kit/`](run-kit/).
+
 ## What's here
 
 | File | What it is |
