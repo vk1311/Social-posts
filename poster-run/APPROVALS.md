@@ -6,7 +6,7 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 
 **Print rules for the new pack (set 25 Oct):**
 - Everything on plain copy paper, one-sided, unless Vatsal says otherwise.
-- Card-type pieces become half-page handouts (5.5 × 8.5 in), 2 per sheet.
+- Card-type pieces become half-page handouts (5.5 × 8.5 in), 2 per sheet, unless approved otherwise below (#3 stays a two-sided cardstock card).
 - Quantities are sized to the stops Vatsal picks.
 
 ## Decisions
@@ -15,7 +15,7 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 |---|---|---|---|---|---|
 | 1 | Waypoint | Flyer B "Still doing it by hand?" (board poster) | **Change** | Remove all pricing (no $1,200, no $60/month, no "half up front"). Box now says, bold: "From nothing to built." then "You deal with me start to finish." then "Call or text Vatsal · 902-670-9297", QR stays. Reason: price is on the site for transparency, not something to push on a flyer. | Now: 9 stops, 1 each (to confirm at the end) |
 | 2 | Waypoint | Flyer A "I make the software fit your business." (board poster) | **Change** | Same fix as #1: remove all pricing. Dark box now leads with bold "From nothing to built." then "You deal with me start to finish.", call/text line, email, QR stay. | Now: 1 stop (coworking) + 1 spare |
-| 3 | Waypoint | Counter card C → half-page handout | Pending | | Now: 26 stops × 6 |
+| 3 | Waypoint | Counter card C (stays a card) | **Approved with change** | Exception to the paper rule: stays a quarter-letter card, 4 per sheet, **two-sided on cardstock** (flip on long edge, test 1 sheet first). Front unchanged. Back: remove pricing, put bold "From nothing to built." where the price was. Take-one stack by the till; audience = small business owners who still do paperwork by hand (trades, offices, accountants). | 26 stops × 6 = 156 cards = 39 cardstock sheets. Open: drop the 5 chains (Home Depot, Staples, NAPA, UPS Store, Kent) → 21 stops? |
 | 4 | Waypoint Apps | Poster A tear-off "Digitize your whole business." | Pending | | Now: 17 stops, 1 each |
 | 5 | Waypoint Apps | Poster B "Selling at markets or online?" | Pending | | Now: 4 stops, 1 each |
 | 6 | Waypoint Apps | Take-one card C → half-page handout | Pending | | Now: 21 stops × 8 |
@@ -34,3 +34,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: list started. All 15 pieces pending.
 - 25 Oct 2026: #1 Waypoint flyer B: change, drop all pricing, bold line "From nothing to built."
 - 25 Oct 2026: #2 Waypoint flyer A: change, same as #1 (no pricing, "From nothing to built.")
+- 25 Oct 2026: #3 Waypoint counter card: approved as a two-sided cardstock card, 4 per sheet, price swapped for "From nothing to built." Stop count (26 or 21 without chains) still open.
