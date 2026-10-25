@@ -70,36 +70,48 @@ def km(a, b):
     dx = (a[1] - b[1]) * 111.0 * math.cos(math.radians(a[0]))
     return math.hypot(dx, dy)
 
+HOME = (45.0517, -64.6539)  # Waterville, where every run starts
+
+def order_stops(ps):
+    stops = []  # same address -> one stop
+    for p in ps:
+        key = re.sub(r"\W+", "", (p["addr"] or "").lower().split(",")[0])
+        hit = next((s for s in stops if s["key"] == key and key), None)
+        if hit:
+            hit["places"].append(p)
+        else:
+            stops.append({"key": key, "places": [p], "ll": p["ll"]})
+    # stops with a map point: nearest next stop, starting from the one closest to Waterville.
+    # stops without one keep the master route order and go last.
+    known = [s for s in stops if s["ll"]]; unknown = [s for s in stops if not s["ll"]]
+    order, here = [], HOME
+    while known:
+        nxt = min(known, key=lambda s: km(here, s["ll"]))
+        known.remove(nxt); order.append(nxt); here = nxt["ll"]
+    return order + unknown
+
+def pack(town, key, label, stops):
+    out = []
+    for i, s in enumerate(stops, 1):
+        out.append({"id": f"{town}-{key}-{i}", "n": i, "ll": s["ll"], "town": town,
+                    "places": [{k: p[k] for k in ("name", "addr", "hours", "prio", "leave", "say", "note")} for p in s["places"]],
+                    "move": {"mode": "drive", "m": None, "min": None}, "walk": None})
+    return {"id": re.sub(r"\W+", "-", (town + "-" + key).lower()), "town": town, "type": key,
+            "title": town + (" · " + label if key != "all" else ""), "typeLabel": label, "stops": out}
+
 groups = []
 for town in TOWNS:
+    tps = [p for p in places if p["town"] == town]
+    tg = []
     for tkey, tlabel in TYPES:
-        ps = [p for p in places if p["town"] == town and p["type"] == tkey]
-        if not ps:
-            continue
-        stops = []  # same address -> one stop
-        for p in ps:
-            key = re.sub(r"\W+", "", (p["addr"] or "").lower().split(",")[0])
-            hit = next((s for s in stops if s["key"] == key and key), None)
-            if hit:
-                hit["places"].append(p)
-            else:
-                stops.append({"key": key, "places": [p], "ll": p["ll"]})
-        # order: nearest next stop where every stop has a map point, else master route order
-        if all(s["ll"] for s in stops) and len(stops) > 2:
-            order = [stops.pop(0)]
-            while stops:
-                nxt = min(stops, key=lambda s: km(order[-1]["ll"], s["ll"]))
-                stops.remove(nxt); order.append(nxt)
-            stops = order
-        out = []
-        for i, s in enumerate(stops, 1):
-            out.append({"id": f"{town}-{tkey}-{i}", "n": i, "ll": s["ll"], "town": town,
-                        "places": [{k: p[k] for k in ("name", "addr", "hours", "prio", "leave", "say", "note")} for p in s["places"]],
-                        "move": {"mode": "drive", "m": None, "min": None}, "walk": None})
-        groups.append({"id": re.sub(r"\W+", "-", (town + "-" + tkey).lower()), "town": town, "type": tkey,
-                       "title": town + " · " + tlabel, "typeLabel": tlabel, "stops": out})
+        ps = [p for p in tps if p["type"] == tkey]
+        if ps:
+            tg.append(pack(town, tkey, tlabel, order_stops(ps)))
+    if len(tg) > 1:  # "All" first: every place in town in one drive
+        groups.append(pack(town, "all", "All", order_stops(tps)))
+    groups.extend(tg)
 
-total = sum(len(s["places"]) for g in groups for s in g["stops"])
+total = sum(len(s["places"]) for g in groups if g["type"] != "all" for s in g["stops"])
 assert total == 131, total
 data = json.dumps(groups, ensure_ascii=False).replace("</", "<\\/")
 out_html = re.sub(r'(<script id="routes" type="application/json">)(.*?)(</script>)',
