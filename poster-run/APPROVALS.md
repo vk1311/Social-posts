@@ -42,3 +42,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: #10 Staffkin postcard approved (two-sided). #11 Keegix key card approved. #12 Keegix flyer 4: change, pretty QR. Rule: every Keegix QR must be the pretty style.
 - 25 Oct 2026: #12/#13: keep both. #12 now, #13 at the Dec 1 re-post.
 - 25 Oct 2026: #12 fill space, #13 fix tabs, #14 and #15 approved. **All 15 pieces decided.** Next: pick stops, then build the print pack.
+- 25 Oct 2026: stops = every outing incl. West, chains kept. **Print pack built: `print-pack/` (start with `00-PRINT-LIST.md`). 152 cardstock + 93 paper now, 21 paper on Dec 1.** Pretty QR also put on Waypoint flyers A/B and the counter card for a matching look. Every QR scan-checked.

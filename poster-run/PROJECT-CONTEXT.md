@@ -1,5 +1,7 @@
 # Physical marketing: poster run context
 
+> **25 Oct 2026: print from [`print-pack/`](print-pack/00-PRINT-LIST.md).** Every piece was re-approved one by one ([`APPROVALS.md`](APPROVALS.md)). The weekend paper pack is retired (not used, shredded).
+
 Start here when picking up the poster run in any chat or project. Last updated 25 Oct 2026.
 
 ## What it is

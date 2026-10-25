@@ -149,7 +149,7 @@ W, H = 816, 1056
 files = {}
 
 # ---------- Waypoint A: "fit" (light) ----------
-q = qr_svg("https://waypointns.ca/?src=flyer-fit", 168, "QR code to waypointns.ca")
+q = qr_pretty("https://waypointns.ca/?src=flyer-fit", 168, "QR code to waypointns.ca")
 body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow: hidden; box-sizing: border-box; background: {PAPER}; color: {INK}; font-family: 'DM Sans', sans-serif">
 {lining(W, H)}
 {coords(MUTED)}
@@ -167,8 +167,8 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 </div>
 <div style="position: absolute; left: 56px; right: 56px; top: 640px; background: {INK}; color: {PAPER}; padding: 28px 32px; display: flex; align-items: center; gap: 32px">
 <div style="flex: 1; display: flex; flex-direction: column; gap: 10px">
-<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 34px; line-height: 1.05">From $1,200 CAD to build</div>
-<div style="font-size: 18px; line-height: 1.4; color: {CLOUD}">then $60 CAD a month.<br>Half up front. No contract.</div>
+<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 34px; line-height: 1.05">From nothing to built.</div>
+<div style="font-size: 18px; line-height: 1.4; color: {CLOUD}">You deal with me start to finish.</div>
 <div style="height: 3px; background: {MAG}; width: 72px; margin: 6px 0"></div>
 <div style="font-size: 18px; line-height: 1.45">Call or text Vatsal · <b>902-670-9297</b><br>vatsal@waypointns.ca</div>
 </div>
@@ -182,7 +182,7 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 files["Main.dc.html"] = page("Waypoint flyer: fit", W, H, body)
 
 # ---------- Waypoint B: "by hand" (dark) ----------
-q = qr_svg("https://waypointns.ca/?src=flyer-byhand", 160, "QR code to waypointns.ca")
+q = qr_pretty("https://waypointns.ca/?src=flyer-byhand", 160, "QR code to waypointns.ca")
 items = ["Quotes written on the dash of the truck", "Invoices typed up in Word at night",
          "Bookings lost in a text thread", "Job notes on a clipboard"]
 checks = "".join(
@@ -202,8 +202,8 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 <div style="position: absolute; left: 62px; right: 70px; top: 726px; background: {CLOUD}; color: {INK}; padding: 22px 26px; box-shadow: 9px 9px 0 {MAG}; transform: rotate(-1.2deg); display: flex; gap: 26px; align-items: center">
 {q}
 <div style="display: flex; flex-direction: column; gap: 8px">
-<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">From $1,200 CAD to build, then $60 CAD a month.</div>
-<div style="font-size: 17px; line-height: 1.4; color: {SLATE}">Half up front. No contract. You deal with me start to finish.</div>
+<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 30px; line-height: 1.1">From nothing to built.</div>
+<div style="font-size: 17px; line-height: 1.4; color: {SLATE}">You deal with me start to finish.</div>
 <div style="font-size: 18px; line-height: 1.4">Call or text Vatsal · <b>902-670-9297</b></div>
 </div>
 </div>
@@ -219,7 +219,7 @@ CPAD = 36  # 0.375 in clear on every card edge: the office printer can't print t
 SLOTS = [(0, 0), (1, 0), (0, 1), (1, 1)]
 
 def wcard_front(left, top):
-    q = qr_svg("https://waypointns.ca/?src=card", 132, "QR code to waypointns.ca")
+    q = qr_pretty("https://waypointns.ca/?src=card", 132, "QR code to waypointns.ca")
     return f"""<div style="position: absolute; left: {left}px; top: {top}px; width: {CW}px; height: {CH}px; overflow: hidden; background: #FFFFFF">
 {lining(CW, CH, step=34)}
 {coords(MUTED, 11, CPAD, CPAD)}
@@ -243,8 +243,8 @@ def wcard_back(left, top):
 <p style="margin: 0; font-size: 17px; line-height: 1.4; color: {INK}; text-wrap: balance">Built around the way your shop already runs.</p>
 <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px">{pts}</div>
 <div style="height: 2px; background: {INK}; margin-top: 26px"></div>
-<div style="margin-top: 22px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 22px; line-height: 1.2; color: {INK}">From $1,200 CAD,<br>then $60 CAD a month.</div>
-<div style="margin-top: 8px; font-size: 16px; line-height: 1.4; color: {INK}">Half up front. No contract.</div>
+<div style="margin-top: 22px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.2; color: {INK}">From nothing to built.</div>
+<div style="margin-top: 8px; font-size: 16px; line-height: 1.4; color: {INK}">You deal with me start to finish.</div>
 </div>
 <div style="position: absolute; right: {CPAD}px; bottom: {CPAD}px; font-size: 14px; letter-spacing: 0.12em; color: {INK}">waypointns.ca</div>
 </div>"""
@@ -300,7 +300,7 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 files["Apps-whole-business.dc.html"] = page("Waypoint Apps poster: whole business", W, H, body)
 
 # ---------- Apps B: market sellers (dark) ----------
-q = qr_svg("https://app.waypointns.ca/?src=poster-market", 150, "QR code to app.waypointns.ca")
+q = qr_pretty("https://app.waypointns.ca/?src=poster-market", 150, "QR code to app.waypointns.ca")
 tiles = [("Invoices &amp; receipts", "PDFs you can text or email right from your phone."),
          ("Stock that keeps count", "Goes down when you send or get paid on an invoice."),
          ("Price list with photos", "One PDF to share with customers. Free."),
@@ -333,7 +333,7 @@ files["Apps-market-sellers.dc.html"] = page("Waypoint Apps poster: market seller
 
 # ---------- Apps C: take-one cards 4-up (quarter letter portrait) ----------
 def acard(left, top):
-    q = qr_svg("https://app.waypointns.ca/?src=card", 118, "QR code to app.waypointns.ca")
+    q = qr_pretty("https://app.waypointns.ca/?src=card", 118, "QR code to app.waypointns.ca")
     cw, ch = 408, 528
     return f'''<div style="position: absolute; left: {left}px; top: {top}px; width: {cw}px; height: {ch}px; overflow: hidden">
 {lining(cw, ch, step=34)}
