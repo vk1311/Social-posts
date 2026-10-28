@@ -8,6 +8,7 @@ Scheduled Oct 28 on FB + IG + YouTube for each brand. Voice: ElevenLabs (Eleven 
 | 12_Sat-14-Nov_reel_lunch-in-car.mp4 | Staffkin | Sat Nov 14, 10:00 AM AST · FB + IG + Staffkin YouTube Short | ElevenLabs Lauren | 26.2 s |
 | 23_Mon-16-Nov_rip-binder.mp4 | Keegix | Mon Nov 16, 7:00 PM AST · FB + IG + Keegix YouTube Short | ElevenLabs Brian | 24.1 s |
 | 24_Thu-19-Nov_wifi-password.mp4 | Keegix | Thu Nov 19, 7:00 PM AST · FB + IG + Keegix YouTube Short | ElevenLabs Jessica | 25.2 s |
+| 25_Thu-19-Nov_reel_suite-overview.mp4 | Waypoint | Thu Nov 19, 7:30 AM AST · FB + IG + Waypoint YouTube Short (DRAFT, awaiting OK) | ElevenLabs Chris | 21.5 s |
 
 ---
 
@@ -42,6 +43,11 @@ Free for one property: keegix.com
 Voiceover is AI-generated.
 #airbnbhost #shorttermrental #vacationrental #wifi #hostlife #cottagelife #novascotia
 
+## W9 · Waypoint · concept suite overview (DRAFT, awaiting OK)
+
+One customer, one record, and five apps that each pick up where the last one stopped: the booking, the crew's job, the invoice, the pay run and Monday's numbers. Every app in this suite is a concept with made-up data. I build only the ones your business needs, around how you already work. waypointns.ca
+Voiceover is AI-generated.
+
 ---
 
 ## Build notes
@@ -50,3 +56,4 @@ Voiceover is AI-generated.
 - Pexels was blocked from the build machine, so all four are clean animated edits (drawn scenes, no stock, no faces).
 - Fake data only: 902-555 numbers, invented names, invented wifi passwords.
 - S4's end card shows the full line; the voice says only "Meet Hollis, your AI HR deskmate".
+- W9: silent S00 render plus its original synthesized music and UI sounds (ducked under the voice); its captions were already on screen, so only the AI voice label was added.

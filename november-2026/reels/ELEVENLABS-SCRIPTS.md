@@ -49,3 +49,18 @@ So my cousin fixed it. She printed a QR code and stuck it on the fridge. <break 
 Next morning he changed the password. For security. <break time="0.8s" />
 Change it once. The sign on the door still works. Keegix.
 ```
+
+## W9 · Waypoint · concept suite overview (Chris, same as W3)
+
+The reel's caption windows are fixed (about 3 s each), so five lines were re-voiced shorter to stay in sync.
+Final lines used, in order (lines 2 and 7 come from the first take):
+
+```
+Typed into five apps. Or typed once. [pause]
+Twelve apps. One customer record behind all of them. [pause]
+Dana books. The crew's job joins her record. [pause]
+Then the invoice, the hours, Monday's numbers. [pause]
+All concepts. You get only what you need. [pause]
+Built around how your business already works. [pause]
+Built around your process. Waypoint.
+```
