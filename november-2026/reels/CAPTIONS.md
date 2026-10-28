@@ -1,13 +1,13 @@
 # November 2026 reels — captions (DRAFT, waiting for Vatsal's OK)
 
-Nothing here is scheduled. Voice: Qwen3 house voices on Kaggle (no fallback used). Captions burned in, "AI voice" corner label on screen.
+Nothing here is scheduled. Voice: ElevenLabs (Eleven v4), re-done Oct 28 after the Qwen3 versions sounded distorted. Captions burned in, "AI voice" corner label on screen.
 
 | File | Brand | Post slot | Voice | Length |
 |---|---|---|---|---|
-| 21_Thu-05-Nov_reel_dave-contacts.mp4 | Waypoint | Thu Nov 5, 7:30 AM AST · FB + IG + Waypoint YouTube Short | am_michael | 25.0 s |
-| 12_Sat-14-Nov_reel_lunch-in-car.mp4 | Staffkin | Sat Nov 14, 10:00 AM AST · FB + IG + Staffkin YouTube Short | af_nicole | 25.0 s |
-| 23_Mon-16-Nov_rip-binder.mp4 | Keegix | Mon Nov 16, 7:00 PM AST · FB + IG + Keegix YouTube Short | am_eric | 22.1 s |
-| 24_Thu-19-Nov_wifi-password.mp4 | Keegix | Thu Nov 19, 7:00 PM AST · FB + IG + Keegix YouTube Short | af_bella | 24.9 s |
+| 21_Thu-05-Nov_reel_dave-contacts.mp4 | Waypoint | Thu Nov 5, 7:30 AM AST · FB + IG + Waypoint YouTube Short | ElevenLabs Chris | 24.6 s |
+| 12_Sat-14-Nov_reel_lunch-in-car.mp4 | Staffkin | Sat Nov 14, 10:00 AM AST · FB + IG + Staffkin YouTube Short | ElevenLabs Lauren | 26.2 s |
+| 23_Mon-16-Nov_rip-binder.mp4 | Keegix | Mon Nov 16, 7:00 PM AST · FB + IG + Keegix YouTube Short | ElevenLabs Brian | 24.1 s |
+| 24_Thu-19-Nov_wifi-password.mp4 | Keegix | Thu Nov 19, 7:00 PM AST · FB + IG + Keegix YouTube Short | ElevenLabs Jessica | 25.2 s |
 
 ---
 
@@ -45,8 +45,8 @@ Voiceover is AI-generated.
 ---
 
 ## Build notes
+- Voices: ElevenLabs Eleven v4, scripts in ELEVENLABS-SCRIPTS.md. Only silent gaps were shortened (crossfaded cuts); no speed change.
+- Audio: 44.1 kHz throughout, soft synthesized pad at about 18% of the voice, light 2.5:1 compression, about -16 LUFS, peaks under -1.2 dBTP, no clipping.
 - Pexels was blocked from the build machine, so all four are clean animated edits (drawn scenes, no stock, no faces).
 - Fake data only: 902-555 numbers, invented names, invented wifi passwords.
-- Music: soft synthesized pad (no samples), about 18% of the voice level. Loudness about -15 LUFS.
-- Spoken-text respellings (captions keep the written form): "A I H R" for AI HR, "Keegicks" in K2's last word, "cue are code" in K3.
-- S4's end card shows the full line; the voice says only "Meet Hollis, your AI HR deskmate" to keep it under 25 s.
+- S4's end card shows the full line; the voice says only "Meet Hollis, your AI HR deskmate".
