@@ -1,6 +1,6 @@
-# November 2026 reels — captions (DRAFT, waiting for Vatsal's OK)
+# November 2026 reels — captions (APPROVED Oct 28, scheduled in Postiz)
 
-Nothing here is scheduled. Voice: ElevenLabs (Eleven v4), re-done Oct 28 after the Qwen3 versions sounded distorted. Captions burned in, "AI voice" corner label on screen.
+Scheduled Oct 28 on FB + IG + YouTube for each brand. Voice: ElevenLabs (Eleven v4), re-done Oct 28 after the Qwen3 versions sounded distorted. Captions burned in, "AI voice" corner label on screen.
 
 | File | Brand | Post slot | Voice | Length |
 |---|---|---|---|---|
