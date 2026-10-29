@@ -1,6 +1,6 @@
 # Google Business posts, November 2026
 
-Waypoint: APPROVED and scheduled Oct 28. JJ Pumps: approved, waiting for the JJ Google Business account to be reconnected in Postiz. Adapted from the approved Facebook/Instagram posts. No phone numbers, links or hashtags in the text (Google may remove those); the button does the job instead. Images are 4:3 versions in this folder.
+Waypoint: APPROVED and scheduled Oct 28. JJ Pumps: APPROVED and scheduled Oct 28 after the account was reconnected. Adapted from the approved Facebook/Instagram posts. No phone numbers, links or hashtags in the text (Google may remove those); the button does the job instead. Images are 4:3 versions in this folder.
 
 ## Waypoint · nov01-clocks · 2026-11-01T23:00Z
 Image: `wp-01-nov01-clocks.jpg` · Button: Call
