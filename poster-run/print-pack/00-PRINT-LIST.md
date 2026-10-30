@@ -1,5 +1,7 @@
 # Poster run print pack (25 Oct 2026)
 
+> **30 Oct update:** cardstock copies changed because of the Walmart 6x8 prints. Use the cardstock table in [`../walmart-6x8/ORDER.md`](../walmart-6x8/ORDER.md) (99 sheets), not section 2 below.
+
 Built from the approvals in [`../APPROVALS.md`](../APPROVALS.md). Sized for **every outing** (routes 1–4, West, Hantsport/Windsor, seasonal) plus mail from home. Chains are kept in.
 
 **Totals now: 152 cardstock + 93 plain paper = 245 sheets.** Later (Dec 1): 21 plain paper.

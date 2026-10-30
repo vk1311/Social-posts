@@ -43,3 +43,4 @@ Started 25 Oct 2026, after the weekend paper pack (31 pages, board posters only)
 - 25 Oct 2026: #12/#13: keep both. #12 now, #13 at the Dec 1 re-post.
 - 25 Oct 2026: #12 fill space, #13 fix tabs, #14 and #15 approved. **All 15 pieces decided.** Next: pick stops, then build the print pack.
 - 25 Oct 2026: stops = every outing incl. West, chains kept. **Print pack built: `print-pack/` (start with `00-PRINT-LIST.md`). 152 cardstock + 93 paper now, 21 paper on Dec 1.** Pretty QR also put on Waypoint flyers A/B and the counter card for a matching look. Every QR scan-checked.
+- 30 Oct 2026: Walmart 6x8 matte prints, 64 total (8 per design, 4 cards each = 64 cards per brand), pickup New Minas #3738. See `walmart-6x8/ORDER.md`. Cardstock plan reset to full card counts in 99 sheets.
