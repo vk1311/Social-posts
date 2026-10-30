@@ -28,3 +28,22 @@ Pickup: Walmart New Minas (#3738). Each print = 4 cards (3 x 4 in), cut once dow
 | C5 Staffkin pocket cards | 7 | 7 | 70 pocket cards; the 64 Walmart cards cover the counter-card stops |
 | C3 Staffkin counter card (2-sided) | 1 | 1 | 4 more to round the counter stops up to 68 |
 | **Total** | | **99** | 1 spare. Do 2-sided test sheets on plain paper |
+
+## Option: skip cardstock completely (order 2, if placed)
+
+All 6x8 matte, next day. Upload each file and set the quantity below.
+
+| Files | Qty each | Prints | Replaces |
+|---|---|---|---|
+| `1-waypoint-by-hand.jpg` | 12 | 12 | C1 Waypoint counter cards |
+| `2-waypoint-fit.jpg` | 11 | 11 | C1 |
+| `3-apps-whole-business.jpg` | 13 | 13 | C2 Apps take-one cards |
+| `4-apps-markets.jpg` | 13 | 13 | C2 |
+| `5-staffkin-hiring.jpg` | 10 | 10 | C3 + C5 Staffkin cards |
+| `6-staffkin-paperwork.jpg` | 9 | 9 | C3 + C5 |
+| `k-spots/` (37 files, one per Keegix spot, own code) | 1 | 37 | C6 key cards (4 per spot now, plus the 64 generic Keegix cards to top up) |
+| `k-mail/` (8 files, M01–M30 + 2 spares) | 1 | 8 | C7 mail key cards |
+| `s-postcard/` (2 files, 2 postcards each) | 1 | 2 | C4 Staffkin postcards (cut in half: 6 x 4 in; address label + stamp on the back) |
+| **Total** | | **115** | about $64 + HST = **about $74** at 56¢ a print |
+
+Every QR on all 47 new files was scanned (30 Oct): each Keegix spot file opens its own `c##` link, mail cards `m##`, postcards the $9 reference-check signup.

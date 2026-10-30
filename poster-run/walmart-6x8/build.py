@@ -60,17 +60,22 @@ P = [
  ("7-keegix-cottage", "kg", "Rent out a cottage, room or <i>cabin?</i>", "One guest page per property, opened from a QR sign by the door.", "https://keegix.com/founding?src=photo-cottage", "keegix.com/founding", "Pro free until<br>end of 2027."),
  ("8-keegix-guests", "kg", "Hosting guests in the <i>Valley?</i>", "Check-in steps, parking, house rules and local picks on one page. Change it once, every guest sees it.", "https://keegix.com/founding?src=photo-guests", "keegix.com/founding", "Pro free until<br>end of 2027."),
 ]
-with sync_playwright() as pw:
-    b = pw.chromium.launch(); pg = b.new_page(viewport={"width": 576, "height": 768}, device_scale_factor=3.125)
-    for name, *args in P:
-        c = card(*args)
-        h = f'''<html><head><meta charset="utf-8">{GF}<style>{FONTS}*{{margin:0}}body{{width:576px;height:768px}}</style></head><body>
-<div style="display:grid;grid-template-columns:288px 288px;width:576px;height:768px">{c*4}</div>
+def sheet(c, cols=2):
+    return f'''<html><head><meta charset="utf-8">{GF}<style>{FONTS}*{{margin:0}}body{{width:576px;height:768px}}</style></head><body>
+<div style="display:grid;grid-template-columns:288px 288px;width:576px;height:768px">{c}</div>
 <div style="position:absolute;left:287px;top:0;bottom:0;border-left:1.5px dashed #9aa7b0"></div>
 <div style="position:absolute;top:383px;left:0;right:0;border-top:1.5px dashed #9aa7b0"></div></body></html>'''
-        f = os.path.join(HERE, "_t.html"); open(f, "w").write(h)
-        pg.goto("file://" + f); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(500)
-        pg.screenshot(path=os.path.join(HERE, name + ".jpg"), type="jpeg", quality=95, clip={"x": 0, "y": 0, "width": 576, "height": 768})
-        os.remove(f)
-    b.close()
-print("done")
+
+def render(jobs, outdir):
+    with sync_playwright() as pw:
+        b = pw.chromium.launch(); pg = b.new_page(viewport={"width": 576, "height": 768}, device_scale_factor=3.125)
+        for name, h in jobs:
+            f = os.path.join(outdir, "_t.html"); open(f, "w").write(h)
+            pg.goto("file://" + f); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(400)
+            pg.screenshot(path=os.path.join(outdir, name + ".jpg"), type="jpeg", quality=95, clip={"x": 0, "y": 0, "width": 576, "height": 768})
+            os.remove(f)
+        b.close()
+
+if __name__ == "__main__":
+    render([(name, sheet(card(*args) * 4)) for name, *args in P], HERE)
+    print("done")
