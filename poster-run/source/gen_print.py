@@ -26,6 +26,38 @@ def qr_svg(url, px, label):
             f'<rect x="-2" y="-2" width="{n+4}" height="{n+4}" fill="#FFFFFF"></rect>'
             f'<path fill="{INK}" d="{"".join(d)}"></path></svg>')
 
+def qr_pretty(url, px, label, logo=True):
+    """Rounded-dot QR with magenta eyes and the Waypoint mark in the middle.
+    High error correction (H) so the centre logo doesn't stop it scanning."""
+    q = qrcode.QRCode(border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
+    q.add_data(url); q.make(fit=True)
+    m = q.get_matrix(); n = len(m)
+    def in_eye(x, y):
+        return (x < 7 and y < 7) or (x >= n - 7 and y < 7) or (x < 7 and y >= n - 7)
+    lg = int(n * 0.22) | 1          # odd number of modules, ~22% of the width
+    l0 = (n - lg) // 2
+    def in_logo(x, y):
+        return logo and l0 - 1 <= x <= l0 + lg and l0 - 1 <= y <= l0 + lg
+    dots = []
+    for y in range(n):
+        for x in range(n):
+            if m[y][x] and not in_eye(x, y) and not in_logo(x, y):
+                dots.append(f'<rect x="{x+0.04:.2f}" y="{y+0.04:.2f}" width="0.92" height="0.92" rx="0.28"></rect>')
+    eyes = []
+    for ex, ey in ((0, 0), (n - 7, 0), (0, n - 7)):
+        eyes.append(f'<rect x="{ex+0.5}" y="{ey+0.5}" width="6" height="6" rx="0.9" fill="none" stroke="{INK}" stroke-width="1"></rect>')
+        eyes.append(f'<rect x="{ex+2}" y="{ey+2}" width="3" height="3" rx="0.5" fill="{MAG}"></rect>')
+    centre = ""
+    if logo:
+        c = n / 2
+        centre = (f'<rect x="{l0-0.6:.2f}" y="{l0-0.6:.2f}" width="{lg+1.2:.2f}" height="{lg+1.2:.2f}" rx="1.4" fill="#FFFFFF"></rect>'
+                  f'<svg x="{l0:.2f}" y="{l0:.2f}" width="{lg}" height="{lg}" viewBox="0 0 128 128">'
+                  + mark(128).split(">", 1)[1].rsplit("</svg>", 1)[0] + '</svg>')
+    return (f'<svg viewBox="-2 -2 {n+4} {n+4}" width="{px}" height="{px}" role="img" '
+            f'aria-label="{label}" style="display: block; flex: none">'
+            f'<rect x="-2" y="-2" width="{n+4}" height="{n+4}" fill="#FFFFFF"></rect>'
+            f'<g fill="{INK}">{"".join(dots)}</g>{"".join(eyes)}{centre}</svg>')
+
 def mark(px, dark=False):
     tri = PAPER if dark else INK
     survey = MIST if dark else SLATE
@@ -117,7 +149,7 @@ W, H = 816, 1056
 files = {}
 
 # ---------- Waypoint A: "fit" (light) ----------
-q = qr_svg("https://waypointns.ca/?src=flyer-fit", 168, "QR code to waypointns.ca")
+q = qr_pretty("https://waypointns.ca/?src=flyer-fit", 168, "QR code to waypointns.ca")
 body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow: hidden; box-sizing: border-box; background: {PAPER}; color: {INK}; font-family: 'DM Sans', sans-serif">
 {lining(W, H)}
 {coords(MUTED)}
@@ -135,8 +167,8 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 </div>
 <div style="position: absolute; left: 56px; right: 56px; top: 640px; background: {INK}; color: {PAPER}; padding: 28px 32px; display: flex; align-items: center; gap: 32px">
 <div style="flex: 1; display: flex; flex-direction: column; gap: 10px">
-<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 34px; line-height: 1.05">From $1,200 CAD to build</div>
-<div style="font-size: 18px; line-height: 1.4; color: {CLOUD}">then $60 CAD a month.<br>Half up front. No contract.</div>
+<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 34px; line-height: 1.05">From nothing to built.</div>
+<div style="font-size: 18px; line-height: 1.4; color: {CLOUD}">You deal with me start to finish.</div>
 <div style="height: 3px; background: {MAG}; width: 72px; margin: 6px 0"></div>
 <div style="font-size: 18px; line-height: 1.45">Call or text Vatsal · <b>902-670-9297</b><br>vatsal@waypointns.ca</div>
 </div>
@@ -150,7 +182,7 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 files["Main.dc.html"] = page("Waypoint flyer: fit", W, H, body)
 
 # ---------- Waypoint B: "by hand" (dark) ----------
-q = qr_svg("https://waypointns.ca/?src=flyer-byhand", 160, "QR code to waypointns.ca")
+q = qr_pretty("https://waypointns.ca/?src=flyer-byhand", 160, "QR code to waypointns.ca")
 items = ["Quotes written on the dash of the truck", "Invoices typed up in Word at night",
          "Bookings lost in a text thread", "Job notes on a clipboard"]
 checks = "".join(
@@ -170,8 +202,8 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 <div style="position: absolute; left: 62px; right: 70px; top: 726px; background: {CLOUD}; color: {INK}; padding: 22px 26px; box-shadow: 9px 9px 0 {MAG}; transform: rotate(-1.2deg); display: flex; gap: 26px; align-items: center">
 {q}
 <div style="display: flex; flex-direction: column; gap: 8px">
-<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">From $1,200 CAD to build, then $60 CAD a month.</div>
-<div style="font-size: 17px; line-height: 1.4; color: {SLATE}">Half up front. No contract. You deal with me start to finish.</div>
+<div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 30px; line-height: 1.1">From nothing to built.</div>
+<div style="font-size: 17px; line-height: 1.4; color: {SLATE}">You deal with me start to finish.</div>
 <div style="font-size: 18px; line-height: 1.4">Call or text Vatsal · <b>902-670-9297</b></div>
 </div>
 </div>
@@ -187,7 +219,7 @@ CPAD = 36  # 0.375 in clear on every card edge: the office printer can't print t
 SLOTS = [(0, 0), (1, 0), (0, 1), (1, 1)]
 
 def wcard_front(left, top):
-    q = qr_svg("https://waypointns.ca/?src=card", 132, "QR code to waypointns.ca")
+    q = qr_pretty("https://waypointns.ca/?src=card", 132, "QR code to waypointns.ca")
     return f"""<div style="position: absolute; left: {left}px; top: {top}px; width: {CW}px; height: {CH}px; overflow: hidden; background: #FFFFFF">
 {lining(CW, CH, step=34)}
 {coords(MUTED, 11, CPAD, CPAD)}
@@ -211,8 +243,8 @@ def wcard_back(left, top):
 <p style="margin: 0; font-size: 17px; line-height: 1.4; color: {INK}; text-wrap: balance">Built around the way your shop already runs.</p>
 <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px">{pts}</div>
 <div style="height: 2px; background: {INK}; margin-top: 26px"></div>
-<div style="margin-top: 22px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 22px; line-height: 1.2; color: {INK}">From $1,200 CAD,<br>then $60 CAD a month.</div>
-<div style="margin-top: 8px; font-size: 16px; line-height: 1.4; color: {INK}">Half up front. No contract.</div>
+<div style="margin-top: 22px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.2; color: {INK}">From nothing to built.</div>
+<div style="margin-top: 8px; font-size: 16px; line-height: 1.4; color: {INK}">You deal with me start to finish.</div>
 </div>
 <div style="position: absolute; right: {CPAD}px; bottom: {CPAD}px; font-size: 14px; letter-spacing: 0.12em; color: {INK}">waypointns.ca</div>
 </div>"""
@@ -232,11 +264,15 @@ body = f"""<div style="width: {W}px; height: {H}px; position: relative; overflow
 files["Waypoint-counter-cards-back.dc.html"] = page("Waypoint counter cards, back (4 per sheet)", W, H, body)
 
 # ---------- Apps A: whole business (light, tear-offs) ----------
-q = qr_svg("https://app.waypointns.ca/?src=poster-whole", 220, "QR code to app.waypointns.ca")
+q = qr_pretty("https://app.waypointns.ca/?src=poster-whole", 210, "QR code to app.waypointns.ca")
+NTABS = 9
+# Tabs run to the paper edge (no extra cut), but the words stop 0.5 in above it,
+# clear of the printer's unprintable margin (25 Oct fix: "app" was cut off).
 tabs = "".join(
-    f'<div style="height: 132px; {"border-right: 2px dashed " + MIST + ";" if i < 7 else ""} display: flex; align-items: center; justify-content: center">'
-    f'<div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 13px; line-height: 1.35; text-align: center; color: {INK}"><b>app.waypointns.ca</b><br>Start free</div></div>'
-    for i in range(8))
+    f'<div style="height: 212px; box-sizing: border-box; padding: 14px 0 48px 0; {"border-right: 2px dashed " + MIST + ";" if i < NTABS - 1 else ""} display: flex; align-items: center; justify-content: center">'
+    f'<div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 12.5px; line-height: 1.3; text-align: center; color: {INK}">'
+    f'<b>app.waypointns.ca</b><br>Start free<br><b>Vatsal 902-670-9297</b></div></div>'
+    for i in range(NTABS))
 body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow: hidden; box-sizing: border-box; background: {PAPER}; color: {INK}; font-family: 'DM Sans', sans-serif">
 {lining(W, H)}
 {coords(MUTED)}
@@ -246,7 +282,7 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 {bar()}
 <p style="margin: 24px 0 0 0; font-size: 21px; line-height: 1.42; color: {SLATE}; max-width: 650px">Invoices, quotes, stock, customers, staff, scheduling and safety. 140+ simple apps on your phone and computer, one login.</p>
 </div>
-<div style="position: absolute; left: 56px; right: 56px; top: 500px; display: flex; gap: 40px; align-items: center">
+<div style="position: absolute; left: 56px; right: 56px; top: 462px; display: flex; gap: 40px; align-items: center">
 <div style="flex: none; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <div style="background: #FFFFFF; border: 3px solid {INK}; box-shadow: 9px 9px 0 {MAG}; padding: 14px">{q}</div>
 <div style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 20px">Scan to start free</div>
@@ -258,13 +294,13 @@ body = f'''<div style="width: {W}px; height: {H}px; position: relative; overflow
 {bullet("<b>Want it set up for you?</b> Call or text Vatsal at 902-670-9297.")}
 </div>
 </div>
-{footer(False, "app.waypointns.ca", bottom=176, mk=52, fs=18)}
-<div style="position: absolute; left: 40px; right: 40px; bottom: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); border-top: 2px dashed {MIST}; background: {PAPER}">{tabs}</div>
+{footer(False, "app.waypointns.ca", bottom=236, mk=48, fs=18)}
+<div style="position: absolute; left: 40px; right: 40px; bottom: 0; display: grid; grid-template-columns: repeat({NTABS}, minmax(0, 1fr)); border-top: 2px dashed {MIST}; background: {PAPER}">{tabs}</div>
 </div>'''
 files["Apps-whole-business.dc.html"] = page("Waypoint Apps poster: whole business", W, H, body)
 
 # ---------- Apps B: market sellers (dark) ----------
-q = qr_svg("https://app.waypointns.ca/?src=poster-market", 150, "QR code to app.waypointns.ca")
+q = qr_pretty("https://app.waypointns.ca/?src=poster-market", 150, "QR code to app.waypointns.ca")
 tiles = [("Invoices &amp; receipts", "PDFs you can text or email right from your phone."),
          ("Stock that keeps count", "Goes down when you send or get paid on an invoice."),
          ("Price list with photos", "One PDF to share with customers. Free."),
@@ -297,7 +333,7 @@ files["Apps-market-sellers.dc.html"] = page("Waypoint Apps poster: market seller
 
 # ---------- Apps C: take-one cards 4-up (quarter letter portrait) ----------
 def acard(left, top):
-    q = qr_svg("https://app.waypointns.ca/?src=card", 118, "QR code to app.waypointns.ca")
+    q = qr_pretty("https://app.waypointns.ca/?src=card", 118, "QR code to app.waypointns.ca")
     cw, ch = 408, 528
     return f'''<div style="position: absolute; left: {left}px; top: {top}px; width: {cw}px; height: {ch}px; overflow: hidden">
 {lining(cw, ch, step=34)}

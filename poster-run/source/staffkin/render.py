@@ -4,8 +4,8 @@
 import re, sys, os
 HERE=os.path.dirname(os.path.abspath(__file__))
 SRC=os.path.join(HERE,'project')
-blobs={'c16d331316db5d74af8231d1430645f3':'staffkin-logo.svg','61e7acffaa86676d9034e8dc166fceb4':'qr-counter.png',
-'5347a7794130c861059da524b6c03e6d':'qr-refs.png','c6003d8666ebe245fa0f8a44b007fdb3':'qr-poster.png','209a091d3d2763fbcd6b25731827beee':'qr-pocket.png'}
+blobs={'c16d331316db5d74af8231d1430645f3':'staffkin-logo.svg','61e7acffaa86676d9034e8dc166fceb4':'qr-counter.svg',
+'5347a7794130c861059da524b6c03e6d':'qr-refs.png','c6003d8666ebe245fa0f8a44b007fdb3':'qr-poster.svg','209a091d3d2763fbcd6b25731827beee':'qr-pocket.svg'}
 for f,n in [('Counter-front.dc.html',4),('Counter-back.dc.html',4),('Postcard-front.dc.html',4),('Postcard-back.dc.html',4),('Board-poster.dc.html',1),('Pocket-cards.dc.html',10)]:
     s=open(os.path.join(SRC,f)).read()
     for k,v in blobs.items(): s=s.replace('/_blob/'+k,v)
