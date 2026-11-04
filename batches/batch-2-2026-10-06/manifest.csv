@@ -1,0 +1,292 @@
+"post_id","brand","date","time_halifax","channels","format","files","caption_facebook","caption_instagram","caption_linkedin","first_comment","alt_text","sources","status","notes"
+"W04","Waypoint","2026-10-24","09:00","facebook;instagram","carousel","W04/W04_Sat-24-Oct_carousel_1of8.png;W04/W04_Sat-24-Oct_carousel_2of8.png;W04/W04_Sat-24-Oct_carousel_3of8.png;W04/W04_Sat-24-Oct_carousel_4of8.png;W04/W04_Sat-24-Oct_carousel_5of8.png;W04/W04_Sat-24-Oct_carousel_6of8.png;W04/W04_Sat-24-Oct_carousel_7of8.png;W04/W04_Sat-24-Oct_carousel_8of8.png","Where Waypoint is listed.
+
+Google Business Profile, Clutch, Bing Places, Apple Business Connect (Apple Maps), Yelp and Yellow Pages. Same business, same number, wherever you look it up.
+
+If we’ve worked together, an honest review on any of them helps the next owner decide.
+
+902-670-9297 · waypointns.ca","Where Waypoint is listed: Google, Clutch, Bing, Apple Maps, Yelp and Yellow Pages. One slide each.
+
+902-670-9297 · link in bio
+
+#AnnapolisValley #Kentville #NovaScotiaBusiness #CustomSoftware","","","Slide 1, dark Waypoint card: Directory. Where Waypoint is listed. Six places to find the business, its hours and its number. One slide each. || Slide 2, light Waypoint card: Listed on Google Business Profile. Directions, hours and reviews on Google Search and Maps. The Google Business Profile logo and a screenshot of Waypoint’s Google Business Profile listing. || Slide 3, dark Waypoint card: Listed on Clutch. A directory of B2B service providers. The Clutch logo and a screenshot of Waypoint’s Clutch listing. || Slide 4, light Waypoint card: Listed on Bing Places. The listing behind Bing search and Bing Maps. The Bing Places logo and a screenshot of Waypoint’s Bing Places listing. || Slide 5, dark Waypoint card: Listed on Apple Business Connect. How the business shows up in Apple Maps. The Apple Business Connect logo and a screenshot of Waypoint’s Apple Business Connect listing. || Slide 6, light Waypoint card: Listed on Yelp. Local business listings and reviews. The Yelp logo and a screenshot of Waypoint’s Yelp listing. || Slide 7, dark Waypoint card: Listed on Yellow Pages. The Canadian business directory. The Yellow Pages logo and a screenshot of Waypoint’s Yellow Pages listing. || Slide 8, dark card: Or call. 902-670-9297. waypointns.ca, hello@waypointns.ca, Kentville, Nova Scotia.","","NEEDS-INPUT","REMADE per review: plain opener ('Where Waypoint is listed'), one slide per platform, lining design. Slides 2–7 have an empty LOGO tile and a magenta frame marked ‘Screenshot … (to be captured)’. I couldn’t take live screenshots from here, and the shell can’t download official logo files. To finish: save each platform’s official logo as PNG to logos/<slug>.png and a screenshot of Waypoint’s listing to shots/<slug>.png (slugs: google, clutch, bing, apple, yelp, yellowpages), then run tools/w04_build.py (see tools/README.md). It drops them in and re-renders all 8 slides. Listing URLs: only Yellow Pages is publicly findable — https://www.yellowpages.ca/bus/Nova-Scotia/KENTVILLE/Waypoint/105423736.html — and it shows category ‘Internet Product & Service Providers’, a non-WAYP phone number (647 area code) and no website. Fix that listing before featuring it. Google, Bing, Apple, Clutch and Yelp aren’t indexed publicly under ‘Waypoint Kentville’ (a Clutch search only found an unrelated Florida ‘Waypoint Software’), so take the URLs from Vatsal’s dashboards. Official logo sources: Google brand resources, Microsoft/Bing brand page, Apple Business Connect marketing guidelines, Yelp brand assets, Clutch press kit, Yellow Pages (Yellow Pages Ltd) media kit. Follow each one’s usage rules (clear space, no recolouring)."
+"W06","Waypoint","2026-10-29","07:30","facebook;instagram;linkedin","single","W06/W06_Thu-29-Oct_single.png","I’m a Certified QuickBooks Online ProAdvisor (Intuit).
+
+Here’s what that means for the tools I build: your quotes, invoices and receipts are built around how you actually work (your job names, your line items, your way of pricing) and set up the way a bookkeeper expects, with the accounts, numbering and detail they look for at month end.
+
+Off-the-shelf tools make you learn their words. I build the software around yours, and I keep your bookkeeper in mind while I do it.
+
+902-670-9297 · waypointns.ca","Certified QuickBooks Online ProAdvisor.
+
+Quotes, invoices and receipts built around how you work, and set up the way your bookkeeper expects.
+
+902-670-9297 · link in bio
+
+#QuickBooksOnline #Bookkeeping #SmallBusinessTools #NovaScotiaBusiness #CustomSoftware","I’m a Certified QuickBooks Online ProAdvisor (Intuit), and it shapes how I build.
+
+Quotes, invoices and receipts are built around how a business actually works (its job names, line items and pricing) and set up the way a bookkeeper expects at month end.
+
+Off-the-shelf software makes you learn its words and its process. Waypoint builds the software around yours.
+
+#Bookkeeping #SmallBusiness #CustomSoftware","","Light Waypoint card with a faint chart grid. Top right: Vatsal’s Certified QuickBooks Online ProAdvisor badge from Intuit. Magenta label: Certified QuickBooks Online ProAdvisor. Headline: Set up the way your bookkeeper expects. Body: Quotes, invoices and receipts built around how you work, with the line items, accounts and numbering your bookkeeper is looking for. Waypoint mark and waypointns.ca.","https://waypointns.ca","READY","FIXED: exact credential name ‘Certified QuickBooks Online ProAdvisor’ (valid through Oct 2027, as shown on waypointns.ca), badge from assets/quickbooks-proadvisor.png, no sync claim. Headline changed from ‘talk to your books’ to ‘Set up the way your bookkeeper expects.’ because ‘talk to’ implied a sync."
+"W08","Waypoint","2026-11-03","07:30","facebook;instagram","single","W08/W08_Tue-03-Nov_single.png","Customer Translation Guide.
+
+Every job is no rush until it is.
+
+902-670-9297 · waypointns.ca","Customer Translation Guide. 📅
+
+#SmallBusinessLife #Contractors #AnnapolisValley #NovaScotia","","","Light Waypoint card: Customer Translation Guide. What they said: “No rush. Whenever you get a chance.” What it means: Before Friday. They already told the in-laws Friday. Waypoint mark and waypointns.ca.","","READY","Option 2 only, as chosen. Rendered as a normal single."
+"W12","Waypoint","2026-11-12","07:30","facebook;instagram;linkedin","single","","","","","","","","NEEDS-INPUT","No image yet, on purpose. I checked today (Oct 6) and found no non-tariff Canadian/Atlantic small-business ops/software headline from the last 14 days that isn’t already used (the BDC Oct 6 study is W03; HR Reporter’s ‘It was the AI, not me’ is S02-1). Any headline from today would also be 37 days old by Nov 12. Make it the week before. Candidates to check then: (1) BDC’s 2026 State of Entrepreneurship report — last year’s came out Oct 20, 2025 (https://www.bdc.ca/en/about/mediaroom/news-releases/entrepreneurs-stay-course-92-would-choose-path-again), so the 2026 edition should land in October. (2) CFIB’s October Monthly Business Barometer (usually the last week of the month): https://www.cfib-fcei.ca/en/research-economic-analysis/business-barometer. (3) Statistics Canada ‘Analysis on planned use of artificial intelligence by businesses in Canada, third quarter of 2026’ (https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2026013-eng.htm), if its release date falls within 14 days — a good fit for the custom AI tools angle. To render: use the W01 news card layout in waypoint2.py (hook = exact headline in quotes, gap 14, kicker = outlet · date, rule, one-sentence tie to the positioning)."
+"R1","Waypoint","TBD","07:30","facebook;instagram;linkedin","carousel","R1/R1_TBD_carousel_1of6.png;R1/R1_TBD_carousel_2of6.png;R1/R1_TBD_carousel_3of6.png;R1/R1_TBD_carousel_4of6.png;R1/R1_TBD_carousel_5of6.png;R1/R1_TBD_carousel_6of6.png","When the process lives in your head, the business can’t be handed over.
+
+Over $2 trillion in Canadian business assets is set to change hands in the next decade, and 39% of businesses are too reliant on their owner to be sellable. (CFIB, 2023)
+
+Quotes, schedules, invoices: if only you understand them, they’re hard to hand over. Software built around how you already work writes that process down.
+
+This is one of the findings in my first Atlantic Canada Small-Business Opportunity Report (October 2026).
+
+Full report: link in bio.","When the process lives in your head, the business can’t be handed over.
+
+39% of businesses are too reliant on their owner to be sellable. (CFIB)
+
+Atlantic Canada Small-Business Opportunity Report, October 2026. Full report: link in bio.
+
+#AtlanticCanada #SmallBusiness #NovaScotiaBusiness #CustomSoftware","When the process lives in the owner’s head, the business can’t be handed over.
+
+Over $2 trillion in business assets is set to change hands in Canada over the next decade, and 39% of businesses are too reliant on their owner to be sellable. (CFIB, Jan 2023: https://cfib-fcei.ca/en/media/over-2-trillion-in-business-assets-are-at-stake-as-majority-of-small-business-owners-plan-to-exit-their-business-over-the-next-decade)
+
+Software built around how a business already works writes that process down, which makes it easier to run, to hire into and eventually to hand over.
+
+From the Atlantic Canada Small-Business Opportunity Report, October 2026: [REPORT LINK]
+
+#SmallBusiness #Succession #AtlanticCanada","Source: CFIB, Jan 10, 2023 — https://cfib-fcei.ca/en/media/over-2-trillion-in-business-assets-are-at-stake-as-majority-of-small-business-owners-plan-to-exit-their-business-over-the-next-decade","Slide 1, dark Waypoint card: Succession. When the process lives in your head, the business can’t be handed over. || Slide 2, light card: Over $2 trillion in business assets is set to change hands in the next decade. CFIB, 2023. || Slide 3, dark card: 39% of businesses are too reliant on their owner to be sellable. CFIB, 2023. || Slide 4, light card: Quotes, schedules, invoices. If only you understand them, they’re hard to hand over. || Slide 5, dark card: Software built around how you already work writes that process down. || Slide 6, Final slide, dark card: From the report. Atlantic Canada Small-Business Opportunity Report — October 2026. Full report: link in bio.","https://cfib-fcei.ca/en/media/over-2-trillion-in-business-assets-are-at-stake-as-majority-of-small-business-owners-plan-to-exit-their-business-over-the-next-decade","HOLD","HOLD until the report is live. Changes: the 76%/9% opener is removed; it opens on the process line. The 39% line uses the wording you asked for. Flag: CFIB’s own release says ‘39% say the business is too reliant on them for day-to-day operations’, and ‘to be sellable’ is the report’s reading. Swap to CFIB’s words if you want it verbatim. The unsourced ‘ordinary, profitable businesses’ line is cut."
+"R2","Waypoint","TBD","07:30","facebook;instagram;linkedin","carousel","R2/R2_TBD_carousel_1of5.png;R2/R2_TBD_carousel_2of5.png;R2/R2_TBD_carousel_3of5.png;R2/R2_TBD_carousel_4of5.png;R2/R2_TBD_carousel_5of5.png","735 hours a year. That’s the time Canadian small businesses spent on regulatory compliance in 2024, per business. CFIB counted 256 of those hours as red tape.
+
+That’s time spent before you open your own inbox. Off-the-shelf tools add their own steps on top: their fields, their words, their order. Built-to-fit tools take steps out instead.
+
+From my Atlantic Canada Small-Business Opportunity Report (October 2026). Full report: link in bio.","735 hours a year on compliance. (CFIB)
+
+Off-the-shelf tools add steps. Built-to-fit tools take them out.
+
+Full report: link in bio.
+
+#AtlanticCanada #SmallBusiness #NovaScotiaBusiness #CustomSoftware","735 hours a year on regulatory compliance per business in 2024, with 256 of them counted as red tape. (CFIB, Canada’s Red Tape Report, Jan 27, 2025: https://www.newswire.ca/news-releases/small-businesses-spend-over-250-hours-or-32-business-days-a-year-wrapped-up-in-red-tape-872430423.html)
+
+Off-the-shelf tools add their own steps on top of that. Software built to fit a business takes steps out.
+
+From the Atlantic Canada Small-Business Opportunity Report, October 2026: [REPORT LINK]
+
+#SmallBusiness #RedTape #AtlanticCanada","Source: CFIB, Jan 27, 2025 — https://www.newswire.ca/news-releases/small-businesses-spend-over-250-hours-or-32-business-days-a-year-wrapped-up-in-red-tape-872430423.html","Slide 1, dark Waypoint card: Admin time. 735 hours a year on compliance. Per business, 2024. CFIB counted 256 of those hours as red tape. || Slide 2, light card: That’s time spent before you open your own inbox. || Slide 3, dark card: Off-the-shelf tools add their own steps on top: their fields, their words, their order. || Slide 4, light card: Built-to-fit tools take steps out instead. Source: CFIB, Canada’s Red Tape Report, Jan 27, 2025. || Slide 5, Final slide, dark card: From the report. Atlantic Canada Small-Business Opportunity Report — October 2026. Full report: link in bio.","https://www.newswire.ca/news-releases/small-businesses-spend-over-250-hours-or-32-business-days-a-year-wrapped-up-in-red-tape-872430423.html","HOLD","HOLD. Tone pass: kicker ‘Red tape’ became ‘Admin time’, and ‘Admin already eats the year’ became ‘That’s time spent before you open your own inbox.’ Numbers unchanged."
+"R3","Waypoint","TBD","07:30","facebook;instagram;linkedin","carousel","R3/R3_TBD_carousel_1of6.png;R3/R3_TBD_carousel_2of6.png;R3/R3_TBD_carousel_3of6.png;R3/R3_TBD_carousel_4of6.png;R3/R3_TBD_carousel_5of6.png;R3/R3_TBD_carousel_6of6.png","Two in five Canadian businesses say AI isn’t relevant to what they do. (Statistics Canada, Q2 2026: 40.0%)
+
+That makes sense when most AI tools are built for desk work. A trades or service business needs something that fits how it actually runs.
+
+So alongside custom software, I now build custom AI-based tools around your process: a quote drafted from your notes, an enquiry sorted before you see it, a reply ready for you to approve. The AI drafts. You check it, you send it. Nothing goes out without a person deciding.
+
+Custom software, with or without AI. From my Atlantic Canada Small-Business Opportunity Report (October 2026). Full report: link in bio.","Two in five businesses say AI isn’t relevant to them. (StatCan, Q2 2026)
+
+Custom AI tools built around your process: AI drafts, you check it, you send it.
+
+Full report: link in bio.
+
+#AtlanticCanada #SmallBusiness #NovaScotiaBusiness #CustomSoftware","Two in five Canadian businesses (40.0%) say AI is not relevant to the goods or services they deliver. (Statistics Canada, Canadian Survey on Business Conditions, Q2 2026, as summarized by ATB: https://www.atb.com/company/insights/the-twenty-four/use-of-artificial-intelligence-by-businesses-q2-2026/)
+
+Most AI tools are built for desk work. Waypoint now also builds custom AI-based tools around a client’s own process: a quote drafted from field notes, an enquiry sorted before anyone reads it, a reply waiting for approval. The AI drafts; a person checks and decides.
+
+Custom software, with or without AI. From the Atlantic Canada Small-Business Opportunity Report, October 2026: [REPORT LINK]
+
+#SmallBusiness #AI #AtlanticCanada","Source: Statistics Canada, Q2 2026 (via ATB) — https://www.atb.com/company/insights/the-twenty-four/use-of-artificial-intelligence-by-businesses-q2-2026/","Slide 1, dark Waypoint card: AI. Two in five businesses say AI isn’t relevant to what they do. 40.0%. Statistics Canada, Q2 2026. || Slide 2, light card: Most AI tools are built for desk work, not for how a trades or service business runs. || Slide 3, dark card: Custom AI tools, built around your process. Ticked list: A quote drafted from your notes. An enquiry sorted before you see it. A reply ready for you to approve. || Slide 4, light card: AI drafts. You check it, you send it. Nothing goes out without a person deciding. || Slide 5, dark card: Custom software, with or without AI. Built around how you already work. Source: Statistics Canada, Canadian Survey on Business Conditions, Q2 2026. || Slide 6, Final slide, dark card: From the report. Atlantic Canada Small-Business Opportunity Report — October 2026. Full report: link in bio.","https://www.atb.com/company/insights/the-twenty-four/use-of-artificial-intelligence-by-businesses-q2-2026/;https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2026010-eng.htm","HOLD","HOLD. Reworked: kept the 40.0% slide, added the custom AI tools offer (three examples, human-checks stance), and it ends on ‘Custom software, with or without AI.’"
+"R4","Waypoint","TBD","07:30","facebook;instagram;linkedin","carousel","R4/R4_TBD_carousel_1of5.png;R4/R4_TBD_carousel_2of5.png;R4/R4_TBD_carousel_3of5.png;R4/R4_TBD_carousel_4of5.png;R4/R4_TBD_carousel_5of5.png","More businesses have closed than opened in Canada for six consecutive quarters. (CFIB, April 2026)
+
+Nova Scotia was the only province with modest business dynamism from 2015 to 2019, and CFIB says that momentum has become subdued since 2024.
+
+The other side of the same numbers: fewer new entrants can mean less competition for the businesses that do start. Lean overhead helps, and that includes not paying for tools you work around.
+
+From my Atlantic Canada Small-Business Opportunity Report (October 2026). Full report: link in bio.","Six quarters of closures outpacing openings. Fewer entrants can also mean less competition for those who start. (CFIB)
+
+Full report: link in bio.
+
+#AtlanticCanada #SmallBusiness #NovaScotiaBusiness #CustomSoftware","More businesses in Canada have closed than opened for six consecutive quarters. Nova Scotia was the only province to show modest business dynamism between 2015 and 2019; CFIB says that momentum has since become subdued. (CFIB, Apr 15, 2026: https://www.cfib-fcei.ca/en/media/rising-costs-and-lack-of-support-in-nova-scotia-fuel-canada-entrepreneurial-drought)
+
+Fewer new entrants can also mean less competition for the businesses that do start. Lean overhead helps, including not paying for software a team works around.
+
+From the Atlantic Canada Small-Business Opportunity Report, October 2026: [REPORT LINK]
+
+#SmallBusiness #NovaScotia #AtlanticCanada","Source: CFIB, Apr 15, 2026 — https://www.cfib-fcei.ca/en/media/rising-costs-and-lack-of-support-in-nova-scotia-fuel-canada-entrepreneurial-drought","Slide 1, dark Waypoint card: Openings and closures. Six straight quarters of closures outpacing openings. CFIB, April 2026. || Slide 2, light card: Nova Scotia was the only province with modest business dynamism from 2015 to 2019. CFIB says that momentum has become subdued since 2024. || Slide 3, dark card: Fewer new entrants can mean less competition for the businesses that do start. || Slide 4, light card: Lean overhead helps. That includes not paying for tools you work around. Source: CFIB, Apr 15, 2026. || Slide 5, Final slide, dark card: From the report. Atlantic Canada Small-Business Opportunity Report — October 2026. Full report: link in bio.","https://www.cfib-fcei.ca/en/media/rising-costs-and-lack-of-support-in-nova-scotia-fuel-canada-entrepreneurial-drought","HOLD","HOLD. Tone pass: ‘The businesses that make it keep overhead lean’ became an opportunity-led slide, ‘Fewer new entrants can mean less competition…’ (from the report’s own reading). Kicker is ‘Openings and closures’. CFIB wording kept."
+"R5","Waypoint","TBD","07:30","facebook;instagram;linkedin","carousel","R5/R5_TBD_carousel_1of5.png;R5/R5_TBD_carousel_2of5.png;R5/R5_TBD_carousel_3of5.png;R5/R5_TBD_carousel_4of5.png;R5/R5_TBD_carousel_5of5.png","Trades vacancies in Canada rose for the first time since 2022: 92,600 openings for trades, transport and equipment operators in Q4 2025. (Statistics Canada)
+
+Demand for trades work is there. Hiring for it takes time. The admin side is where hours can come back first, without asking a crew to learn new software. Build it around how they already work.
+
+From my Atlantic Canada Small-Business Opportunity Report (October 2026). Full report: link in bio.","Trades vacancies rose for the first time since 2022. (StatCan, Q4 2025)
+
+Demand is there. The admin side is where hours can come back first.
+
+Full report: link in bio.
+
+#AtlanticCanada #SmallBusiness #NovaScotiaBusiness #CustomSoftware","Vacancies for trades, transport and equipment operators rose 4.3% to about 92,600 in Q4 2025, the first increase for that group since Q2 2022. (Statistics Canada, Job Vacancies Q4 2025, released Mar 17, 2026: https://www150.statcan.gc.ca/n1/daily-quotidien/260317/dq260317a-eng.htm)
+
+When a trades business can’t hire, the hours have to come from somewhere. The admin side is the easiest place, as long as the crew isn’t forced to learn someone else’s software.
+
+From the Atlantic Canada Small-Business Opportunity Report, October 2026: [REPORT LINK]
+
+#SkilledTrades #SmallBusiness #AtlanticCanada","Source: Statistics Canada, Mar 17, 2026 — https://www150.statcan.gc.ca/n1/daily-quotidien/260317/dq260317a-eng.htm","Slide 1, dark Waypoint card: Trades. Trades vacancies rose for the first time since 2022. 92,600 openings in Q4 2025. Statistics Canada. || Slide 2, light card: Demand for trades work is there. Hiring for it takes time. || Slide 3, dark card: The admin side is where hours can come back first. || Slide 4, light card: Without asking a crew to learn new software. Build it around how they already work. Source: Statistics Canada, Job Vacancies, Q4 2025 (Mar 17, 2026). || Slide 5, Final slide, dark card: From the report. Atlantic Canada Small-Business Opportunity Report — October 2026. Full report: link in bio.","https://www150.statcan.gc.ca/n1/daily-quotidien/260317/dq260317a-eng.htm;https://www.wealthprofessional.ca/news/industry-news/canada-job-vacancies-flatten-in-q4-as-hiring-demand-firms-and-wage-offers-rise/391897","HOLD","HOLD. Tone pass: ‘When you can’t hire, the hours have to come from somewhere’ became ‘Demand for trades work is there. Hiring for it takes time.’"
+"R6","Waypoint","TBD","—","linkedin","text","","","","I published my first Atlantic Canada Small-Business Opportunity Report this week.
+
+I build custom software, and now custom AI-based tools, for small service businesses in Kentville, so I spend most days inside the admin side of small firms: the quoting, the scheduling, the invoices at 9 pm. I wanted to see what the data says about the region from that vantage point. Three findings stood out.
+
+1. Succession. 76% of Canadian small business owners plan to exit within ten years, and 9% have a formal plan (CFIB). 39% of businesses are too reliant on their owner to be sellable.
+
+2. Admin time. Canadian small businesses spent 735 hours on regulatory compliance per business in 2024 (CFIB).
+
+3. Trades. Vacancies for trades, transport and equipment operators rose for the first time since 2022, to about 92,600 in Q4 2025 (Statistics Canada).
+
+The thread through all three: when the process lives in the owner’s head, or inside software nobody chose, the business is harder to hand over, to hire into and to run. Off-the-shelf software makes you learn its words and its process. I think the better default is to build the software around how the business already works.
+
+Every number in the report has its source. Where I couldn’t verify something, I said so.
+
+Read it here: [REPORT LINK]
+
+#AtlanticCanada #SmallBusiness #NovaScotia","","","https://cfib-fcei.ca/en/media/over-2-trillion-in-business-assets-are-at-stake-as-majority-of-small-business-owners-plan-to-exit-their-business-over-the-next-decade;https://www.newswire.ca/news-releases/small-businesses-spend-over-250-hours-or-32-business-days-a-year-wrapped-up-in-red-tape-872430423.html;https://www150.statcan.gc.ca/n1/daily-quotidien/260317/dq260317a-eng.htm","HOLD","HOLD. Fixes: the 39% wording now matches R1, the AI tools are mentioned, and the tone is softened (‘Admin load’ became ‘Admin time’; ‘hard to… slow to run’ became ‘harder to…’). First person kept, about 245 words."
+"S01-3","Staffkin","2026-10-28","19:00","instagram_story;facebook_story","story","S01-3/S01-3_Wed-28-Oct_story_1of3.png;S01-3/S01-3_Wed-28-Oct_story_2of3.png;S01-3/S01-3_Wed-28-Oct_story_3of3.png","","","","","Frame 1, indigo Staffkin story: Two truths and a lie. Pay deductions in Nova Scotia. Two of these are true. One isn’t. Tap through to find out. || Frame 2, light story: Pay deductions in Nova Scotia. Which one is the lie? A: Income tax, CPP and EI come off pay without any agreement from the employee. B: With a signed agreement, a till shortage can come off pay even if it takes them below minimum wage. C: You can’t deduct the cost of recruiting someone from their pay. || Frame 3, indigo story: The answer. B is the lie. Deductions for losses, shortages or damage need a clear agreement, best in writing, and they can’t take gross wages below minimum wage. For a customer walkout, you must be able to show the loss was the employee’s fault. Source: novascotia.ca, Deductions from pay and minimum wage. Not legal advice.","https://novascotia.ca/lae/employmentrights/deductions.asp","READY","REPLACES the references set. New topic: pay deductions, with every statement checked today on novascotia.ca (Deductions from Pay and Minimum Wage). Frame 2: quiz sticker A / B / C with B as the correct answer, placed under statement C (about y 1000–1380 px). Same date and time."
+"S02-2","Staffkin","2026-10-26","08:00","linkedin","text","","","","“TD lawsuit raises questions about religious expression in email signatures” — Canadian HR Reporter, Oct 5, 2026 (https://www.hrreporter.com/news/hr-news/td-lawsuit-raises-questions-about-religious-expression-in-email-signatures/394977)
+
+The case is about a big bank, but the practical advice in the piece applies to any employer with a policy, including a dress code, a phone rule or an email signature format.
+
+Toronto employment lawyer Kenneth Krupat suggests building accommodation language into policies from the start: if a person has a reason they can’t comply, or a request, the employer will look into it and give it proper consideration.
+
+For a small employer, that’s one sentence at the bottom of each policy, and a habit of actually reading the request when it comes in. It also gives you a fair, consistent way to answer when it does.
+
+Not legal advice.","","","https://www.hrreporter.com/news/hr-news/td-lawsuit-raises-questions-about-religious-expression-in-email-signatures/394977","NEEDS-INPUT","Drafted from the freshest small-employer-relevant HR headline I could find (Oct 5). It will be 21 days old on Oct 26, so ideally refresh the week before. Three candidates: (1) This one, TD email signatures, Oct 5: practical and policy-focused. (2) “Revealed: Projected HR salaries for Canada in 2027” — Canadian HR Reporter, Oct 2, 2026, https://www.hrreporter.com/focus-areas/compensation-and-benefits/revealed-projected-hr-salaries-for-canada-in-2027/394968 (Robert Half data; more relevant to HR pros than small employers). (3) “Spy agency overhauls hiring as security clearances slow recruitment” — Canadian HR Reporter, Oct 5, 2026, https://www.hrreporter.com/focus-areas/recruitment-and-staffing/spy-agency-overhauls-hiring-as-security-clearances-slow-recruitment/394976 (an angle on slow hiring steps). Watch HR Reporter’s news page the week of Oct 19."
+"S08-1","Staffkin","2026-11-17","12:00","facebook;instagram","carousel","S08-1/S08-1_Tue-17-Nov_carousel_1of7.png;S08-1/S08-1_Tue-17-Nov_carousel_2of7.png;S08-1/S08-1_Tue-17-Nov_carousel_3of7.png;S08-1/S08-1_Tue-17-Nov_carousel_4of7.png;S08-1/S08-1_Tue-17-Nov_carousel_5of7.png;S08-1/S08-1_Tue-17-Nov_carousel_6of7.png;S08-1/S08-1_Tue-17-Nov_carousel_7of7.png","Job description of the week: dishwasher, Nova Scotia edition.
+
+The job that keeps the kitchen open. What to put in the ad:
+
+1. The pay. Nova Scotia’s minimum wage is $17.00 an hour since October 1, 2026. If you pay more, put the number in the ad.
+2. What the shift looks like (an example split from our template): warewashing, pots and pans, the dish machine, garbage and organics, chemicals, restocking.
+3. Food hygiene. Under Nova Scotia’s Food Safety Regulations, anyone who comes into contact with food must be trained or instructed in food hygiene to a level that fits their job.
+4. WHMIS. Dish machine detergent and sanitizer are hazardous products; workers who use them need WHMIS training, reviewed at least once a year.
+5. Hiring someone under 16? At 14 or 15 they can work in a restaurant if they don’t operate cooking equipment and get proper safety training and supervision. Under 14: no work between 10 pm and 6 am, and no more than 3 hours on a school day without a certificate.
+
+The full dishwasher job description is free, ready to download as Word: staffkin.com/job-descriptions/dishwasher
+
+Sources: novascotia.ca minimum wage; NS Food Safety Regulations s. 28(3); NS WHMIS Training Guide; novascotia.ca Employment of children.","Hiring a dishwasher in Nova Scotia? Five things for the ad, from the pay to WHMIS. 🍽️
+
+Full job description free, link in bio.
+
+#smallbusiness #hiring #NovaScotia #restaurantjobs #HRtips","","Free dishwasher job description: https://staffkin.com/job-descriptions/dishwasher/","Slide 1, indigo: Job description of the week 04. Hiring a dishwasher? It’s the job that keeps the kitchen open. Nova Scotia edition. Swipe. || Slide 2: 1. Say the pay. Out loud. Nova Scotia’s minimum wage is $17.00 an hour since October 1, 2026. If you pay more, put the number in the ad. Bar: NS minimum wage since Oct 1, 2026, $17.00. Source: Government of Nova Scotia. || Slide 3: 2. Show what the shift looks like. An example split from our template: warewashing and sanitizing 30%, pots pans and trays 15%, scullery and machine care 15%, garbage and organics 15%, chemical handling 10%, restocking and receiving 10%, opening and closing 5%. Split from the Staffkin dishwasher template. || Slide 4: 3. Food hygiene: the NS rule. Anyone in a food establishment who comes into contact with food must be trained or instructed in food hygiene, to a level that fits their job. Dishwashers scrape plates and restock prep areas. Train them too. Source: NS Food Safety Regulations s. 28(3). || Slide 5: 4. WHMIS before the chemicals. Dish machine detergent and sanitizer are hazardous products. Workers who use them need WHMIS training, reviewed at least once a year. Source: NS WHMIS Training Guide. || Slide 6: 5. Hiring someone under 16? Checks: 14 or 15, restaurant work is allowed if they don’t operate cooking equipment; they need proper safety training and supervision. Cross: under 14, no work between 10 pm and 6 am, and no more than 3 hours on a school day without a certificate. Source: novascotia.ca, Employment of children. || Slide 7, indigo: Free template. Get the full dishwasher job description. Duties, skills, working conditions and performance measures. Free, and ready to download as Word. staffkin.com/job-descriptions/dishwasher.","https://novascotia.ca/lae/employmentrights/minimumwage.asp;https://novascotia.ca/just/regulations/regs/hpafood.html;https://novascotia.ca/lae/healthandsafety/docs/whmis-training-guide.pdf;https://novascotia.ca/lae/employmentrights/children.asp;https://staffkin.com/job-descriptions/dishwasher/","READY","FIXED: ‘A realistic split of … time’ became ‘An example split from our template’. Slide 6 now reads ‘Hiring someone under 16?’, so the heading covers both the 14–15 rule and the under-14 rule. Re-check the minimum wage the week of posting."
+"S08-2","Staffkin","2026-11-24","12:00","facebook;instagram","carousel","S08-2/S08-2_Tue-24-Nov_carousel_1of7.png;S08-2/S08-2_Tue-24-Nov_carousel_2of7.png;S08-2/S08-2_Tue-24-Nov_carousel_3of7.png;S08-2/S08-2_Tue-24-Nov_carousel_4of7.png;S08-2/S08-2_Tue-24-Nov_carousel_5of7.png;S08-2/S08-2_Tue-24-Nov_carousel_6of7.png;S08-2/S08-2_Tue-24-Nov_carousel_7of7.png","Job description of the week: front desk agent, Nova Scotia edition.
+
+Check these before you post:
+
+1. The pay. Nova Scotia’s minimum wage is $17.00 an hour since October 1, 2026. If you pay more, say how much.
+2. What the shift looks like (an example split from our template): arrivals and departures, reservations, payments, guest questions, phones, safety and the shift handover.
+3. Hotel? 16 and up. Nova Scotia employers can’t engage children under 16 in hotel work, except family members aged 14 or 15.
+4. Ask about the job, not the person. Age, family status and marital status are protected in employment under the Nova Scotia Human Rights Act. Ask “Can you work weekend evening shifts as scheduled?”, not “Do you have kids at home?”
+5. Three interview questions worth asking are in the carousel.
+
+The full front desk agent job description is free, ready to download as Word: staffkin.com/job-descriptions/front-desk-agent
+
+Sources: novascotia.ca minimum wage; novascotia.ca Employment of children; Nova Scotia Human Rights Commission.","Hiring a front desk agent in Nova Scotia? Check these before you post. 🛎️
+
+Full job description free, link in bio.
+
+#smallbusiness #hiring #NovaScotia #hospitalityjobs #HRtips","","Free front desk agent job description: https://staffkin.com/job-descriptions/front-desk-agent/","Slide 1, indigo: Job description of the week 05. Hiring a front desk agent? Check these before you post. Nova Scotia edition. Swipe. || Slide 2: 1. Say the pay. Out loud. Nova Scotia’s minimum wage is $17.00 an hour since October 1, 2026. Bar: $17.00. Source: Government of Nova Scotia. || Slide 3: 2. Show what the shift looks like. An example split from our template: arrivals and departures 25%, reservations 15%, payments and charges 15%, guest questions 15%, phones and admin 10%, safety and security 10%, shift handover 10%. Split from the Staffkin front desk agent template. || Slide 4: 3. Hotel? 16 and up. In Nova Scotia, employers can’t engage children under 16 in hotel work. The exception is family members aged 14 or 15. Source: novascotia.ca, Employment of children. || Slide 5: 4. Ask about the job, not the person. Don’t ask: How old are you? Do you have kids at home? Are you married? Do ask: Can you work weekend evening shifts as scheduled? Age, family status and marital status are protected in employment under the Nova Scotia Human Rights Act. || Slide 6: 5. Three questions worth asking. A guest is upset their room isn’t ready. What do you do first? Your cash is short at the end of a shift. Walk me through it. The phone rings while you’re checking someone in. What happens? || Slide 7, indigo: Free template. Get the full front desk agent job description. staffkin.com/job-descriptions/front-desk-agent.","https://novascotia.ca/lae/employmentrights/minimumwage.asp;https://novascotia.ca/lae/employmentrights/children.asp;https://humanrights.novascotia.ca/node/2190;https://staffkin.com/job-descriptions/front-desk-agent/","READY","FIXED: ‘A realistic split of … time’ became ‘An example split from our template’. Re-check the minimum wage the week of posting."
+"S08-3","Staffkin","2026-12-01","12:00","facebook;instagram","carousel","S08-3/S08-3_Tue-01-Dec_carousel_1of7.png;S08-3/S08-3_Tue-01-Dec_carousel_2of7.png;S08-3/S08-3_Tue-01-Dec_carousel_3of7.png;S08-3/S08-3_Tue-01-Dec_carousel_4of7.png;S08-3/S08-3_Tue-01-Dec_carousel_5of7.png;S08-3/S08-3_Tue-01-Dec_carousel_6of7.png;S08-3/S08-3_Tue-01-Dec_carousel_7of7.png","Job description of the week: cleaner, Nova Scotia edition.
+
+What to put in the ad:
+
+1. The pay. Nova Scotia’s minimum wage is $17.00 an hour since October 1, 2026. If you pay more, say how much.
+2. What the shift looks like (an example split from our template): rooms and common areas, washrooms, linen and laundry, supplies, checks, equipment and deep cleaning.
+3. WHMIS comes first. Cleaning products are hazardous products. Workers who use them need WHMIS training covering labels, safety data sheets, protective equipment and spills, reviewed at least once a year.
+4. Split must-haves from nice-to-haves, so good people who tick most boxes still apply.
+5. Three interview questions worth asking are in the carousel.
+
+The full housekeeper job description is free, ready to download as Word: staffkin.com/job-descriptions/housekeeper
+
+Sources: novascotia.ca minimum wage; NS WHMIS Training Guide.","Hiring a cleaner in Nova Scotia? Here’s what to put in the ad. 🧽
+
+Full job description free, link in bio.
+
+#smallbusiness #hiring #NovaScotia #cleaningjobs #HRtips","","Free cleaner job description: https://staffkin.com/job-descriptions/housekeeper/","Slide 1, indigo: Job description of the week 06. Hiring a cleaner? Here’s what to put in the ad. Nova Scotia edition. Swipe. || Slide 2: 1. Say the pay. Out loud. Nova Scotia’s minimum wage is $17.00 an hour since October 1, 2026. Bar: $17.00. Source: Government of Nova Scotia. || Slide 3: 2. Show what the shift looks like. An example split from our template: room and common areas 30%, washrooms 20%, linen and laundry 15%, supplies and chemical safety 10%, checks and reporting 10%, equipment care 10%, deep cleaning 5%. Split from the Staffkin housekeeper template. || Slide 4: 3. WHMIS training comes first. Cleaning products are hazardous products. Workers who use them need WHMIS training: labels, safety data sheets, protective equipment, spills. Review it at least once a year. Source: NS WHMIS Training Guide. || Slide 5: 4. Must-haves vs nice-to-haves. Must-have: reliable on the schedule; can stand, bend and lift through a shift; WHMIS, or willing to train. Nice-to-have: professional cleaning experience; hotel or rental turnovers; own transportation. || Slide 6: 5. Three questions worth asking. You find something broken in a room. What do you do? Two turnovers, one hour. How do you plan it? A label says wear gloves and there are none. What then? || Slide 7, indigo: Free template. Get the full housekeeper job description. staffkin.com/job-descriptions/housekeeper.","https://novascotia.ca/lae/employmentrights/minimumwage.asp;https://novascotia.ca/lae/healthandsafety/docs/whmis-training-guide.pdf;https://staffkin.com/job-descriptions/housekeeper/","READY","FIXED: ‘A realistic split of … time’ became ‘An example split from our template’. Re-check the minimum wage the week of posting."
+"K06","Keegix","2026-11-17","09:00","facebook;instagram","single","K06/K06_Tue-17-Nov_single.png","Nova Scotia hosts: a quick registration check.
+
+If you rent a place for 28 days in a row or less, it has to be registered with the province’s Short-term Rentals Registry. You need the registration number to advertise on booking platforms, registrations renew by April 1 every year, and the province says fines can reach $100,000 CAD for each year you’re not registered. New registrations take 2 to 3 weeks, so don’t leave it until spring.
+
+Source: Government of Nova Scotia — https://www.novascotia.ca/register-your-short-term-accommodation
+
+Once you’re registered, the guest side is where Keegix comes in. Free for one property: keegix.com","Nova Scotia hosts: is your short-term rental registered? 📋
+
+28 days or less = register. Your number goes on every listing. Renew by April 1. Source in the first comment.
+
+#novascotia #shorttermrental #capebreton #vacationrental #hosttips","","Source: Government of Nova Scotia, Register your short-term accommodation — https://www.novascotia.ca/register-your-short-term-accommodation","Sea-glass Keegix card. Label: Nova Scotia hosts. Serif headline: Short-term rental? It has to be registered. Four points: Who: places rented for 28 days in a row or less register with the province’s Short-term Rentals Registry. Your number goes on the listing: you need the registration number to advertise on booking platforms. Renew by April 1, every year; the province sends a renewal notice by email. Not registered? Fines can reach $100,000 CAD for each year you’re not registered. Source line: Government of Nova Scotia, Register your short-term accommodation, novascotia.ca. Keegix logo and keegix.com.","https://www.novascotia.ca/register-your-short-term-accommodation","READY","FIXED: ‘CAD’ added after $100,000 on the image, caption and alt text. Re-open the novascotia.ca page the week of Nov 17."
+"J04","JJ Pumps","2027-01-14","10:00","facebook;instagram","single","J04/J04_Thu-14-Jan_single.png","Happy Uttarayan! 🪁
+
+Wishing you and your family clear skies, high kites and a good harvest this Makar Sankranti. From the JJ Pumps family to yours.
+
+Call / WhatsApp: +91 92271 06108
+www.jayjalarampumps.in
+
+#JJPumps #JayJalaramPumps #SubmersiblePump #BorewellPump #Kisan #IndianFarmer #Agriculture #Irrigation #Gujarat #Ahmedabad #Uttarayan #MakarSankranti #KiteFestival","Happy Uttarayan! 🪁 Clear skies, high kites and a good harvest to every family and every field.
+
+From the JJ Pumps family to yours.
+
+#Uttarayan #MakarSankranti #KiteFestival #Gujarat #Ahmedabad #JJPumps","","","Festival card for Uttarayan. Soft blue sky fading into a field of golden wheat. Small caps: Makar Sankranti. Headline: Happy Uttarayan. Line: Clear skies, high kites and a good harvest to every family and every field. Dark footer with the JJ logo, ‘Warm wishes from the JJ Pumps family’ and +91 92271 06108.","https://www.drikpanchang.com/festivals/sankranti/uttarayana/uttarayana-date-time.html?year=2027","READY","FIXED: drawn kites removed (bible: no clip-art). It’s now the photo plus type only. Date checked: Thu Jan 14, 2027. 10:00 Halifax = 7:30 PM IST."
+"K09","Keegix","2026-10-29","09:00","facebook;instagram;linkedin","carousel","K09/K09_Thu-29-Oct_carousel_1of6.png;K09/K09_Thu-29-Oct_carousel_2of6.png;K09/K09_Thu-29-Oct_carousel_3of6.png;K09/K09_Thu-29-Oct_carousel_4of6.png;K09/K09_Thu-29-Oct_carousel_5of6.png;K09/K09_Thu-29-Oct_carousel_6of6.png","Property managers and cleaners: offer your clients a welcome book.
+
+If you look after short-term rentals for someone else, you can set up a Keegix guest page and QR sign for each property you manage or clean. Check-in, wifi, parking, house rules, trash day and the checkout list on one link per property, edited once with nothing to reprint.
+
+For cleaners, the checkout list matters most: guests see the same steps every stay (dishes, towels, heat, key), and there’s a one-page checkout card to print. For the host, wifi and parking questions have an answer on the guest page before anyone texts. And you hand over something that looks finished.
+
+Pricing in CAD: free for one property, Pro is $9 per property per month, and Set up for you is $39 one time.
+
+Looking after several properties? Email hello@waypointns.ca and we’ll talk about setting them up.","Property managers and cleaners: offer your clients a welcome book. 🗝️
+
+One guest link and QR sign per property, a checkout list guests see every stay, and nothing to reprint.
+
+Looking after several? hello@waypointns.ca
+
+#shorttermrental #propertymanagement #cleaningbusiness #vacationrental #novascotia","For property managers and cleaning companies who look after short-term rentals: a welcome book is an easy thing to offer your clients.
+
+With Keegix you set up a guest page and a letter-size QR sign for each property you manage or clean: check-in, wifi, parking, house rules, trash day and a checkout list. Edits show up on the same link, so there’s nothing to reprint when a password changes.
+
+Two practical effects: guests see the same checkout steps every stay, which gives a turnover a known starting point, and hosts have the common questions answered on the guest page before anyone texts.
+
+Pricing (CAD): free for one property; Pro at $9 per property per month; Set up for you at $39 one time.
+
+Looking after several properties? hello@waypointns.ca
+
+#PropertyManagement #ShortTermRental #CleaningBusiness","","Slide 1, navy Keegix card: For property managers and cleaners. Offer your clients a welcome book. You set it up. The house answers the questions. For anyone who looks after short-term rentals for someone else. || Slide 2, sea-glass card: 01 What you set up. One guide per property you look after. A guest link and a QR sign: one link per property, plus a letter-size QR sign as a PDF. The questions guests text about: check-in, wifi, parking, house rules, trash day, local picks, checkout. Edit once: the link and the sign stay the same. || Slide 3, white card: 02 For cleaners. The checkout list, on every guest’s phone. You write the steps once: dishes, towels, heat, key. Guests see the same list every stay, and there’s a one-page checkout card to print. Example checklist: dishes in the dishwasher, towels in the tub, heat down to 16 degrees, key back in the lockbox. || Slide 4, sea-glass card: 03 For the host. Answers before the 11 PM text. Wifi, parking and which bin goes out are on the guest page, so guests have somewhere to look first. And you hand your client something that looks finished. || Slide 5, white card: Pricing, Canadian dollars. Per property. Cancel any time. Free $0: 1 property, all sections, QR sign, up to 5 photos, small Made with Keegix footer. Pro $9 CAD per property per month: as many properties as you pay for, no footer, custom colours, unlimited photos. Set up for you $39 CAD one time. || Slide 6, yellow card: Looking after several properties? Email me and we’ll talk about setting them up. Button: hello@waypointns.ca.","","READY","New. Real features and prices only (from the Keegix bible). No partner programme, commission or discount mentioned. ‘Cancel any time’ refers to Pro, which the bible says can be cancelled from the billing page. No photos (same reason as batch 1)."
+"WR1","Waypoint","2026-10-31","19:00","facebook;instagram","reel","WR1/WR1_Sat-31-Oct_reel.mp4;WR1/WR1_Sat-31-Oct_reel-cover.png","A spreadsheet, or a tool built for your shop?
+
+The spreadsheet wins on day one: it’s free, it’s open, and you made every column. Where it starts to cost you is the retyping, like the quote becoming the invoice by hand.
+
+I build the software around how you already work.
+
+902-670-9297 · waypointns.ca","Spreadsheet vs a tool built for your shop. The spreadsheet wins a round. 📊
+
+#NovaScotiaBusiness #AnnapolisValley #CustomSoftware #SmallBusinessTools #Kentville","","","Silent 12-second vertical video in the Waypoint lining design, four text cards: “A spreadsheet, or a tool built for your shop?” “Where the spreadsheet wins: free, already open, and you made every column.” “Spreadsheet: the quote gets retyped into the invoice. Built for your shop: the quote becomes the invoice.” “I build the software around how you already work.” || Cover image: first card, “A spreadsheet, or a tool built for your shop?”","","READY","Silent MP4 (1080×1920, H.264, 12 s, no audio track). Add a business-cleared track in the Instagram/Facebook editor. Cover PNG included. Based on W07, which posts the same day at 09:00. Fine as a reel, or move it if you’d rather not double up."
+"WR2","Waypoint","2026-11-07","19:00","facebook;instagram","reel","WR2/WR2_Sat-07-Nov_reel.mp4;WR2/WR2_Sat-07-Nov_reel-cover.png","A contact form, or a request form that routes the job?
+
+The contact form gets you a name, an email and a callback. The request form asks for the address, job type and photos up front, and sends it straight to the right person’s schedule.
+
+Built around how you dispatch today.
+
+902-670-9297 · waypointns.ca","Contact form vs a request form that routes the job. 📍
+
+#NovaScotiaBusiness #AnnapolisValley #CustomSoftware #SmallBusinessTools #Kentville","","","Silent 12-second vertical video in the Waypoint lining design, four text cards: “A contact form, or a request form that routes the job?” “Contact form: name, email, a message box. Then the callback.” “Request form: address, job type, photos. Straight to the right schedule.” “Built around how you dispatch today.” || Cover image: first card, “A contact form, or a request form that routes the job?”","","READY","Silent MP4, 12 s. Based on W10 (same day, 09:00). Add music in-app."
+"KR1","Keegix","2026-11-07","19:00","facebook;instagram","reel","KR1/KR1_Sat-07-Nov_reel.mp4;KR1/KR1_Sat-07-Nov_reel-cover.png","Closing the cottage for winter? Add these to the guest guide: where the water shuts off, your minimum temperature as a number, and who clears the drive (with their number).
+
+All of it fits in a Keegix guide. Free for one property: keegix.com","Closing the cottage for winter? Water, heat, snow. Put it in the guest guide. ❄️
+
+Free for one property. Link in bio.
+
+#cottagelife #shorttermrental #novascotia #vacationrental #hosttips","","","Silent 13.5-second vertical video in Keegix colours, five serif text cards: “Shutting it down for winter? Add these to the guest guide.” “01 Water: Where the water shuts off. And who is allowed to touch it.” “02 Heat: Your minimum temperature, as a number.” “03 Snow: Who clears the drive, and their number.” “All of it fits in a Keegix guide. Free for one property, keegix.com.” || Cover image: first card.","","READY","Silent MP4, 13.5 s. Based on K04 (same day, 09:00). Text stays out of the top 250 px and bottom 400 px. Add music in-app."
+"SR1","Staffkin","2026-11-12","19:00","facebook;instagram","reel","SR1/SR1_Thu-12-Nov_reel.mp4;SR1/SR1_Thu-12-Nov_reel-cover.png","Score candidates side by side, in three steps. Real screens from the app.
+
+Same questions for everyone, each answer scored 1 to 5 with the guide right under the question, then one compare view. It doesn’t make the decision. You do.
+
+Your first job on Staffkin is free, no card needed. staffkin.com","Score candidates side by side. Real screens, three steps. 👀
+
+First job free. Link in bio.
+
+#smallbusiness #hiring #interviewtips #HRtips #CanadianBusiness","","","Silent 13.8-second vertical video in Staffkin colours: “Score candidates side by side. Real screens from the app.” Then three steps with real app screenshots: 1 Same questions for everyone (the line cook interview guide); 2 Score each answer 1 to 5 (a question with the scoring guide and score 4 selected); 3 Compare side by side (the compare table). End card: Hire people, not paperwork. Your first job is free. No card needed. staffkin.com. || Cover image: first card.","","READY","Silent MP4, 13.8 s, made from real mobile screenshots (staffkin/screenshots/mobile 04, 05, 03). Same day as S07 (12:00) and the S01-5 story (19:00). Consider posting the reel a day later to space them out."
