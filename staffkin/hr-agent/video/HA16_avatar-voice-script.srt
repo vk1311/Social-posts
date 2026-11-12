@@ -1,6 +1,6 @@
 1
 00:00:00,600 --> 00:00:04,200
-Hi, I'm your Staffkin HR Agent.
+Hi, I'm Hollis, your HR deskmate.
 
 2
 00:00:04,600 --> 00:00:09,400
