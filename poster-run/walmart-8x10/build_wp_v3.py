@@ -19,7 +19,7 @@ body{{width:768px;height:960px;background:{bg};color:{fg};font-family:I,sans-ser
 </div>
 <div style="position:absolute;left:0;right:0;bottom:36px;font-weight:600;font-size:16px;letter-spacing:.22em;color:{mark_col}">WAYPOINT</div>
 </body></html>'''
-A=page(INK,OFF,f'Get your<br>evenings<br><span style="color:{MAG}">back.</span>',INK,OFF,INK,"#8A8A90",sub="We build small-business websites that take bookings, send quotes and send invoices for you.")
+A=page(INK,OFF,f'Get your<br>evenings<br><span style="color:{MAG}">back.</span>',INK,OFF,INK,"#8A8A90",sub="Custom software for small businesses that takes the busywork off your plate.")
 B=page(MAG,OFF,'Close the<br>laptop<br>at five.',INK,OFF,INK,"#F5B8D2")
 with sync_playwright() as pw:
     b=pw.chromium.launch(); pg=b.new_page(viewport={"width":768,"height":960},device_scale_factor=3.125)
